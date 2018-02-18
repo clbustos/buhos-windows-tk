@@ -1,0 +1,3584 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Thread - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Thread-label-Thread+initialization">Thread initialization</a>
+    <li><a href="#class-Thread-label-Thread+termination">Thread termination</a>
+    <li><a href="#class-Thread-label-Thread+status">Thread status</a>
+    <li><a href="#class-Thread-label-Thread+variables+and+scope">Thread variables and scope</a>
+    <li><a href="#class-Thread-label-Fiber-local+vs.+Thread-local">Fiber-local vs. Thread-local</a>
+    <li><a href="#class-Thread-label-Exception+handling">Exception handling</a>
+    <li><a href="#class-Thread-label-Scheduling">Scheduling</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-DEBUG">::DEBUG</a>
+    
+    <li ><a href="#method-c-DEBUG-3D">::DEBUG=</a>
+    
+    <li ><a href="#method-c-abort_on_exception">::abort_on_exception</a>
+    
+    <li ><a href="#method-c-abort_on_exception-3D">::abort_on_exception=</a>
+    
+    <li ><a href="#method-c-current">::current</a>
+    
+    <li ><a href="#method-c-exclusive">::exclusive</a>
+    
+    <li ><a href="#method-c-exit">::exit</a>
+    
+    <li ><a href="#method-c-fork">::fork</a>
+    
+    <li ><a href="#method-c-handle_interrupt">::handle_interrupt</a>
+    
+    <li ><a href="#method-c-kill">::kill</a>
+    
+    <li ><a href="#method-c-list">::list</a>
+    
+    <li ><a href="#method-c-main">::main</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-pass">::pass</a>
+    
+    <li ><a href="#method-c-pending_interrupt-3F">::pending_interrupt?</a>
+    
+    <li ><a href="#method-c-report_on_exception">::report_on_exception</a>
+    
+    <li ><a href="#method-c-report_on_exception-3D">::report_on_exception=</a>
+    
+    <li ><a href="#method-c-start">::start</a>
+    
+    <li ><a href="#method-c-stop">::stop</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-abort_on_exception">#abort_on_exception</a>
+    
+    <li ><a href="#method-i-abort_on_exception-3D">#abort_on_exception=</a>
+    
+    <li ><a href="#method-i-add_trace_func">#add_trace_func</a>
+    
+    <li ><a href="#method-i-alive-3F">#alive?</a>
+    
+    <li ><a href="#method-i-backtrace">#backtrace</a>
+    
+    <li ><a href="#method-i-backtrace_locations">#backtrace_locations</a>
+    
+    <li ><a href="#method-i-exit">#exit</a>
+    
+    <li ><a href="#method-i-group">#group</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-join">#join</a>
+    
+    <li ><a href="#method-i-key-3F">#key?</a>
+    
+    <li ><a href="#method-i-keys">#keys</a>
+    
+    <li ><a href="#method-i-kill">#kill</a>
+    
+    <li ><a href="#method-i-name">#name</a>
+    
+    <li ><a href="#method-i-name-3D">#name=</a>
+    
+    <li ><a href="#method-i-pending_interrupt-3F">#pending_interrupt?</a>
+    
+    <li ><a href="#method-i-priority">#priority</a>
+    
+    <li ><a href="#method-i-priority-3D">#priority=</a>
+    
+    <li ><a href="#method-i-raise">#raise</a>
+    
+    <li ><a href="#method-i-report_on_exception">#report_on_exception</a>
+    
+    <li ><a href="#method-i-report_on_exception-3D">#report_on_exception=</a>
+    
+    <li ><a href="#method-i-run">#run</a>
+    
+    <li ><a href="#method-i-safe_level">#safe_level</a>
+    
+    <li ><a href="#method-i-set_trace_func">#set_trace_func</a>
+    
+    <li ><a href="#method-i-status">#status</a>
+    
+    <li ><a href="#method-i-stop-3F">#stop?</a>
+    
+    <li ><a href="#method-i-terminate">#terminate</a>
+    
+    <li ><a href="#method-i-thread_variable-3F">#thread_variable?</a>
+    
+    <li ><a href="#method-i-thread_variable_get">#thread_variable_get</a>
+    
+    <li ><a href="#method-i-thread_variable_set">#thread_variable_set</a>
+    
+    <li ><a href="#method-i-thread_variables">#thread_variables</a>
+    
+    <li ><a href="#method-i-value">#value</a>
+    
+    <li ><a href="#method-i-wakeup">#wakeup</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Thread">
+  <h1 id="class-Thread" class="class">
+    class Thread
+  </h1>
+
+  <section class="description">
+    
+<p>Threads are the Ruby implementation for a concurrent programming model.</p>
+
+<p>Programs that require multiple threads of execution are a perfect candidate
+for Ruby&#39;s <a href="Thread.html">Thread</a> class.</p>
+
+<p>For example, we can create a new thread separate from the main thread&#39;s
+execution using <a href="Thread.html#method-c-new">::new</a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">thr</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Whats the big deal&quot;</span> }
+</pre>
+
+<p>Then we are able to pause the execution of the main thread and allow our
+new thread to finish, using <a href="Thread.html#method-i-join">join</a>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">thr</span>.<span class="ruby-identifier">join</span> <span class="ruby-comment">#=&gt; &quot;Whats the big deal&quot;</span>
+</pre>
+
+<p>If we don&#39;t call <code>thr.join</code> before the main thread
+terminates, then all other threads including <code>thr</code> will be
+killed.</p>
+
+<p>Alternatively, you can use an array for handling multiple threads at once,
+like in the following example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">threads</span> = []
+<span class="ruby-identifier">threads</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Whats the big deal&quot;</span> }
+<span class="ruby-identifier">threads</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-value">3</span>.<span class="ruby-identifier">times</span> { <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Threads are fun!&quot;</span> } }
+</pre>
+
+<p>After creating a few threads we wait for them all to finish consecutively.</p>
+
+<pre class="ruby"><span class="ruby-identifier">threads</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">thr</span><span class="ruby-operator">|</span> <span class="ruby-identifier">thr</span>.<span class="ruby-identifier">join</span> }
+</pre>
+
+<h3 id="class-Thread-label-Thread+initialization"><a href="Thread.html">Thread</a> initialization<span><a href="#class-Thread-label-Thread+initialization">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>In order to create new threads, Ruby provides <a
+href="Thread.html#method-c-new">::new</a>, <a
+href="Thread.html#method-c-start">::start</a>, and <a
+href="Thread.html#method-c-fork">::fork</a>. A block must be provided with
+each of these methods, otherwise a <a
+href="ThreadError.html">ThreadError</a> will be raised.</p>
+
+<p>When subclassing the <a href="Thread.html">Thread</a> class, the
+<code>initialize</code> method of your subclass will be ignored by <a
+href="Thread.html#method-c-start">::start</a> and <a
+href="Thread.html#method-c-fork">::fork</a>. Otherwise, be sure to call
+super in your <code>initialize</code> method.</p>
+
+<h3 id="class-Thread-label-Thread+termination"><a href="Thread.html">Thread</a> termination<span><a href="#class-Thread-label-Thread+termination">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>For terminating threads, Ruby provides a variety of ways to do this.</p>
+
+<p>The class method <a href="Thread.html#method-c-kill">::kill</a>, is meant
+to exit a given thread:</p>
+
+<pre>thr = Thread.new { ... }
+Thread.kill(thr) # sends exit() to thr</pre>
+
+<p>Alternatively, you can use the instance method <a
+href="Thread.html#method-i-exit">exit</a>, or any of its aliases <a
+href="Thread.html#method-i-kill">kill</a> or <a
+href="Thread.html#method-i-terminate">terminate</a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">thr</span>.<span class="ruby-identifier">exit</span>
+</pre>
+
+<h3 id="class-Thread-label-Thread+status"><a href="Thread.html">Thread</a> status<span><a href="#class-Thread-label-Thread+status">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Ruby provides a few instance methods for querying the state of a given
+thread. To get a string with the current thread&#39;s state use <a
+href="Thread.html#method-i-status">status</a></p>
+
+<pre class="ruby"><span class="ruby-identifier">thr</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">sleep</span> }
+<span class="ruby-identifier">thr</span>.<span class="ruby-identifier">status</span> <span class="ruby-comment"># =&gt; &quot;sleep&quot;</span>
+<span class="ruby-identifier">thr</span>.<span class="ruby-identifier">exit</span>
+<span class="ruby-identifier">thr</span>.<span class="ruby-identifier">status</span> <span class="ruby-comment"># =&gt; false</span>
+</pre>
+
+<p>You can also use <a href="Thread.html#method-i-alive-3F">alive?</a> to tell
+if the thread is running or sleeping, and <a
+href="Thread.html#method-i-stop-3F">stop?</a> if the thread is dead or
+sleeping.</p>
+
+<h3 id="class-Thread-label-Thread+variables+and+scope"><a href="Thread.html">Thread</a> variables and scope<span><a href="#class-Thread-label-Thread+variables+and+scope">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Since threads are created with blocks, the same rules apply to other Ruby
+blocks for variable scope. Any local variables created within this block
+are accessible to only this thread.</p>
+
+<h4 id="class-Thread-label-Fiber-local+vs.+Thread-local">Fiber-local vs. Thread-local<span><a href="#class-Thread-label-Fiber-local+vs.+Thread-local">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Each fiber has its own bucket for <a
+href="Thread.html#method-i-5B-5D">#[]</a> storage. When you set a new
+fiber-local it is only accessible within this <a
+href="Fiber.html">Fiber</a>. To illustrate:</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[:<span class="ruby-identifier">foo</span>] = <span class="ruby-string">&quot;bar&quot;</span>
+  <span class="ruby-constant">Fiber</span>.<span class="ruby-identifier">new</span> {
+    <span class="ruby-identifier">p</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[:<span class="ruby-identifier">foo</span>] <span class="ruby-comment"># =&gt; nil</span>
+  }.<span class="ruby-identifier">resume</span>
+}.<span class="ruby-identifier">join</span>
+</pre>
+
+<p>This example uses <a href="Thread.html#method-i-5B-5D">[]</a> for getting
+and <a href="Thread.html#method-i-5B-5D-3D">[]=</a> for setting
+fiber-locals, you can also use <a href="Thread.html#method-i-keys">keys</a>
+to list the fiber-locals for a given thread and <a
+href="Thread.html#method-i-key-3F">key?</a> to check if a fiber-local
+exists.</p>
+
+<p>When it comes to thread-locals, they are accessible within the entire scope
+of the thread. Given the following example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span>{
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(:<span class="ruby-identifier">foo</span>, <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">p</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_get</span>(:<span class="ruby-identifier">foo</span>) <span class="ruby-comment"># =&gt; 1</span>
+  <span class="ruby-constant">Fiber</span>.<span class="ruby-identifier">new</span>{
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(:<span class="ruby-identifier">foo</span>, <span class="ruby-value">2</span>)
+    <span class="ruby-identifier">p</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_get</span>(:<span class="ruby-identifier">foo</span>) <span class="ruby-comment"># =&gt; 2</span>
+  }.<span class="ruby-identifier">resume</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_get</span>(:<span class="ruby-identifier">foo</span>)   <span class="ruby-comment"># =&gt; 2</span>
+}.<span class="ruby-identifier">join</span>
+</pre>
+
+<p>You can see that the thread-local <code>:foo</code> carried over into the
+fiber and was changed to <code>2</code> by the end of the thread.</p>
+
+<p>This example makes use of <a
+href="Thread.html#method-i-thread_variable_set">thread_variable_set</a> to
+create new thread-locals, and <a
+href="Thread.html#method-i-thread_variable_get">thread_variable_get</a> to
+reference them.</p>
+
+<p>There is also <a
+href="Thread.html#method-i-thread_variables">thread_variables</a> to list
+all thread-locals, and <a
+href="Thread.html#method-i-thread_variable-3F">thread_variable?</a> to
+check if a given thread-local exists.</p>
+
+<h3 id="class-Thread-label-Exception+handling"><a href="Exception.html">Exception</a> handling<span><a href="#class-Thread-label-Exception+handling">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Any thread can raise an exception using the <a
+href="Thread.html#method-i-raise">raise</a> instance method, which operates
+similarly to <a href="Kernel.html#method-i-raise">Kernel#raise</a>.</p>
+
+<p>However, it&#39;s important to note that an exception that occurs in any
+thread except the main thread depends on <a
+href="Thread.html#method-i-abort_on_exception">abort_on_exception</a>. This
+option is <code>false</code> by default, meaning that any unhandled
+exception will cause the thread to terminate silently when waited on by
+either <a href="Thread.html#method-i-join">join</a> or <a
+href="Thread.html#method-i-value">value</a>. You can change this default by
+either <a
+href="Thread.html#method-i-abort_on_exception-3D">abort_on_exception=</a>
+<code>true</code> or setting $DEBUG to <code>true</code>.</p>
+
+<p>With the addition of the class method <a
+href="Thread.html#method-c-handle_interrupt">::handle_interrupt</a>, you
+can now handle exceptions asynchronously with threads.</p>
+
+<h3 id="class-Thread-label-Scheduling">Scheduling<span><a href="#class-Thread-label-Scheduling">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Ruby provides a few ways to support scheduling threads in your program.</p>
+
+<p>The first way is by using the class method <a
+href="Thread.html#method-c-stop">::stop</a>, to put the current running
+thread to sleep and schedule the execution of another thread.</p>
+
+<p>Once a thread is asleep, you can use the instance method <a
+href="Thread.html#method-i-wakeup">wakeup</a> to mark your thread as
+eligible for scheduling.</p>
+
+<p>You can also try <a href="Thread.html#method-c-pass">::pass</a>, which
+attempts to pass execution to another thread but is dependent on the OS
+whether a running thread will switch or not. The same goes for <a
+href="Thread.html#method-i-priority">priority</a>, which lets you hint to
+the thread scheduler which threads you want to take precedence when passing
+execution. This method is also dependent on the OS and may be ignored on
+some platforms.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-DEBUG" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            DEBUG     &rarr; num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the thread debug level.  Available only if compiled with
+THREAD_DEBUG=-1.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="DEBUG-source">
+            <pre>static VALUE
+rb_thread_s_debug(void)
+{
+    return INT2NUM(rb_thread_debug_enabled);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-DEBUG-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            DEBUG = num
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets the thread debug level.  Available only if compiled with
+THREAD_DEBUG=-1.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="DEBUG-3D-source">
+            <pre>static VALUE
+rb_thread_s_debug_set(VALUE self, VALUE val)
+{
+    rb_thread_debug_enabled = RTEST(val) ? NUM2INT(val) : 0;
+    return val;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-abort_on_exception" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            abort_on_exception   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the status of the global “abort on exception&#39;&#39; condition.</p>
+
+<p>The default is <code>false</code>.</p>
+
+<p>When set to <code>true</code>, if any thread is aborted by an exception,
+the raised exception will be re-raised in the main thread.</p>
+
+<p>Can also be specified by the global $DEBUG flag or command line option
+<code>-d</code>.</p>
+
+<p>See also <a
+href="Thread.html#method-c-abort_on_exception-3D">::abort_on_exception=</a>.</p>
+
+<p>There is also an instance level method to set this for a specific thread,
+see <a
+href="Thread.html#method-i-abort_on_exception">abort_on_exception</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="abort_on_exception-source">
+            <pre>static VALUE
+rb_thread_s_abort_exc(void)
+{
+    return GET_THREAD()-&gt;vm-&gt;thread_abort_on_exception ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-abort_on_exception-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            abort_on_exception= boolean   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>When set to <code>true</code>, if any thread is aborted by an exception,
+the raised exception will be re-raised in the main thread. Returns the new
+state.</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">abort_on_exception</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-identifier">t1</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">puts</span>  <span class="ruby-string">&quot;In new thread&quot;</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Exception from thread&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">sleep</span>(<span class="ruby-value">1</span>)
+<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;not reached&quot;</span>
+</pre>
+
+<p>This will produce:</p>
+
+<pre>In new thread
+prog.rb:4: Exception from thread (RuntimeError)
+ from prog.rb:2:in `initialize&#39;
+ from prog.rb:2:in `new&#39;
+ from prog.rb:2</pre>
+
+<p>See also <a
+href="Thread.html#method-c-abort_on_exception">::abort_on_exception</a>.</p>
+
+<p>There is also an instance level method to set this for a specific thread,
+see <a
+href="Thread.html#method-i-abort_on_exception-3D">abort_on_exception=</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="abort_on_exception-3D-source">
+            <pre>static VALUE
+rb_thread_s_abort_exc_set(VALUE self, VALUE val)
+{
+    GET_THREAD()-&gt;vm-&gt;thread_abort_on_exception = RTEST(val);
+    return val;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-current" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            current   &rarr; thread
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the currently executing thread.</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>   <span class="ruby-comment">#=&gt; #&lt;Thread:0x401bdf4c run&gt;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="current-source">
+            <pre>static VALUE
+thread_s_current(VALUE klass)
+{
+    return rb_thread_current();
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-exclusive" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            exclusive { block }   &rarr; obj
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Wraps the block in a single, VM-global <a
+href="Thread/Mutex.html#method-i-synchronize">Thread::Mutex#synchronize</a>,
+returning the value of the block. A thread executing inside the exclusive
+section will only block other threads which also use the <a
+href="Thread.html#method-c-exclusive">::exclusive</a> mechanism.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="exclusive-source">
+            <pre><span class="ruby-comment"># File prelude.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">exclusive</span>
+  <span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;Thread.exclusive is deprecated, use Thread::Mutex&quot;</span>, <span class="ruby-identifier">caller</span>
+  <span class="ruby-constant">MUTEX_FOR_THREAD_EXCLUSIVE</span>.<span class="ruby-identifier">synchronize</span>{
+    <span class="ruby-keyword">yield</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-exit" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            exit   &rarr; thread
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Terminates the currently running thread and schedules another thread to be
+run.</p>
+
+<p>If this thread is already marked to be killed, <a
+href="Thread.html#method-c-exit">::exit</a> returns the <a
+href="Thread.html">Thread</a>.</p>
+
+<p>If this is the main thread, or the last  thread, exit the process.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="exit-source">
+            <pre>static VALUE
+rb_thread_exit(void)
+{
+    rb_thread_t *th = GET_THREAD();
+    return rb_thread_kill(th-&gt;self);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-fork" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            fork([args]*) {|args| block }    &rarr; thread
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Basically the same as <a href="Thread.html#method-c-new">::new</a>.
+However, if class <a href="Thread.html">Thread</a> is subclassed, then
+calling <code>start</code> in that subclass will not invoke the
+subclass&#39;s <code>initialize</code> method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fork-source">
+            <pre>static VALUE
+thread_start(VALUE klass, VALUE args)
+{
+    return thread_create_core(rb_thread_alloc(klass), args, 0);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-handle_interrupt" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            handle_interrupt(hash) { ... } &rarr; result of the block
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Changes asynchronous interrupt timing.</p>
+
+<p><em>interrupt</em> means asynchronous event and corresponding procedure by
+<a href="Thread.html#method-i-raise">#raise</a>, <a
+href="Thread.html#method-i-kill">#kill</a>, signal trap (not supported yet)
+and main thread termination (if main thread terminates, then all other
+thread will be killed).</p>
+
+<p>The given <code>hash</code> has pairs like <code>ExceptionClass =&gt;
+:TimingSymbol</code>. Where the ExceptionClass is the interrupt handled by
+the given block. The TimingSymbol can be one of the following symbols:</p>
+<dl class="rdoc-list label-list"><dt><code>:immediate</code>
+<dd>
+<p>Invoke interrupts immediately.</p>
+</dd><dt><code>:on_blocking</code>
+<dd>
+<p>Invoke interrupts while <em>BlockingOperation</em>.</p>
+</dd><dt><code>:never</code>
+<dd>
+<p>Never invoke all interrupts.</p>
+</dd></dl>
+
+<p><em>BlockingOperation</em> means that the operation will block the calling
+thread, such as read and write.  On CRuby implementation,
+<em>BlockingOperation</em> is any operation executed without GVL.</p>
+
+<p>Masked asynchronous interrupts are delayed until they are enabled. This
+method is similar to sigprocmask(3).</p>
+
+<h3 id="method-c-handle_interrupt-label-NOTE">NOTE<span><a href="#method-c-handle_interrupt-label-NOTE">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Asynchronous interrupts are difficult to use.</p>
+
+<p>If you need to communicate between threads, please consider to use another
+way such as <a href="Queue.html">Queue</a>.</p>
+
+<p>Or use them with deep understanding about this method.</p>
+
+<h3 id="method-c-handle_interrupt-label-Usage">Usage<span><a href="#method-c-handle_interrupt-label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>In this example, we can guard from <a
+href="Thread.html#method-i-raise">#raise</a> exceptions.</p>
+
+<p>Using the <code>:never</code> TimingSymbol the <a
+href="RuntimeError.html">RuntimeError</a> exception will always be ignored
+in the first block of the main thread. In the second <a
+href="Thread.html#method-c-handle_interrupt">::handle_interrupt</a> block
+we can purposefully handle <a href="RuntimeError.html">RuntimeError</a>
+exceptions.</p>
+
+<pre class="ruby"><span class="ruby-identifier">th</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">handle_interrupt</span>(<span class="ruby-constant">RuntimeError</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">never</span>) {
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-comment"># You can write resource allocation code safely.</span>
+      <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">handle_interrupt</span>(<span class="ruby-constant">RuntimeError</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">immediate</span>) {
+        <span class="ruby-comment"># ...</span>
+      }
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-comment"># You can write resource deallocation code safely.</span>
+    <span class="ruby-keyword">end</span>
+  }
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span>
+<span class="ruby-comment"># ...</span>
+<span class="ruby-identifier">th</span>.<span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;stop&quot;</span>
+</pre>
+
+<p>While we are ignoring the <a href="RuntimeError.html">RuntimeError</a>
+exception, it&#39;s safe to write our resource allocation code. Then, the
+ensure block is where we can safely deallocate your resources.</p>
+
+<h4 id="method-c-handle_interrupt-label-Guarding+from+Timeout-3A-3AError">Guarding from <a href="Timeout/Error.html">Timeout::Error</a><span><a href="#method-c-handle_interrupt-label-Guarding+from+Timeout-3A-3AError">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>In the next example, we will guard from the <a
+href="Timeout/Error.html">Timeout::Error</a> exception. This will help
+prevent from leaking resources when <a
+href="Timeout/Error.html">Timeout::Error</a> exceptions occur during normal
+ensure clause. For this example we use the help of the standard library <a
+href="Timeout.html">Timeout</a>, from lib/timeout.rb</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;timeout&#39;</span>
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">handle_interrupt</span>(<span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">never</span>) {
+  <span class="ruby-identifier">timeout</span>(<span class="ruby-value">10</span>){
+    <span class="ruby-comment"># Timeout::Error doesn&#39;t occur here</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">handle_interrupt</span>(<span class="ruby-constant">Timeout</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">on_blocking</span>) {
+      <span class="ruby-comment"># possible to be killed by Timeout::Error</span>
+      <span class="ruby-comment"># while blocking operation</span>
+    }
+    <span class="ruby-comment"># Timeout::Error doesn&#39;t occur here</span>
+  }
+}
+</pre>
+
+<p>In the first part of the <code>timeout</code> block, we can rely on <a
+href="Timeout/Error.html">Timeout::Error</a> being ignored. Then in the
+<code>Timeout::Error =&gt; :on_blocking</code> block, any operation that
+will block the calling thread is susceptible to a <a
+href="Timeout/Error.html">Timeout::Error</a> exception being raised.</p>
+
+<h4 id="method-c-handle_interrupt-label-Stack+control+settings">Stack control settings<span><a href="#method-c-handle_interrupt-label-Stack+control+settings">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>It&#39;s possible to stack multiple levels of <a
+href="Thread.html#method-c-handle_interrupt">::handle_interrupt</a> blocks
+in order to control more than one ExceptionClass and TimingSymbol at a
+time.</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">handle_interrupt</span>(<span class="ruby-constant">FooError</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">never</span>) {
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">handle_interrupt</span>(<span class="ruby-constant">BarError</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">never</span>) {
+     <span class="ruby-comment"># FooError and BarError are prohibited.</span>
+  }
+}
+</pre>
+
+<h4 id="method-c-handle_interrupt-label-Inheritance+with+ExceptionClass">Inheritance with ExceptionClass<span><a href="#method-c-handle_interrupt-label-Inheritance+with+ExceptionClass">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>All exceptions inherited from the ExceptionClass parameter will be
+considered.</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">handle_interrupt</span>(<span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">never</span>) {
+  <span class="ruby-comment"># all exceptions inherited from Exception are prohibited.</span>
+}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="handle_interrupt-source">
+            <pre>static VALUE
+rb_thread_s_handle_interrupt(VALUE self, VALUE mask_arg)
+{
+    VALUE mask;
+    rb_thread_t *th = GET_THREAD();
+    volatile VALUE r = Qnil;
+    int state;
+
+    if (!rb_block_given_p()) {
+        rb_raise(rb_eArgError, &quot;block is needed.&quot;);
+    }
+
+    mask = 0;
+    mask_arg = rb_convert_type(mask_arg, T_HASH, &quot;Hash&quot;, &quot;to_hash&quot;);
+    rb_hash_foreach(mask_arg, handle_interrupt_arg_check_i, (VALUE)&amp;mask);
+    if (!mask) {
+        return rb_yield(Qnil);
+    }
+    OBJ_FREEZE_RAW(mask);
+    rb_ary_push(th-&gt;pending_interrupt_mask_stack, mask);
+    if (!rb_threadptr_pending_interrupt_empty_p(th)) {
+        th-&gt;pending_interrupt_queue_checked = 0;
+        RUBY_VM_SET_INTERRUPT(th);
+    }
+
+    TH_PUSH_TAG(th);
+    if ((state = EXEC_TAG()) == 0) {
+        r = rb_yield(Qnil);
+    }
+    TH_POP_TAG();
+
+    rb_ary_pop(th-&gt;pending_interrupt_mask_stack);
+    if (!rb_threadptr_pending_interrupt_empty_p(th)) {
+        th-&gt;pending_interrupt_queue_checked = 0;
+        RUBY_VM_SET_INTERRUPT(th);
+    }
+
+    RUBY_VM_CHECK_INTS(th);
+
+    if (state) {
+        TH_JUMP_TAG(th, state);
+    }
+
+    return r;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-kill" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            kill(thread)   &rarr; thread
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Causes the given <code>thread</code> to exit, see also <a
+href="Thread.html#method-c-exit">::exit</a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">count</span> = <span class="ruby-value">0</span>
+<span class="ruby-identifier">a</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">loop</span> { <span class="ruby-identifier">count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> } }
+<span class="ruby-identifier">sleep</span>(<span class="ruby-value">0.1</span>)       <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">kill</span>(<span class="ruby-identifier">a</span>)   <span class="ruby-comment">#=&gt; #&lt;Thread:0x401b3d30 dead&gt;</span>
+<span class="ruby-identifier">count</span>            <span class="ruby-comment">#=&gt; 93947</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">alive?</span>         <span class="ruby-comment">#=&gt; false</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="kill-source">
+            <pre>static VALUE
+rb_thread_s_kill(VALUE obj, VALUE th)
+{
+    return rb_thread_kill(th);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-list" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            list   &rarr; array
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of <a href="Thread.html">Thread</a> objects for all
+threads that are either runnable or stopped.</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">sleep</span>(<span class="ruby-value">200</span>) }
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-value">1000000</span>.<span class="ruby-identifier">times</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">i</span><span class="ruby-operator">*</span><span class="ruby-identifier">i</span> } }
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span> }
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">list</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">t</span>}
+</pre>
+
+<p>This will produce:</p>
+
+<pre class="ruby"><span class="ruby-comment">#&lt;Thread:0x401b3e84 sleep&gt;</span>
+<span class="ruby-comment">#&lt;Thread:0x401b3f38 run&gt;</span>
+<span class="ruby-comment">#&lt;Thread:0x401b3fb0 sleep&gt;</span>
+<span class="ruby-comment">#&lt;Thread:0x401bdf4c run&gt;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="list-source">
+            <pre>VALUE
+rb_thread_list(void)
+{
+    VALUE ary = rb_ary_new();
+    rb_vm_t *vm = GET_THREAD()-&gt;vm;
+    rb_thread_t *th = 0;
+
+    list_for_each(&amp;vm-&gt;living_threads, th, vmlt_node) {
+        switch (th-&gt;status) {
+          case THREAD_RUNNABLE:
+          case THREAD_STOPPED:
+          case THREAD_STOPPED_FOREVER:
+            rb_ary_push(ary, th-&gt;self);
+          default:
+            break;
+        }
+    }
+    return ary;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-main" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            main   &rarr; thread
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the main thread.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="main-source">
+            <pre>static VALUE
+rb_thread_s_main(VALUE klass)
+{
+    return rb_thread_main();
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new { ... }                  &rarr; thread
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new(*args, &amp;proc)            &rarr; thread
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new(*args) { |args| ... }    &rarr; thread
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new thread executing the given block.</p>
+
+<p>Any <code>args</code> given to <a href="Thread.html#method-c-new">::new</a>
+will be passed to the block:</p>
+
+<pre class="ruby"><span class="ruby-identifier">arr</span> = []
+<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>, <span class="ruby-identifier">c</span> = <span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span>,<span class="ruby-identifier">c</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">d</span>,<span class="ruby-identifier">e</span>,<span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">arr</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">d</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">f</span> }.<span class="ruby-identifier">join</span>
+<span class="ruby-identifier">arr</span> <span class="ruby-comment">#=&gt; [1, 2, 3]</span>
+</pre>
+
+<p>A <a href="ThreadError.html">ThreadError</a> exception is raised if <a
+href="Thread.html#method-c-new">::new</a> is called without a block.</p>
+
+<p>If you&#39;re going to subclass <a href="Thread.html">Thread</a>, be sure
+to call super in your <code>initialize</code> method, otherwise a <a
+href="ThreadError.html">ThreadError</a> will be raised.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE
+thread_s_new(int argc, VALUE *argv, VALUE klass)
+{
+    rb_thread_t *th;
+    VALUE thread = rb_thread_alloc(klass);
+
+    if (GET_VM()-&gt;main_thread-&gt;status == THREAD_KILLED)
+        rb_raise(rb_eThreadError, &quot;can&#39;t alloc thread&quot;);
+
+    rb_obj_call_init(thread, argc, argv);
+    GetThreadPtr(thread, th);
+    if (!threadptr_initialized(th)) {
+        rb_raise(rb_eThreadError, &quot;uninitialized thread - check `%&quot;PRIsVALUE&quot;#initialize&#39;&quot;,
+                 klass);
+    }
+    return thread;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pass" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pass   &rarr; nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Give the thread scheduler a hint to pass execution to another thread. A
+running thread may or may not switch, it depends on OS and processor.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pass-source">
+            <pre>static VALUE
+thread_s_pass(VALUE klass)
+{
+    rb_thread_schedule();
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pending_interrupt-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pending_interrupt?(error = nil) &rarr; true/false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns whether or not the asynchronous queue is empty.</p>
+
+<p>Since <a
+href="Thread.html#method-c-handle_interrupt">::handle_interrupt</a> can be
+used to defer asynchronous events, this method can be used to determine if
+there are any deferred events.</p>
+
+<p>If you find this method returns true, then you may finish
+<code>:never</code> blocks.</p>
+
+<p>For example, the following method processes deferred asynchronous events
+immediately.</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">kick_interrupt_immediately</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">handle_interrupt</span>(<span class="ruby-constant">Object</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">immediate</span>) {
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span>
+  }
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>If <code>error</code> is given, then check only for <code>error</code> type
+deferred events.</p>
+
+<h3 id="method-c-pending_interrupt-3F-label-Usage">Usage<span><a href="#method-c-pending_interrupt-3F-label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre>th = Thread.new{
+  Thread.handle_interrupt(RuntimeError =&gt; :on_blocking){
+    while true
+      ...
+      # reach safe point to invoke interrupt
+      if Thread.pending_interrupt?
+        Thread.handle_interrupt(Object =&gt; :immediate){}
+      end
+      ...
+    end
+  }
+}
+...
+th.raise # stop thread</pre>
+
+<p>This example can also be written as the following, which you should use to
+avoid asynchronous interrupts.</p>
+
+<pre>flag = true
+th = Thread.new{
+  Thread.handle_interrupt(RuntimeError =&gt; :on_blocking){
+    while true
+      ...
+      # reach safe point to invoke interrupt
+      break if flag == false
+      ...
+    end
+  }
+}
+...
+flag = false # stop thread</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="pending_interrupt-3F-source">
+            <pre>static VALUE
+rb_thread_s_pending_interrupt_p(int argc, VALUE *argv, VALUE self)
+{
+    return rb_thread_pending_interrupt_p(argc, argv, GET_THREAD()-&gt;self);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-report_on_exception" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            report_on_exception   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the status of the global “report on exception&#39;&#39; condition.</p>
+
+<p>The default is <code>false</code>.</p>
+
+<p>When set to <code>true</code>, all threads will report the exception if an
+exception is raised in any thread.</p>
+
+<p>See also <a
+href="Thread.html#method-c-report_on_exception-3D">::report_on_exception=</a>.</p>
+
+<p>There is also an instance level method to set this for a specific thread,
+see <a
+href="Thread.html#method-i-report_on_exception">report_on_exception</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="report_on_exception-source">
+            <pre>static VALUE
+rb_thread_s_report_exc(void)
+{
+    return GET_THREAD()-&gt;vm-&gt;thread_report_on_exception ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-report_on_exception-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            report_on_exception= boolean   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>When set to <code>true</code>, all threads will report the exception if an
+exception is raised.  Returns the new state.</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">report_on_exception</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-identifier">t1</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">puts</span>  <span class="ruby-string">&quot;In new thread&quot;</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Exception from thread&quot;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">sleep</span>(<span class="ruby-value">1</span>)
+<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;In the main thread&quot;</span>
+</pre>
+
+<p>This will produce:</p>
+
+<pre>In new thread
+prog.rb:4: Exception from thread (RuntimeError)
+ from prog.rb:2:in `initialize&#39;
+ from prog.rb:2:in `new&#39;
+ from prog.rb:2
+In the main thread</pre>
+
+<p>See also <a
+href="Thread.html#method-c-report_on_exception">::report_on_exception</a>.</p>
+
+<p>There is also an instance level method to set this for a specific thread,
+see <a
+href="Thread.html#method-i-report_on_exception-3D">report_on_exception=</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="report_on_exception-3D-source">
+            <pre>static VALUE
+rb_thread_s_report_exc_set(VALUE self, VALUE val)
+{
+    GET_THREAD()-&gt;vm-&gt;thread_report_on_exception = RTEST(val);
+    return val;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-start" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            start([args]*) {|args| block }   &rarr; thread
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Basically the same as <a href="Thread.html#method-c-new">::new</a>.
+However, if class <a href="Thread.html">Thread</a> is subclassed, then
+calling <code>start</code> in that subclass will not invoke the
+subclass&#39;s <code>initialize</code> method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre>static VALUE
+thread_start(VALUE klass, VALUE args)
+{
+    return thread_create_core(rb_thread_alloc(klass), args, 0);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-stop" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            stop   &rarr; nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Stops execution of the current thread, putting it into a “sleep&#39;&#39;
+state, and schedules execution of another thread.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;a&quot;</span>; <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span>; <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;c&quot;</span> }
+<span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">status!</span>=<span class="ruby-string">&#39;sleep&#39;</span>
+<span class="ruby-identifier">print</span> <span class="ruby-string">&quot;b&quot;</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">run</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">join</span>
+<span class="ruby-comment">#=&gt; &quot;abc&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="stop-source">
+            <pre>VALUE
+rb_thread_stop(void)
+{
+    if (rb_thread_alone()) {
+        rb_raise(rb_eThreadError,
+                 &quot;stopping only thread\n\tnote: use sleep to stop forever&quot;);
+    }
+    rb_thread_sleep_deadly();
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            thr[sym]   &rarr; obj or nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Attribute Reference—Returns the value of a fiber-local variable (current
+thread&#39;s root fiber if not explicitly inside a <a
+href="Fiber.html">Fiber</a>), using either a symbol or a string name. If
+the specified variable does not exist, returns <code>nil</code>.</p>
+
+<pre class="ruby">[
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-string">&quot;name&quot;</span>] = <span class="ruby-string">&quot;A&quot;</span> },
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[:<span class="ruby-identifier">name</span>]  = <span class="ruby-string">&quot;B&quot;</span> },
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-string">&quot;name&quot;</span>] = <span class="ruby-string">&quot;C&quot;</span> }
+].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">th</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">th</span>.<span class="ruby-identifier">join</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{th.inspect}: #{th[:name]}&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>This will produce:</p>
+
+<pre class="ruby"><span class="ruby-comment">#&lt;Thread:0x00000002a54220 dead&gt;: A</span>
+<span class="ruby-comment">#&lt;Thread:0x00000002a541a8 dead&gt;: B</span>
+<span class="ruby-comment">#&lt;Thread:0x00000002a54130 dead&gt;: C</span>
+</pre>
+
+<p><a href="Thread.html#method-i-5B-5D">#[]</a> and <a
+href="Thread.html#method-i-5B-5D-3D">#[]=</a> are not thread-local but
+fiber-local. This confusion did not exist in Ruby 1.8 because fibers are
+only available since Ruby 1.9. Ruby 1.9 chooses that the methods behaves
+fiber-local to save following idiom for dynamic scope.</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">meth</span>(<span class="ruby-identifier">newvalue</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">oldvalue</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[:<span class="ruby-identifier">name</span>]
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[:<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">newvalue</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[:<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">oldvalue</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The idiom may not work as dynamic scope if the methods are thread-local and
+a given block switches fiber.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">Fiber</span>.<span class="ruby-identifier">new</span> {
+  <span class="ruby-identifier">meth</span>(<span class="ruby-value">1</span>) {
+    <span class="ruby-constant">Fiber</span>.<span class="ruby-identifier">yield</span>
+  }
+}
+<span class="ruby-identifier">meth</span>(<span class="ruby-value">2</span>) {
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">resume</span>
+}
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">resume</span>
+<span class="ruby-identifier">p</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[:<span class="ruby-identifier">name</span>]
+<span class="ruby-comment">#=&gt; nil if fiber-local</span>
+<span class="ruby-comment">#=&gt; 2 if thread-local (The value 2 is leaked to outside of meth method.)</span>
+</pre>
+
+<p>For thread-local variables, please see <a
+href="Thread.html#method-i-thread_variable_get">thread_variable_get</a> and
+<a href="Thread.html#method-i-thread_variable_set">thread_variable_set</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre>static VALUE
+rb_thread_aref(VALUE thread, VALUE key)
+{
+    ID id = rb_check_id(&amp;key);
+    if (!id) return Qnil;
+    return rb_thread_local_aref(thread, id);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            thr[sym] = obj   &rarr; obj
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Attribute Assignment—Sets or creates the value of a fiber-local variable,
+using either a symbol or a string.</p>
+
+<p>See also <a href="Thread.html#method-i-5B-5D">#[]</a>.</p>
+
+<p>For thread-local variables, please see <a
+href="Thread.html#method-i-thread_variable_set">thread_variable_set</a> and
+<a href="Thread.html#method-i-thread_variable_get">thread_variable_get</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre>static VALUE
+rb_thread_aset(VALUE self, VALUE id, VALUE val)
+{
+    return rb_thread_local_aset(self, rb_to_id(id), val);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-abort_on_exception" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            abort_on_exception   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the status of the thread-local “abort on exception&#39;&#39;
+condition for this <code>thr</code>.</p>
+
+<p>The default is <code>false</code>.</p>
+
+<p>See also <a
+href="Thread.html#method-i-abort_on_exception-3D">abort_on_exception=</a>.</p>
+
+<p>There is also a class level method to set this for all threads, see <a
+href="Thread.html#method-c-abort_on_exception">::abort_on_exception</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="abort_on_exception-source">
+            <pre>static VALUE
+rb_thread_abort_exc(VALUE thread)
+{
+    rb_thread_t *th;
+    GetThreadPtr(thread, th);
+    return th-&gt;abort_on_exception ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-abort_on_exception-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            abort_on_exception= boolean   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>When set to <code>true</code>, if this <code>thr</code> is aborted by an
+exception, the raised exception will be re-raised in the main thread.</p>
+
+<p>See also <a
+href="Thread.html#method-i-abort_on_exception">abort_on_exception</a>.</p>
+
+<p>There is also a class level method to set this for all threads, see <a
+href="Thread.html#method-c-abort_on_exception-3D">::abort_on_exception=</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="abort_on_exception-3D-source">
+            <pre>static VALUE
+rb_thread_abort_exc_set(VALUE thread, VALUE val)
+{
+    rb_thread_t *th;
+
+    GetThreadPtr(thread, th);
+    th-&gt;abort_on_exception = RTEST(val);
+    return val;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_trace_func" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            add_trace_func(proc)    &rarr; proc
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Adds <em>proc</em> as a handler for tracing.</p>
+
+<p>See <a href="Thread.html#method-i-set_trace_func">#set_trace_func</a> and
+<a href="Kernel.html#method-i-set_trace_func">Kernel#set_trace_func</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_trace_func-source">
+            <pre>static VALUE
+thread_add_trace_func_m(VALUE obj, VALUE trace)
+{
+    rb_thread_t *th;
+
+    GetThreadPtr(obj, th);
+    thread_add_trace_func(th, trace);
+    return trace;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-alive-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            alive?   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if <code>thr</code> is running or sleeping.</p>
+
+<pre class="ruby"><span class="ruby-identifier">thr</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { }
+<span class="ruby-identifier">thr</span>.<span class="ruby-identifier">join</span>                <span class="ruby-comment">#=&gt; #&lt;Thread:0x401b3fb0 dead&gt;</span>
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">alive?</span>   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-identifier">thr</span>.<span class="ruby-identifier">alive?</span>              <span class="ruby-comment">#=&gt; false</span>
+</pre>
+
+<p>See also <a href="Thread.html#method-i-stop-3F">stop?</a> and <a
+href="Thread.html#method-i-status">status</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="alive-3F-source">
+            <pre>static VALUE
+rb_thread_alive_p(VALUE thread)
+{
+    rb_thread_t *th;
+    GetThreadPtr(thread, th);
+
+    if (rb_threadptr_dead(th))
+        return Qfalse;
+    return Qtrue;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-backtrace" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            backtrace    &rarr; array
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the current backtrace of the target thread.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="backtrace-source">
+            <pre>static VALUE
+rb_thread_backtrace_m(int argc, VALUE *argv, VALUE thval)
+{
+    return rb_vm_thread_backtrace(argc, argv, thval);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-backtrace_locations" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            backtrace_locations(*args)   &rarr; array or nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the execution stack for the target thread—an array containing
+backtrace location objects.</p>
+
+<p>See <a
+href="Thread/Backtrace/Location.html">Thread::Backtrace::Location</a> for
+more information.</p>
+
+<p>This method behaves similarly to <a
+href="Kernel.html#method-i-caller_locations">Kernel#caller_locations</a>
+except it applies to a specific thread.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="backtrace_locations-source">
+            <pre>static VALUE
+rb_thread_backtrace_locations_m(int argc, VALUE *argv, VALUE thval)
+{
+    return rb_vm_thread_backtrace_locations(argc, argv, thval);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exit" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            exit        &rarr; thr or nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            kill        &rarr; thr or nil
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            terminate   &rarr; thr or nil
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Terminates <code>thr</code> and schedules another thread to be run.</p>
+
+<p>If this thread is already marked to be killed, <a
+href="Thread.html#method-i-exit">exit</a> returns the <a
+href="Thread.html">Thread</a>.</p>
+
+<p>If this is the main thread, or the last thread, exits the process.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="exit-source">
+            <pre>VALUE
+rb_thread_kill(VALUE thread)
+{
+    rb_thread_t *th;
+
+    GetThreadPtr(thread, th);
+
+    if (th-&gt;to_kill || th-&gt;status == THREAD_KILLED) {
+        return thread;
+    }
+    if (th == th-&gt;vm-&gt;main_thread) {
+        rb_exit(EXIT_SUCCESS);
+    }
+
+    thread_debug(&quot;rb_thread_kill: %p (%&quot;PRI_THREAD_ID&quot;)\n&quot;, (void *)th, thread_id_str(th));
+
+    if (th == GET_THREAD()) {
+        /* kill myself immediately */
+        rb_threadptr_to_kill(th);
+    }
+    else {
+        threadptr_check_pending_interrupt_queue(th);
+        rb_threadptr_pending_interrupt_enque(th, eKillSignal);
+        rb_threadptr_interrupt(th);
+    }
+    return thread;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-group" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            group   &rarr; thgrp or nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the <a href="ThreadGroup.html">ThreadGroup</a> which contains the
+given thread, or returns <code>nil</code> if <code>thr</code> is not a
+member of any group.</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">main</span>.<span class="ruby-identifier">group</span>   <span class="ruby-comment">#=&gt; #&lt;ThreadGroup:0x4029d914&gt;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="group-source">
+            <pre>VALUE
+rb_thread_group(VALUE thread)
+{
+    rb_thread_t *th;
+    VALUE group;
+    GetThreadPtr(thread, th);
+    group = th-&gt;thgroup;
+
+    if (!group) {
+        group = Qnil;
+    }
+    return group;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            inspect   &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Dump the name, id, and status of <em>thr</em> to a string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre>static VALUE
+rb_thread_inspect(VALUE thread)
+{
+    VALUE cname = rb_class_path(rb_obj_class(thread));
+    rb_thread_t *th;
+    const char *status;
+    VALUE str;
+
+    GetThreadPtr(thread, th);
+    status = thread_status_name(th, TRUE);
+    str = rb_sprintf(&quot;#&lt;%&quot;PRIsVALUE&quot;:%p&quot;, cname, (void *)thread);
+    if (!NIL_P(th-&gt;name)) {
+        rb_str_catf(str, &quot;@%&quot;PRIsVALUE, th-&gt;name);
+    }
+    if (!th-&gt;first_func &amp;&amp; th-&gt;first_proc) {
+        VALUE loc = rb_proc_location(th-&gt;first_proc);
+        if (!NIL_P(loc)) {
+            const VALUE *ptr = RARRAY_CONST_PTR(loc);
+            rb_str_catf(str, &quot;@%&quot;PRIsVALUE&quot;:%&quot;PRIsVALUE, ptr[0], ptr[1]);
+            rb_gc_force_recycle(loc);
+        }
+    }
+    rb_str_catf(str, &quot; %s&gt;&quot;, status);
+    OBJ_INFECT(str, thread);
+
+    return str;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-join" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            join          &rarr; thr
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            join(limit)   &rarr; thr
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>The calling thread will suspend execution and run this <code>thr</code>.</p>
+
+<p>Does not return until <code>thr</code> exits or until the given
+<code>limit</code> seconds have passed.</p>
+
+<p>If the time limit expires, <code>nil</code> will be returned, otherwise
+<code>thr</code> is returned.</p>
+
+<p>Any threads not joined will be killed when the main program exits.</p>
+
+<p>If <code>thr</code> had previously raised an exception and the <a
+href="Thread.html#method-c-abort_on_exception">::abort_on_exception</a> or
+$DEBUG flags are not set, (so the exception has not yet been processed), it
+will be processed at this time.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;a&quot;</span>; <span class="ruby-identifier">sleep</span>(<span class="ruby-value">10</span>); <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;b&quot;</span>; <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;c&quot;</span> }
+<span class="ruby-identifier">x</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;x&quot;</span>; <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">pass</span>; <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;y&quot;</span>; <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;z&quot;</span> }
+<span class="ruby-identifier">x</span>.<span class="ruby-identifier">join</span> <span class="ruby-comment"># Let thread x finish, thread a will be killed on exit.</span>
+<span class="ruby-comment">#=&gt; &quot;axyz&quot;</span>
+</pre>
+
+<p>The following example illustrates the <code>limit</code> parameter.</p>
+
+<pre class="ruby"><span class="ruby-identifier">y</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-value">4</span>.<span class="ruby-identifier">times</span> { <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span>; <span class="ruby-identifier">puts</span> <span class="ruby-string">&#39;tick... &#39;</span> }}
+<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Waiting&quot;</span> <span class="ruby-keyword">until</span> <span class="ruby-identifier">y</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value">0.15</span>)
+</pre>
+
+<p>This will produce:</p>
+
+<pre>tick...
+Waiting
+tick...
+Waiting
+tick...
+tick...</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="join-source">
+            <pre>static VALUE
+thread_join_m(int argc, VALUE *argv, VALUE self)
+{
+    rb_thread_t *target_th;
+    double delay = DELAY_INFTY;
+    VALUE limit;
+
+    GetThreadPtr(self, target_th);
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;limit);
+    if (!NIL_P(limit)) {
+        delay = rb_num2dbl(limit);
+    }
+
+    return thread_join(target_th, delay);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-key-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            key?(sym)   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the given string (or symbol) exists as a
+fiber-local variable.</p>
+
+<pre class="ruby"><span class="ruby-identifier">me</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+<span class="ruby-identifier">me</span>[:<span class="ruby-identifier">oliver</span>] = <span class="ruby-string">&quot;a&quot;</span>
+<span class="ruby-identifier">me</span>.<span class="ruby-identifier">key?</span>(:<span class="ruby-identifier">oliver</span>)    <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-identifier">me</span>.<span class="ruby-identifier">key?</span>(:<span class="ruby-identifier">stanley</span>)   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="key-3F-source">
+            <pre>static VALUE
+rb_thread_key_p(VALUE self, VALUE key)
+{
+    rb_thread_t *th;
+    ID id = rb_check_id(&amp;key);
+
+    GetThreadPtr(self, th);
+
+    if (!id || !th-&gt;local_storage) {
+        return Qfalse;
+    }
+    if (st_lookup(th-&gt;local_storage, id, 0)) {
+        return Qtrue;
+    }
+    return Qfalse;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-keys" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            keys   &rarr; array
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of the names of the fiber-local variables (as Symbols).</p>
+
+<pre class="ruby"><span class="ruby-identifier">thr</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[:<span class="ruby-identifier">cat</span>] = <span class="ruby-string">&#39;meow&#39;</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-string">&quot;dog&quot;</span>] = <span class="ruby-string">&#39;woof&#39;</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">thr</span>.<span class="ruby-identifier">join</span>   <span class="ruby-comment">#=&gt; #&lt;Thread:0x401b3f10 dead&gt;</span>
+<span class="ruby-identifier">thr</span>.<span class="ruby-identifier">keys</span>   <span class="ruby-comment">#=&gt; [:dog, :cat]</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="keys-source">
+            <pre>static VALUE
+rb_thread_keys(VALUE self)
+{
+    rb_thread_t *th;
+    VALUE ary = rb_ary_new();
+    GetThreadPtr(self, th);
+
+    if (th-&gt;local_storage) {
+        st_foreach(th-&gt;local_storage, thread_keys_i, ary);
+    }
+    return ary;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-kill" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            exit        &rarr; thr or nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            kill        &rarr; thr or nil
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            terminate   &rarr; thr or nil
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Terminates <code>thr</code> and schedules another thread to be run.</p>
+
+<p>If this thread is already marked to be killed, <a
+href="Thread.html#method-i-exit">exit</a> returns the <a
+href="Thread.html">Thread</a>.</p>
+
+<p>If this is the main thread, or the last thread, exits the process.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="kill-source">
+            <pre>VALUE
+rb_thread_kill(VALUE thread)
+{
+    rb_thread_t *th;
+
+    GetThreadPtr(thread, th);
+
+    if (th-&gt;to_kill || th-&gt;status == THREAD_KILLED) {
+        return thread;
+    }
+    if (th == th-&gt;vm-&gt;main_thread) {
+        rb_exit(EXIT_SUCCESS);
+    }
+
+    thread_debug(&quot;rb_thread_kill: %p (%&quot;PRI_THREAD_ID&quot;)\n&quot;, (void *)th, thread_id_str(th));
+
+    if (th == GET_THREAD()) {
+        /* kill myself immediately */
+        rb_threadptr_to_kill(th);
+    }
+    else {
+        threadptr_check_pending_interrupt_queue(th);
+        rb_threadptr_pending_interrupt_enque(th, eKillSignal);
+        rb_threadptr_interrupt(th);
+    }
+    return thread;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            name   &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>show the name of the thread.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name-source">
+            <pre>static VALUE
+rb_thread_getname(VALUE thread)
+{
+    rb_thread_t *th;
+    GetThreadPtr(thread, th);
+    return th-&gt;name;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-name-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            name=(name)   &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>set given name to the ruby thread. On some platform, it may set the name to
+pthread and/or kernel.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="name-3D-source">
+            <pre>static VALUE
+rb_thread_setname(VALUE thread, VALUE name)
+{
+#ifdef SET_ANOTHER_THREAD_NAME
+    const char *s = &quot;&quot;;
+#endif
+    rb_thread_t *th;
+    GetThreadPtr(thread, th);
+    if (!NIL_P(name)) {
+        rb_encoding *enc;
+        StringValueCStr(name);
+        enc = rb_enc_get(name);
+        if (!rb_enc_asciicompat(enc)) {
+            rb_raise(rb_eArgError, &quot;ASCII incompatible encoding (%s)&quot;,
+                     rb_enc_name(enc));
+        }
+        name = rb_str_new_frozen(name);
+#ifdef SET_ANOTHER_THREAD_NAME
+        s = RSTRING_PTR(name);
+#endif
+    }
+    th-&gt;name = name;
+#if defined(SET_ANOTHER_THREAD_NAME)
+    if (threadptr_initialized(th)) {
+        SET_ANOTHER_THREAD_NAME(th-&gt;thread_id, s);
+    }
+#endif
+    return name;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pending_interrupt-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pending_interrupt?(error = nil) &rarr; true/false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns whether or not the asynchronous queue is empty for the target
+thread.</p>
+
+<p>If <code>error</code> is given, then check only for <code>error</code> type
+deferred events.</p>
+
+<p>See <a
+href="Thread.html#method-c-pending_interrupt-3F">::pending_interrupt?</a>
+for more information.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pending_interrupt-3F-source">
+            <pre>static VALUE
+rb_thread_pending_interrupt_p(int argc, VALUE *argv, VALUE target_thread)
+{
+    rb_thread_t *target_th;
+
+    GetThreadPtr(target_thread, target_th);
+
+    if (!target_th-&gt;pending_interrupt_queue) {
+        return Qfalse;
+    }
+    if (rb_threadptr_pending_interrupt_empty_p(target_th)) {
+        return Qfalse;
+    }
+    else {
+        if (argc == 1) {
+            VALUE err;
+            rb_scan_args(argc, argv, &quot;01&quot;, &amp;err);
+            if (!rb_obj_is_kind_of(err, rb_cModule)) {
+                rb_raise(rb_eTypeError, &quot;class or module required for rescue clause&quot;);
+            }
+            if (rb_threadptr_pending_interrupt_include_p(target_th, err)) {
+                return Qtrue;
+            }
+            else {
+                return Qfalse;
+            }
+        }
+        return Qtrue;
+    }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-priority" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            priority   &rarr; integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the priority of <em>thr</em>. Default is inherited from the current
+thread which creating the new thread, or zero for the initial main thread;
+higher-priority thread will run more frequently than lower-priority threads
+(but lower-priority threads can also run).</p>
+
+<p>This is just hint for Ruby thread scheduler.  It may be ignored on some
+platform.</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">priority</span>   <span class="ruby-comment">#=&gt; 0</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="priority-source">
+            <pre>static VALUE
+rb_thread_priority(VALUE thread)
+{
+    rb_thread_t *th;
+    GetThreadPtr(thread, th);
+    return INT2NUM(th-&gt;priority);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-priority-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            priority= integer   &rarr; thr
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets the priority of <em>thr</em> to <em>integer</em>. Higher-priority
+threads will run more frequently than lower-priority threads (but
+lower-priority threads can also run).</p>
+
+<p>This is just hint for Ruby thread scheduler.  It may be ignored on some
+platform.</p>
+
+<pre class="ruby"><span class="ruby-identifier">count1</span> = <span class="ruby-identifier">count2</span> = <span class="ruby-value">0</span>
+<span class="ruby-identifier">a</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">loop</span> { <span class="ruby-identifier">count1</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> }
+    <span class="ruby-keyword">end</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">priority</span> = <span class="ruby-value">-1</span>
+
+<span class="ruby-identifier">b</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">loop</span> { <span class="ruby-identifier">count2</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> }
+    <span class="ruby-keyword">end</span>
+<span class="ruby-identifier">b</span>.<span class="ruby-identifier">priority</span> = <span class="ruby-value">-2</span>
+<span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>   <span class="ruby-comment">#=&gt; 1</span>
+<span class="ruby-identifier">count1</span>    <span class="ruby-comment">#=&gt; 622504</span>
+<span class="ruby-identifier">count2</span>    <span class="ruby-comment">#=&gt; 5832</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="priority-3D-source">
+            <pre>static VALUE
+rb_thread_priority_set(VALUE thread, VALUE prio)
+{
+    rb_thread_t *th;
+    int priority;
+    GetThreadPtr(thread, th);
+
+
+#if USE_NATIVE_THREAD_PRIORITY
+    th-&gt;priority = NUM2INT(prio);
+    native_thread_apply_priority(th);
+#else
+    priority = NUM2INT(prio);
+    if (priority &gt; RUBY_THREAD_PRIORITY_MAX) {
+        priority = RUBY_THREAD_PRIORITY_MAX;
+    }
+    else if (priority &lt; RUBY_THREAD_PRIORITY_MIN) {
+        priority = RUBY_THREAD_PRIORITY_MIN;
+    }
+    th-&gt;priority = priority;
+#endif
+    return INT2NUM(th-&gt;priority);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            raise
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            raise(string)
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            raise(exception [, string [, array]])
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Raises an exception from the given thread. The caller does not have to be
+<code>thr</code>. See <a href="Kernel.html#method-i-raise">Kernel#raise</a>
+for more information.</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">abort_on_exception</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-identifier">a</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">sleep</span>(<span class="ruby-value">200</span>) }
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">raise</span>(<span class="ruby-string">&quot;Gotcha&quot;</span>)
+</pre>
+
+<p>This will produce:</p>
+
+<pre>prog.rb:3: Gotcha (RuntimeError)
+ from prog.rb:2:in `initialize&#39;
+ from prog.rb:2:in `new&#39;
+ from prog.rb:2</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="raise-source">
+            <pre>static VALUE
+thread_raise_m(int argc, VALUE *argv, VALUE self)
+{
+    rb_thread_t *target_th;
+    rb_thread_t *th = GET_THREAD();
+    GetThreadPtr(self, target_th);
+    threadptr_check_pending_interrupt_queue(target_th);
+    rb_threadptr_raise(target_th, argc, argv);
+
+    /* To perform Thread.current.raise as Kernel.raise */
+    if (th == target_th) {
+        RUBY_VM_CHECK_INTS(th);
+    }
+    return Qnil;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-report_on_exception" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            report_on_exception   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the status of the thread-local “report on exception&#39;&#39;
+condition for this <code>thr</code>.</p>
+
+<p>The default is <code>false</code>.</p>
+
+<p>See also <a
+href="Thread.html#method-i-report_on_exception-3D">report_on_exception=</a>.</p>
+
+<p>There is also a class level method to set this for all threads, see <a
+href="Thread.html#method-c-report_on_exception">::report_on_exception</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="report_on_exception-source">
+            <pre>static VALUE
+rb_thread_report_exc(VALUE thread)
+{
+    rb_thread_t *th;
+    GetThreadPtr(thread, th);
+    return th-&gt;report_on_exception ? Qtrue : Qfalse;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-report_on_exception-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            report_on_exception= boolean   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>When set to <code>true</code>, all threads (including the main program)
+will report the exception if an exception is raised in this
+<code>thr</code>.</p>
+
+<p>See also <a
+href="Thread.html#method-i-report_on_exception">report_on_exception</a>.</p>
+
+<p>There is also a class level method to set this for all threads, see <a
+href="Thread.html#method-c-report_on_exception-3D">::report_on_exception=</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="report_on_exception-3D-source">
+            <pre>static VALUE
+rb_thread_report_exc_set(VALUE thread, VALUE val)
+{
+    rb_thread_t *th;
+
+    GetThreadPtr(thread, th);
+    th-&gt;report_on_exception = RTEST(val);
+    return val;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-run" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            run   &rarr; thr
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Wakes up <code>thr</code>, making it eligible for scheduling.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;a&quot;</span>; <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span>; <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;c&quot;</span> }
+<span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">status!</span>=<span class="ruby-string">&#39;sleep&#39;</span>
+<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Got here&quot;</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">run</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">join</span>
+</pre>
+
+<p>This will produce:</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span>
+<span class="ruby-constant">Got</span> <span class="ruby-identifier">here</span>
+<span class="ruby-identifier">c</span>
+</pre>
+
+<p>See also the instance method <a
+href="Thread.html#method-i-wakeup">wakeup</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run-source">
+            <pre>VALUE
+rb_thread_run(VALUE thread)
+{
+    rb_thread_wakeup(thread);
+    rb_thread_schedule();
+    return thread;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-safe_level" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            safe_level   &rarr; integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the safe level in effect for <em>thr</em>. Setting thread-local
+safe levels can help when implementing sandboxes which run insecure code.</p>
+
+<pre class="ruby"><span class="ruby-identifier">thr</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">$SAFE</span> = <span class="ruby-value">1</span>; <span class="ruby-identifier">sleep</span> }
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">safe_level</span>   <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-identifier">thr</span>.<span class="ruby-identifier">safe_level</span>              <span class="ruby-comment">#=&gt; 1</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="safe_level-source">
+            <pre>static VALUE
+rb_thread_safe_level(VALUE thread)
+{
+    rb_thread_t *th;
+    GetThreadPtr(thread, th);
+
+    return INT2NUM(th-&gt;safe_level);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_trace_func" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_trace_func(proc)    &rarr; proc
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_trace_func(nil)     &rarr; nil
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Establishes <em>proc</em> on <em>thr</em> as the handler for tracing, or
+disables tracing if the parameter is <code>nil</code>.</p>
+
+<p>See <a
+href="Kernel.html#method-i-set_trace_func">Kernel#set_trace_func</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_trace_func-source">
+            <pre>static VALUE
+thread_set_trace_func_m(VALUE obj, VALUE trace)
+{
+    rb_thread_t *th;
+
+    GetThreadPtr(obj, th);
+    rb_threadptr_remove_event_hook(th, call_trace_func, Qundef);
+
+    if (NIL_P(trace)) {
+        return Qnil;
+    }
+
+    thread_add_trace_func(th, trace);
+    return trace;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-status" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            status   &rarr; string, false or nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the status of <code>thr</code>.</p>
+<dl class="rdoc-list label-list"><dt><code>&quot;sleep&quot;</code>
+<dd>
+<p>Returned if this thread is sleeping or waiting on I/O</p>
+</dd><dt><code>&quot;run&quot;</code>
+<dd>
+<p>When this thread is executing</p>
+</dd><dt><code>&quot;aborting&quot;</code>
+<dd>
+<p>If this thread is aborting</p>
+</dd><dt><code>false</code>
+<dd>
+<p>When this thread is terminated normally</p>
+</dd><dt><code>nil</code>
+<dd>
+<p>If terminated with an exception.</p>
+</dd></dl>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">raise</span>(<span class="ruby-string">&quot;die now&quot;</span>) }
+<span class="ruby-identifier">b</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span> }
+<span class="ruby-identifier">c</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">exit</span> }
+<span class="ruby-identifier">d</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">sleep</span> }
+<span class="ruby-identifier">d</span>.<span class="ruby-identifier">kill</span>                  <span class="ruby-comment">#=&gt; #&lt;Thread:0x401b3678 aborting&gt;</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">status</span>                <span class="ruby-comment">#=&gt; nil</span>
+<span class="ruby-identifier">b</span>.<span class="ruby-identifier">status</span>                <span class="ruby-comment">#=&gt; &quot;sleep&quot;</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">status</span>                <span class="ruby-comment">#=&gt; false</span>
+<span class="ruby-identifier">d</span>.<span class="ruby-identifier">status</span>                <span class="ruby-comment">#=&gt; &quot;aborting&quot;</span>
+<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">status</span>   <span class="ruby-comment">#=&gt; &quot;run&quot;</span>
+</pre>
+
+<p>See also the instance methods <a
+href="Thread.html#method-i-alive-3F">alive?</a> and <a
+href="Thread.html#method-i-stop-3F">stop?</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="status-source">
+            <pre>static VALUE
+rb_thread_status(VALUE thread)
+{
+    rb_thread_t *th;
+    GetThreadPtr(thread, th);
+
+    if (rb_threadptr_dead(th)) {
+        if (!NIL_P(th-&gt;errinfo) &amp;&amp; !FIXNUM_P(th-&gt;errinfo)
+            /* TODO */ ) {
+            return Qnil;
+        }
+        return Qfalse;
+    }
+    return rb_str_new2(thread_status_name(th, FALSE));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stop-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            stop?   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if <code>thr</code> is dead or sleeping.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span> }
+<span class="ruby-identifier">b</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">stop?</span>   <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-identifier">b</span>.<span class="ruby-identifier">stop?</span>   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+
+<p>See also <a href="Thread.html#method-i-alive-3F">alive?</a> and <a
+href="Thread.html#method-i-status">status</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stop-3F-source">
+            <pre>static VALUE
+rb_thread_stop_p(VALUE thread)
+{
+    rb_thread_t *th;
+    GetThreadPtr(thread, th);
+
+    if (rb_threadptr_dead(th))
+        return Qtrue;
+    if (th-&gt;status == THREAD_STOPPED || th-&gt;status == THREAD_STOPPED_FOREVER)
+        return Qtrue;
+    return Qfalse;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-terminate" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            terminate   &rarr; thr or nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Terminates <code>thr</code> and schedules another thread to be run.</p>
+
+<p>If this thread is already marked to be killed, <a
+href="Thread.html#method-i-exit">exit</a> returns the <a
+href="Thread.html">Thread</a>.</p>
+
+<p>If this is the main thread, or the last thread, exits the process.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="terminate-source">
+            <pre>VALUE
+rb_thread_kill(VALUE thread)
+{
+    rb_thread_t *th;
+
+    GetThreadPtr(thread, th);
+
+    if (th-&gt;to_kill || th-&gt;status == THREAD_KILLED) {
+        return thread;
+    }
+    if (th == th-&gt;vm-&gt;main_thread) {
+        rb_exit(EXIT_SUCCESS);
+    }
+
+    thread_debug(&quot;rb_thread_kill: %p (%&quot;PRI_THREAD_ID&quot;)\n&quot;, (void *)th, thread_id_str(th));
+
+    if (th == GET_THREAD()) {
+        /* kill myself immediately */
+        rb_threadptr_to_kill(th);
+    }
+    else {
+        threadptr_check_pending_interrupt_queue(th);
+        rb_threadptr_pending_interrupt_enque(th, eKillSignal);
+        rb_threadptr_interrupt(th);
+    }
+    return thread;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-thread_variable-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            thread_variable?(key)   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if the given string (or symbol) exists as a
+thread-local variable.</p>
+
+<pre class="ruby"><span class="ruby-identifier">me</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+<span class="ruby-identifier">me</span>.<span class="ruby-identifier">thread_variable_set</span>(:<span class="ruby-identifier">oliver</span>, <span class="ruby-string">&quot;a&quot;</span>)
+<span class="ruby-identifier">me</span>.<span class="ruby-identifier">thread_variable?</span>(:<span class="ruby-identifier">oliver</span>)    <span class="ruby-comment">#=&gt; true</span>
+<span class="ruby-identifier">me</span>.<span class="ruby-identifier">thread_variable?</span>(:<span class="ruby-identifier">stanley</span>)   <span class="ruby-comment">#=&gt; false</span>
+</pre>
+
+<p>Note that these are not fiber local variables.  Please see <a
+href="Thread.html#method-i-5B-5D">#[]</a> and <a
+href="Thread.html#method-i-thread_variable_get">#thread_variable_get</a>
+for more details.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="thread_variable-3F-source">
+            <pre>static VALUE
+rb_thread_variable_p(VALUE thread, VALUE key)
+{
+    VALUE locals;
+    ID id = rb_check_id(&amp;key);
+
+    if (!id) return Qfalse;
+
+    locals = rb_ivar_get(thread, id_locals);
+
+    if (!RHASH(locals)-&gt;ntbl)
+        return Qfalse;
+
+    if (st_lookup(RHASH(locals)-&gt;ntbl, ID2SYM(id), 0)) {
+        return Qtrue;
+    }
+
+    return Qfalse;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-thread_variable_get" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            thread_variable_get(key)  &rarr; obj or nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the value of a thread local variable that has been set.  Note that
+these are different than fiber local values.  For fiber local values,
+please see <a href="Thread.html#method-i-5B-5D">#[]</a> and <a
+href="Thread.html#method-i-5B-5D-3D">#[]=</a>.</p>
+
+<p><a href="Thread.html">Thread</a> local values are carried along with
+threads, and do not respect fibers.  For example:</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-string">&quot;foo&quot;</span>, <span class="ruby-string">&quot;bar&quot;</span>) <span class="ruby-comment"># set a thread local</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-string">&quot;foo&quot;</span>] = <span class="ruby-string">&quot;bar&quot;</span>                    <span class="ruby-comment"># set a fiber local</span>
+
+  <span class="ruby-constant">Fiber</span>.<span class="ruby-identifier">new</span> {
+    <span class="ruby-constant">Fiber</span>.<span class="ruby-identifier">yield</span> [
+      <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_get</span>(<span class="ruby-string">&quot;foo&quot;</span>), <span class="ruby-comment"># get the thread local</span>
+      <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>[<span class="ruby-string">&quot;foo&quot;</span>],                     <span class="ruby-comment"># get the fiber local</span>
+    ]
+  }.<span class="ruby-identifier">resume</span>
+}.<span class="ruby-identifier">join</span>.<span class="ruby-identifier">value</span> <span class="ruby-comment"># =&gt; [&#39;bar&#39;, nil]</span>
+</pre>
+
+<p>The value “bar” is returned for the thread local, where nil is returned for
+the fiber local.  The fiber is executed in the same thread, so the thread
+local values are available.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="thread_variable_get-source">
+            <pre>static VALUE
+rb_thread_variable_get(VALUE thread, VALUE key)
+{
+    VALUE locals;
+
+    locals = rb_ivar_get(thread, id_locals);
+    return rb_hash_aref(locals, rb_to_symbol(key));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-thread_variable_set" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            thread_variable_set(key, value)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets a thread local with <code>key</code> to <code>value</code>.  Note that
+these are local to threads, and not to fibers.  Please see <a
+href="Thread.html#method-i-thread_variable_get">#thread_variable_get</a>
+and <a href="Thread.html#method-i-5B-5D">#[]</a> for more information.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="thread_variable_set-source">
+            <pre>static VALUE
+rb_thread_variable_set(VALUE thread, VALUE id, VALUE val)
+{
+    VALUE locals;
+
+    if (OBJ_FROZEN(thread)) {
+        rb_error_frozen(&quot;thread locals&quot;);
+    }
+
+    locals = rb_ivar_get(thread, id_locals);
+    return rb_hash_aset(locals, rb_to_symbol(id), val);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-thread_variables" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            thread_variables   &rarr; array
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of the names of the thread-local variables (as Symbols).</p>
+
+<pre class="ruby"><span class="ruby-identifier">thr</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(:<span class="ruby-identifier">cat</span>, <span class="ruby-string">&#39;meow&#39;</span>)
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">thread_variable_set</span>(<span class="ruby-string">&quot;dog&quot;</span>, <span class="ruby-string">&#39;woof&#39;</span>)
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">thr</span>.<span class="ruby-identifier">join</span>               <span class="ruby-comment">#=&gt; #&lt;Thread:0x401b3f10 dead&gt;</span>
+<span class="ruby-identifier">thr</span>.<span class="ruby-identifier">thread_variables</span>   <span class="ruby-comment">#=&gt; [:dog, :cat]</span>
+</pre>
+
+<p>Note that these are not fiber local variables.  Please see <a
+href="Thread.html#method-i-5B-5D">#[]</a> and <a
+href="Thread.html#method-i-thread_variable_get">#thread_variable_get</a>
+for more details.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="thread_variables-source">
+            <pre>static VALUE
+rb_thread_variables(VALUE thread)
+{
+    VALUE locals;
+    VALUE ary;
+
+    locals = rb_ivar_get(thread, id_locals);
+    ary = rb_ary_new();
+    rb_hash_foreach(locals, keys_i, ary);
+
+    return ary;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-value" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            value   &rarr; obj
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Waits for <code>thr</code> to complete, using <a
+href="Thread.html#method-i-join">join</a>, and returns its value or raises
+the exception which terminated the thread.</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span> }
+<span class="ruby-identifier">a</span>.<span class="ruby-identifier">value</span>   <span class="ruby-comment">#=&gt; 4</span>
+
+<span class="ruby-identifier">b</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">raise</span> <span class="ruby-string">&#39;something went wrong&#39;</span> }
+<span class="ruby-identifier">b</span>.<span class="ruby-identifier">value</span>   <span class="ruby-comment">#=&gt; RuntimeError: something went wrong</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="value-source">
+            <pre>static VALUE
+thread_value(VALUE self)
+{
+    rb_thread_t *th;
+    GetThreadPtr(self, th);
+    thread_join(th, DELAY_INFTY);
+    return th-&gt;value;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-wakeup" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wakeup   &rarr; thr
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Marks a given thread as eligible for scheduling, however it may still
+remain blocked on I/O.</p>
+
+<p><strong>Note:</strong> This does not invoke the scheduler, see <a
+href="Thread.html#method-i-run">run</a> for more information.</p>
+
+<pre class="ruby"><span class="ruby-identifier">c</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">stop</span>; <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;hey!&quot;</span> }
+<span class="ruby-identifier">sleep</span> <span class="ruby-value">0.1</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">status!</span>=<span class="ruby-string">&#39;sleep&#39;</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">wakeup</span>
+<span class="ruby-identifier">c</span>.<span class="ruby-identifier">join</span>
+<span class="ruby-comment">#=&gt; &quot;hey!&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="wakeup-source">
+            <pre>VALUE
+rb_thread_wakeup(VALUE thread)
+{
+    if (!RTEST(rb_thread_wakeup_alive(thread))) {
+        rb_raise(rb_eThreadError, &quot;killed thread&quot;);
+    }
+    return thread;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

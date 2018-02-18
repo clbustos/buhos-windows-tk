@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Net::HTTPHeader - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-add_field">#add_field</a>
+    
+    <li ><a href="#method-i-initialize_http_header">#initialize_http_header</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Net::HTTPHeader">
+  <h1 id="module-Net::HTTPHeader" class="module">
+    module Net::HTTPHeader
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="HTTPHeader.html">HTTPHeader</a> module defines methods for
+reading and writing <a href="HTTP.html">HTTP</a> headers.</p>
+
+<p>It is used as a mixin by other classes, to provide hash-like access to <a
+href="HTTP.html">HTTP</a> header values. Unlike raw hash access, <a
+href="HTTPHeader.html">HTTPHeader</a> provides access via case-insensitive
+keys. It also provides methods for accessing commonly-used <a
+href="HTTP.html">HTTP</a> header values in more convenient formats.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the header field corresponding to the case-insensitive key. For
+example, a key of “Content-Type” might return “text/html”</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">a</span> = <span class="ruby-ivar">@header</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>] <span class="ruby-keyword">or</span> <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">a</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">(key, val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sets the header field corresponding to the case-insensitive key.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">val</span>
+    <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">val</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">set_field</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_field" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_field</span><span
+            class="method-args">(key, val)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <dl class="rdoc-list label-list"><dt>Ruby 1.8.3
+<dd>
+<p>Adds a value to a named header field, instead of replacing its value.
+Second argument <code>val</code> must be a String. See also <a
+href="HTTPHeader.html#method-i-5B-5D-3D">[]=</a>, <a
+href="HTTPHeader.html#method-i-5B-5D">[]</a> and get_fields.</p>
+
+<pre class="ruby"><span class="ruby-identifier">request</span>.<span class="ruby-identifier">add_field</span> <span class="ruby-string">&#39;X-My-Header&#39;</span>, <span class="ruby-string">&#39;a&#39;</span>
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">request</span>[<span class="ruby-string">&#39;X-My-Header&#39;</span>]              <span class="ruby-comment">#=&gt; &quot;a&quot;</span>
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-string">&#39;X-My-Header&#39;</span>)   <span class="ruby-comment">#=&gt; [&quot;a&quot;]</span>
+<span class="ruby-identifier">request</span>.<span class="ruby-identifier">add_field</span> <span class="ruby-string">&#39;X-My-Header&#39;</span>, <span class="ruby-string">&#39;b&#39;</span>
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">request</span>[<span class="ruby-string">&#39;X-My-Header&#39;</span>]              <span class="ruby-comment">#=&gt; &quot;a, b&quot;</span>
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-string">&#39;X-My-Header&#39;</span>)   <span class="ruby-comment">#=&gt; [&quot;a&quot;, &quot;b&quot;]</span>
+<span class="ruby-identifier">request</span>.<span class="ruby-identifier">add_field</span> <span class="ruby-string">&#39;X-My-Header&#39;</span>, <span class="ruby-string">&#39;c&#39;</span>
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">request</span>[<span class="ruby-string">&#39;X-My-Header&#39;</span>]              <span class="ruby-comment">#=&gt; &quot;a, b, c&quot;</span>
+<span class="ruby-identifier">p</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">get_fields</span>(<span class="ruby-string">&#39;X-My-Header&#39;</span>)   <span class="ruby-comment">#=&gt; [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</span>
+</pre>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="add_field-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_field</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@header</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>)
+    <span class="ruby-identifier">append_field_value</span>(<span class="ruby-ivar">@header</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>], <span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">set_field</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-initialize_http_header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">initialize_http_header</span><span
+            class="method-args">(initheader)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="initialize_http_header-source">
+            <pre><span class="ruby-comment"># File lib/net/http/header.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize_http_header</span>(<span class="ruby-identifier">initheader</span>)
+  <span class="ruby-ivar">@header</span> = {}
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">initheader</span>
+  <span class="ruby-identifier">initheader</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;net/http: warning: duplicated HTTP header: #{key}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">key?</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">$VERBOSE</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">warn</span> <span class="ruby-node">&quot;net/http: warning: nil HTTP header: #{key}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$VERBOSE</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@header</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>] = [<span class="ruby-identifier">value</span>.<span class="ruby-identifier">strip</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

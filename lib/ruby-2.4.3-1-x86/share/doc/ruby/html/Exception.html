@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Exception - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-exception">::exception</a>
+    
+    <li ><a href="#method-c-json_create">::json_create</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-as_json">#as_json</a>
+    
+    <li ><a href="#method-i-backtrace">#backtrace</a>
+    
+    <li ><a href="#method-i-backtrace_locations">#backtrace_locations</a>
+    
+    <li ><a href="#method-i-cause">#cause</a>
+    
+    <li ><a href="#method-i-exception">#exception</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-message">#message</a>
+    
+    <li ><a href="#method-i-set_backtrace">#set_backtrace</a>
+    
+    <li ><a href="#method-i-to_json">#to_json</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Exception">
+  <h1 id="class-Exception" class="class">
+    class Exception
+  </h1>
+
+  <section class="description">
+    
+<p>Descendants of class <a href="Exception.html">Exception</a> are used to
+communicate between <a href="Kernel.html#method-i-raise">Kernel#raise</a>
+and <code>rescue</code> statements in <code>begin ... end</code> blocks. <a
+href="Exception.html">Exception</a> objects carry information about the
+exception – its type (the exception&#39;s class name), an optional
+descriptive string, and optional traceback information.  <a
+href="Exception.html">Exception</a> subclasses may add additional
+information like <a href="NameError.html#method-i-name">NameError#name</a>.</p>
+
+<p>Programs may make subclasses of <a href="Exception.html">Exception</a>,
+typically of <a href="StandardError.html">StandardError</a> or <a
+href="RuntimeError.html">RuntimeError</a>, to provide custom classes and
+add additional information. See the subclass list below for defaults for
+<code>raise</code> and <code>rescue</code>.</p>
+
+<p>When an exception has been raised but not yet handled (in
+<code>rescue</code>, <code>ensure</code>, <code>at_exit</code> and
+<code>END</code> blocks) the global variable <code>$!</code> will contain
+the current exception and <code>$@</code> contains the current
+exception&#39;s backtrace.</p>
+
+<p>It is recommended that a library should have one subclass of <a
+href="StandardError.html">StandardError</a> or <a
+href="RuntimeError.html">RuntimeError</a> and have specific exception types
+inherit from it.  This allows the user to rescue a generic exception type
+to catch all exceptions the library may raise even if future versions of
+the library add new exception subclasses.</p>
+
+<p>For example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">MyLibrary</span>
+  <span class="ruby-keyword">class</span> <span class="ruby-constant">Error</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">RuntimeError</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">class</span> <span class="ruby-constant">WidgetError</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Error</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">class</span> <span class="ruby-constant">FrobError</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Error</span>
+  <span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>To handle both WidgetError and FrobError the library user can rescue
+MyLibrary::Error.</p>
+
+<p>The built-in subclasses of <a href="Exception.html">Exception</a> are:</p>
+<ul><li>
+<p><a href="NoMemoryError.html">NoMemoryError</a></p>
+</li><li>
+<p><a href="ScriptError.html">ScriptError</a></p>
+<ul><li>
+<p><a href="LoadError.html">LoadError</a></p>
+</li><li>
+<p><a href="NotImplementedError.html">NotImplementedError</a></p>
+</li><li>
+<p><a href="SyntaxError.html">SyntaxError</a></p>
+</li></ul>
+</li><li>
+<p><a href="SecurityError.html">SecurityError</a></p>
+</li><li>
+<p><a href="SignalException.html">SignalException</a></p>
+<ul><li>
+<p><a href="Interrupt.html">Interrupt</a></p>
+</li></ul>
+</li><li>
+<p><a href="StandardError.html">StandardError</a> – default for
+<code>rescue</code></p>
+<ul><li>
+<p><a href="ArgumentError.html">ArgumentError</a></p>
+<ul><li>
+<p><a href="UncaughtThrowError.html">UncaughtThrowError</a></p>
+</li></ul>
+</li><li>
+<p><a href="EncodingError.html">EncodingError</a></p>
+</li><li>
+<p><a href="FiberError.html">FiberError</a></p>
+</li><li>
+<p><a href="IOError.html">IOError</a></p>
+<ul><li>
+<p><a href="EOFError.html">EOFError</a></p>
+</li></ul>
+</li><li>
+<p><a href="IndexError.html">IndexError</a></p>
+<ul><li>
+<p><a href="KeyError.html">KeyError</a></p>
+</li><li>
+<p><a href="StopIteration.html">StopIteration</a></p>
+</li></ul>
+</li><li>
+<p><a href="LocalJumpError.html">LocalJumpError</a></p>
+</li><li>
+<p><a href="NameError.html">NameError</a></p>
+<ul><li>
+<p><a href="NoMethodError.html">NoMethodError</a></p>
+</li></ul>
+</li><li>
+<p><a href="RangeError.html">RangeError</a></p>
+<ul><li>
+<p><a href="FloatDomainError.html">FloatDomainError</a></p>
+</li></ul>
+</li><li>
+<p><a href="RegexpError.html">RegexpError</a></p>
+</li><li>
+<p><a href="RuntimeError.html">RuntimeError</a> – default for
+<code>raise</code></p>
+</li><li>
+<p><a href="SystemCallError.html">SystemCallError</a></p>
+<ul><li>
+<p>Errno::*</p>
+</li></ul>
+</li><li>
+<p><a href="ThreadError.html">ThreadError</a></p>
+</li><li>
+<p><a href="TypeError.html">TypeError</a></p>
+</li><li>
+<p><a href="ZeroDivisionError.html">ZeroDivisionError</a></p>
+</li></ul>
+</li><li>
+<p><a href="SystemExit.html">SystemExit</a></p>
+</li><li>
+<p><a href="SystemStackError.html">SystemStackError</a></p>
+</li><li>
+<p>fatal – impossible to rescue</p>
+</li></ul>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-exception" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            exception(string)  &rarr;  an_exception or exc
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>With no argument, or if the argument is the same as the receiver, return
+the receiver. Otherwise, create a new exception object of the same class as
+the receiver, but with a message equal to <code>string.to_str</code>.</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-json_create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json_create</span><span
+            class="method-args">(object)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deserializes <a href="JSON.html">JSON</a> string by constructing new <a
+href="Exception.html">Exception</a> object with message <code>m</code> and
+backtrace <code>b</code> serialized with <code>to_json</code></p>
+          
+          
+
+          
+          <div class="method-source-code" id="json_create-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/add/exception.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">json_create</span>(<span class="ruby-identifier">object</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">new</span>(<span class="ruby-identifier">object</span>[<span class="ruby-string">&#39;m&#39;</span>])
+  <span class="ruby-identifier">result</span>.<span class="ruby-identifier">set_backtrace</span> <span class="ruby-identifier">object</span>[<span class="ruby-string">&#39;b&#39;</span>]
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new(msg = nil)   &rarr;  exception
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Construct a new <a href="Exception.html">Exception</a> object, optionally
+passing in a message.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE
+exc_initialize(int argc, VALUE *argv, VALUE exc)
+{
+    VALUE arg;
+
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;arg);
+    rb_ivar_set(exc, id_mesg, arg);
+    rb_ivar_set(exc, id_bt, Qnil);
+
+    return exc;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            exc == obj   &rarr; true or false
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Equality—If <em>obj</em> is not an <code>Exception</code>, returns
+<code>false</code>. Otherwise, returns <code>true</code> if <em>exc</em>
+and <em>obj</em> share same class, messages, and backtrace.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre>static VALUE
+exc_equal(VALUE exc, VALUE obj)
+{
+    VALUE mesg, backtrace;
+
+    if (exc == obj) return Qtrue;
+
+    if (rb_obj_class(exc) != rb_obj_class(obj)) {
+        int status = 0;
+
+        obj = rb_protect(try_convert_to_exception, obj, &amp;status);
+        if (status || obj == Qundef) {
+            rb_set_errinfo(Qnil);
+            return Qfalse;
+        }
+        if (rb_obj_class(exc) != rb_obj_class(obj)) return Qfalse;
+        mesg = rb_check_funcall(obj, id_message, 0, 0);
+        if (mesg == Qundef) return Qfalse;
+        backtrace = rb_check_funcall(obj, id_backtrace, 0, 0);
+        if (backtrace == Qundef) return Qfalse;
+    }
+    else {
+        mesg = rb_attr_get(obj, id_mesg);
+        backtrace = exc_backtrace(obj);
+    }
+
+    if (!rb_equal(rb_attr_get(exc, id_mesg), mesg))
+        return Qfalse;
+    if (!rb_equal(exc_backtrace(exc), backtrace))
+        return Qfalse;
+    return Qtrue;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-as_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">as_json</span><span
+            class="method-args">(*)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a hash, that will be turned into a <a href="JSON.html">JSON</a>
+object and represent this object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="as_json-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/add/exception.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">as_json</span>(<span class="ruby-operator">*</span>)
+  {
+    <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">create_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>,
+    <span class="ruby-string">&#39;m&#39;</span>            =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">message</span>,
+    <span class="ruby-string">&#39;b&#39;</span>            =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">backtrace</span>,
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-backtrace" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            backtrace    &rarr; array
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns any backtrace associated with the exception. The backtrace is an
+array of strings, each containing either “filename:lineNo: in
+`method&#39;&#39;&#39; or “filename:lineNo.&#39;&#39;</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">a</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;boom&quot;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">b</span>
+  <span class="ruby-identifier">a</span>()
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">begin</span>
+  <span class="ruby-identifier">b</span>()
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">detail</span>
+  <span class="ruby-identifier">print</span> <span class="ruby-identifier">detail</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p><em>produces:</em></p>
+
+<pre>prog.rb:2:in `a&#39;
+prog.rb:6:in `b&#39;
+prog.rb:10</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="backtrace-source">
+            <pre>static VALUE
+exc_backtrace(VALUE exc)
+{
+    VALUE obj;
+
+    obj = rb_attr_get(exc, id_bt);
+
+    if (rb_backtrace_p(obj)) {
+        obj = rb_backtrace_to_str_ary(obj);
+        /* rb_ivar_set(exc, id_bt, obj); */
+    }
+
+    return obj;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-backtrace_locations" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            backtrace_locations    &rarr; array
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns any backtrace associated with the exception. This method is similar
+to <a href="Exception.html#method-i-backtrace">#backtrace</a>, but the
+backtrace is an array of <a
+href="Thread/Backtrace/Location.html">Thread::Backtrace::Location</a>.</p>
+
+<p>Now, this method is not affected by <a
+href="Exception.html#method-i-set_backtrace">#set_backtrace</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="backtrace_locations-source">
+            <pre>static VALUE
+exc_backtrace_locations(VALUE exc)
+{
+    VALUE obj;
+
+    obj = rb_attr_get(exc, id_bt_locations);
+    if (!NIL_P(obj)) {
+        obj = rb_backtrace_to_location_ary(obj);
+    }
+    return obj;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cause" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            cause   &rarr; an_exception or nil
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the previous exception ($!) at the time this exception was raised.
+This is useful for wrapping exceptions and retaining the original exception
+information.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cause-source">
+            <pre>static VALUE
+exc_cause(VALUE exc)
+{
+    return rb_attr_get(exc, id_cause);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exception" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            exception(string)  &rarr;  an_exception or exc
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>With no argument, or if the argument is the same as the receiver, return
+the receiver. Otherwise, create a new exception object of the same class as
+the receiver, but with a message equal to <code>string.to_str</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="exception-source">
+            <pre>static VALUE
+exc_exception(int argc, VALUE *argv, VALUE self)
+{
+    VALUE exc;
+
+    if (argc == 0) return self;
+    if (argc == 1 &amp;&amp; self == argv[0]) return self;
+    exc = rb_obj_clone(self);
+    exc_initialize(argc, argv, exc);
+
+    return exc;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            inspect   &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return this exception&#39;s class name and message</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre>static VALUE
+exc_inspect(VALUE exc)
+{
+    VALUE str, klass;
+
+    klass = CLASS_OF(exc);
+    exc = rb_obj_as_string(exc);
+    if (RSTRING_LEN(exc) == 0) {
+        return rb_str_dup(rb_class_name(klass));
+    }
+
+    str = rb_str_buf_new2(&quot;#&lt;&quot;);
+    klass = rb_class_name(klass);
+    rb_str_buf_append(str, klass);
+    rb_str_buf_cat(str, &quot;: &quot;, 2);
+    rb_str_buf_append(str, exc);
+    rb_str_buf_cat(str, &quot;&gt;&quot;, 1);
+
+    return str;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-message" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            message   &rarr;  string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the result of invoking <code>exception.to_s</code>. Normally this
+returns the exception&#39;s message or name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="message-source">
+            <pre>static VALUE
+exc_message(VALUE exc)
+{
+    return rb_funcallv(exc, idTo_s, 0, 0);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_backtrace" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_backtrace(backtrace)   &rarr;  array
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets the backtrace information associated with <code>exc</code>. The
+<code>backtrace</code> must be an array of String objects or a single
+String in the format described in <a
+href="Exception.html#method-i-backtrace">#backtrace</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_backtrace-source">
+            <pre>static VALUE
+exc_set_backtrace(VALUE exc, VALUE bt)
+{
+    return rb_ivar_set(exc, id_bt, rb_check_backtrace(bt));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_json</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Stores class name (Exception) with message <code>m</code> and backtrace
+array <code>b</code> as <a href="JSON.html">JSON</a> string</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_json-source">
+            <pre><span class="ruby-comment"># File ext/json/lib/json/add/exception.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_json</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">as_json</span>.<span class="ruby-identifier">to_json</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            to_s   &rarr;  string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns exception&#39;s message (or the name of the exception if no message
+is set).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre>static VALUE
+exc_to_s(VALUE exc)
+{
+    VALUE mesg = rb_attr_get(exc, idMesg);
+
+    if (NIL_P(mesg)) return rb_class_name(CLASS_OF(exc));
+    return rb_String(mesg);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

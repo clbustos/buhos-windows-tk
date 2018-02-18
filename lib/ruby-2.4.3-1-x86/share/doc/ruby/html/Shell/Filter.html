@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Shell::Filter - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../Enumerable.html">Enumerable</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-2B">#+</a>
+    
+    <li ><a href="#method-i-3C">#&lt;</a>
+    
+    <li ><a href="#method-i-3E">#&gt;</a>
+    
+    <li ><a href="#method-i-3E-3E">#&gt;&gt;</a>
+    
+    <li ><a href="#method-i-each">#each</a>
+    
+    <li ><a href="#method-i-input-3D">#input=</a>
+    
+    <li class="calls-super" ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-to_a">#to_a</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-7C">#|</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Shell::Filter">
+  <h1 id="class-Shell::Filter" class="class">
+    class Shell::Filter
+  </h1>
+
+  <section class="description">
+    
+<p>Any result of command execution is a <a href="Filter.html">Filter</a>.</p>
+
+<p>This class includes <a href="../Enumerable.html">Enumerable</a>, therefore
+a <a href="Filter.html">Filter</a> object can use all <a
+href="../Enumerable.html">Enumerable</a> facilities.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-input" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">input</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(sh)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/shell/filter.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">sh</span>)
+  <span class="ruby-ivar">@shell</span> = <span class="ruby-identifier">sh</span>         <span class="ruby-comment"># parent shell</span>
+  <span class="ruby-ivar">@input</span> = <span class="ruby-keyword">nil</span>        <span class="ruby-comment"># input filter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-2B" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            filter1 + filter2
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Outputs <code>filter1</code>, and then <code>filter2</code> using Join.new</p>
+          
+          
+
+          
+          <div class="method-source-code" id="2B-source">
+            <pre><span class="ruby-comment"># File lib/shell/filter.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">+</span>(<span class="ruby-identifier">filter</span>)
+  <span class="ruby-constant">Join</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@shell</span>, <span class="ruby-keyword">self</span>, <span class="ruby-identifier">filter</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-3C" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            &lt; source
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Inputs from <code>source</code>, which is either a string of a file name or
+an <a href="../IO.html">IO</a> object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3C-source">
+            <pre><span class="ruby-comment"># File lib/shell/filter.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;</span>(<span class="ruby-identifier">src</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">src</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+    <span class="ruby-identifier">cat</span> = <span class="ruby-constant">Cat</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@shell</span>, <span class="ruby-identifier">src</span>)
+    <span class="ruby-identifier">cat</span> <span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">IO</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">input</span> = <span class="ruby-identifier">src</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Shell</span>.<span class="ruby-constant">Fail</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">CantApplyMethod</span>, <span class="ruby-string">&quot;&lt;&quot;</span>, <span class="ruby-identifier">to</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-3E" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            &gt; source
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Outputs from <code>source</code>, which is either a string of a file name
+or an <a href="../IO.html">IO</a> object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3E-source">
+            <pre><span class="ruby-comment"># File lib/shell/filter.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&gt;</span>(<span class="ruby-identifier">to</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">to</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>
+    <span class="ruby-identifier">dst</span> = <span class="ruby-ivar">@shell</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">to</span>, <span class="ruby-string">&quot;w&quot;</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">each</span>(){<span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">dst</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">l</span>}
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-identifier">dst</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">IO</span>
+    <span class="ruby-identifier">each</span>(){<span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">to</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">l</span>}
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Shell</span>.<span class="ruby-constant">Fail</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">CantApplyMethod</span>, <span class="ruby-string">&quot;&gt;&quot;</span>, <span class="ruby-identifier">to</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-3E-3E" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            &gt;&gt; source
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Appends the output to <code>source</code>, which is either a string of a
+file name or an <a href="../IO.html">IO</a> object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3E-3E-source">
+            <pre><span class="ruby-comment"># File lib/shell/filter.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&gt;&gt;</span>(<span class="ruby-identifier">to</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">Shell</span>.<span class="ruby-identifier">cd</span>(<span class="ruby-ivar">@shell</span>.<span class="ruby-identifier">pwd</span>).<span class="ruby-identifier">append</span>(<span class="ruby-identifier">to</span>, <span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">CantApplyMethod</span>
+    <span class="ruby-constant">Shell</span>.<span class="ruby-constant">Fail</span> <span class="ruby-constant">Error</span><span class="ruby-operator">::</span><span class="ruby-constant">CantApplyMethod</span>, <span class="ruby-string">&quot;&gt;&gt;&quot;</span>, <span class="ruby-identifier">to</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            each(record_separator=nil) { block }
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Iterates a block for each line.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="each-source">
+            <pre><span class="ruby-comment"># File lib/shell/filter.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">each</span>(<span class="ruby-identifier">rs</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">rs</span> = <span class="ruby-ivar">@shell</span>.<span class="ruby-identifier">record_separator</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">rs</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@input</span>
+    <span class="ruby-ivar">@input</span>.<span class="ruby-identifier">each</span>(<span class="ruby-identifier">rs</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">l</span>}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-input-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">input=</span><span
+            class="method-args">(filter)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="input-3D-source">
+            <pre><span class="ruby-comment"># File lib/shell/filter.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">input=</span>(<span class="ruby-identifier">filter</span>)
+  <span class="ruby-ivar">@input</span> = <span class="ruby-identifier">filter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="../Object.html#method-i-inspect">Object#inspect</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/shell/filter.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inspect</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@shell</span>.<span class="ruby-identifier">debug</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Integer</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@shell</span>.<span class="ruby-identifier">debug</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_a" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_a</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_a-source">
+            <pre><span class="ruby-comment"># File lib/shell/filter.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_a</span>
+  <span class="ruby-identifier">ary</span> = []
+  <span class="ruby-identifier">each</span>(){<span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">l</span>}
+  <span class="ruby-identifier">ary</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/shell/filter.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">each</span>(){<span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">concat</span> <span class="ruby-identifier">l</span>}
+  <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-7C" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            | filter
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Processes a pipeline.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="7C-source">
+            <pre><span class="ruby-comment"># File lib/shell/filter.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">|</span>(<span class="ruby-identifier">filter</span>)
+  <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">input</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">active?</span>
+    <span class="ruby-ivar">@shell</span>.<span class="ruby-identifier">process_controller</span>.<span class="ruby-identifier">start_job</span> <span class="ruby-identifier">filter</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">filter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

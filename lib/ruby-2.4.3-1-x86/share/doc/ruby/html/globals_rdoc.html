@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>globals - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Pre-defined+variables">Pre-defined variables</a>
+    <li><a href="#label-Pre-defined+global+constants">Pre-defined global constants</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./README_ja_md.html">README.ja</a>
+  
+    <li><a href="./README_md.html">README</a>
+  
+    <li><a href="./contributing_rdoc.html">contributing</a>
+  
+    <li><a href="./contributors_rdoc.html">contributors</a>
+  
+    <li><a href="./dtrace_probes_rdoc.html">dtrace_probes</a>
+  
+    <li><a href="./extension_ja_rdoc.html">extension.ja</a>
+  
+    <li><a href="./extension_rdoc.html">extension</a>
+  
+    <li><a href="./globals_rdoc.html">globals</a>
+  
+    <li><a href="./keywords_rdoc.html">keywords</a>
+  
+    <li><a href="./lib/racc/rdoc/grammar_en_rdoc.html">grammar.en</a>
+  
+    <li><a href="./lib/rubygems/LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="./maintainers_rdoc.html">maintainers</a>
+  
+    <li><a href="./marshal_rdoc.html">marshal</a>
+  
+    <li><a href="./regexp_rdoc.html">regexp</a>
+  
+    <li><a href="./security_rdoc.html">security</a>
+  
+    <li><a href="./standard_library_rdoc.html">standard_library</a>
+  
+    <li><a href="./syntax_rdoc.html">syntax</a>
+  
+    <li><a href="./syntax/assignment_rdoc.html">assignment</a>
+  
+    <li><a href="./syntax/calling_methods_rdoc.html">calling_methods</a>
+  
+    <li><a href="./syntax/control_expressions_rdoc.html">control_expressions</a>
+  
+    <li><a href="./syntax/exceptions_rdoc.html">exceptions</a>
+  
+    <li><a href="./syntax/literals_rdoc.html">literals</a>
+  
+    <li><a href="./syntax/methods_rdoc.html">methods</a>
+  
+    <li><a href="./syntax/miscellaneous_rdoc.html">miscellaneous</a>
+  
+    <li><a href="./syntax/modules_and_classes_rdoc.html">modules_and_classes</a>
+  
+    <li><a href="./syntax/precedence_rdoc.html">precedence</a>
+  
+    <li><a href="./syntax/refinements_rdoc.html">refinements</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page globals.rdoc">
+
+<h2 id="label-Pre-defined+variables">Pre-defined variables<span><a href="#label-Pre-defined+variables">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<dl class="rdoc-list note-list"><dt>$!
+<dd>
+<p>The exception information message set by &#39;raise&#39;.</p>
+</dd><dt>$@
+<dd>
+<p>Array of backtrace of the last exception thrown.</p>
+</dd><dt>$&amp;
+<dd>
+<p>The string matched by the last successful match.</p>
+</dd><dt>$`
+<dd>
+<p>The string to the left  of the last successful match.</p>
+</dd><dt>$&#39;
+<dd>
+<p>The string to the right of the last successful match.</p>
+</dd><dt>$+
+<dd>
+<p>The highest group matched by the last successful match.</p>
+</dd><dt>$1
+<dd>
+<p>The Nth group of the last successful match. May be &gt; 1.</p>
+</dd><dt>$~
+<dd>
+<p>The information about the last match in the current scope.</p>
+</dd><dt>$=
+<dd>
+<p>The flag for case insensitive, nil by default.</p>
+</dd><dt>$/
+<dd>
+<p>The input record separator, newline by default.</p>
+</dd><dt>$\
+<dd>
+<p>The output record separator for the print and <a
+href="IO.html#method-i-write">IO#write</a>. Default is nil.</p>
+</dd><dt>$,
+<dd>
+<p>The output field separator for the print and <a
+href="Array.html#method-i-join">Array#join</a>.</p>
+</dd><dt>$;
+<dd>
+<p>The default separator for <a
+href="String.html#method-i-split">String#split</a>.</p>
+</dd><dt>$.
+<dd>
+<p>The current input line number of the last file that was read.</p>
+</dd><dt>$&lt;
+<dd>
+<p>The virtual concatenation file of the files given on command line (or from
+$stdin if no files were given).</p>
+</dd><dt>$&gt;
+<dd>
+<p>The default output for print, printf. $stdout by default.</p>
+</dd><dt>$_
+<dd>
+<p>The last input line of string by gets or readline.</p>
+</dd><dt>$0
+<dd>
+<p>Contains the name of the script being executed. May be assignable.</p>
+</dd><dt>$*
+<dd>
+<p>Command line arguments given for the script sans args.</p>
+</dd><dt>$$
+<dd>
+<p>The process number of the Ruby running this script.</p>
+</dd><dt>$?
+<dd>
+<p>The status of the last executed child process.  This value is thread-local.</p>
+</dd><dt>$:
+<dd>
+<p>Load path for scripts and binary modules by load or require.</p>
+</dd><dt>$“
+<dd>
+<p>The array contains the module names loaded by require.</p>
+</dd><dt>$DEBUG
+<dd>
+<p>The debug flag, which is set by the -d switch.  Enabling debug output
+prints each exception raised to $stderr (but not its backtrace).  Setting
+this to a true value enables debug output as if -d were given on the
+command line.  Setting this to a false value disables debug output.</p>
+</dd><dt>$LOADED_FEATURES
+<dd>
+<p>The alias to the $“.</p>
+</dd><dt>$FILENAME
+<dd>
+<p>Current input file from $&lt;. Same as $&lt;.filename.</p>
+</dd><dt>$LOAD_PATH
+<dd>
+<p>The alias to the $:.</p>
+</dd><dt>$stderr
+<dd>
+<p>The current standard error output.</p>
+</dd><dt>$stdin
+<dd>
+<p>The current standard input.</p>
+</dd><dt>$stdout
+<dd>
+<p>The current standard output.</p>
+</dd><dt>$VERBOSE
+<dd>
+<p>The verbose flag, which is set by the -w or -v switch.  Setting this to a
+true value enables warnings as if -w or -v were given on the command line. 
+Setting this to nil disables warnings, including from <a
+href="Kernel.html#method-i-warn">Kernel#warn</a>.</p>
+</dd><dt>$-0
+<dd>
+<p>The alias to $/.</p>
+</dd><dt>$-a
+<dd>
+<p>True if option -a is set. Read-only variable.</p>
+</dd><dt>$-d
+<dd>
+<p>The alias of $DEBUG.  See $DEBUG above for further discussion.</p>
+</dd><dt>$-F
+<dd>
+<p>The alias to $;.</p>
+</dd><dt>$-i
+<dd>
+<p>In in-place-edit mode, this variable holds the extension, otherwise nil.</p>
+</dd><dt>$-I
+<dd>
+<p>The alias to $:.</p>
+</dd><dt>$-l
+<dd>
+<p>True if option -l is set. Read-only variable.</p>
+</dd><dt>$-p
+<dd>
+<p>True if option -p is set. Read-only variable.</p>
+</dd><dt>$-v
+<dd>
+<p>An alias of $VERBOSE.  See $VERBOSE above for further discussion.</p>
+</dd><dt>$-w
+<dd>
+<p>An alias of $VERBOSE.  See $VERBOSE above for further discussion.</p>
+</dd></dl>
+
+<h2 id="label-Pre-defined+global+constants">Pre-defined global constants<span><a href="#label-Pre-defined+global+constants">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<dl class="rdoc-list note-list"><dt>TRUE
+<dd>
+<p>The typical true value.</p>
+</dd><dt>FALSE
+<dd>
+<p>The false itself.</p>
+</dd><dt>NIL
+<dd>
+<p>The nil itself.</p>
+</dd><dt>STDIN
+<dd>
+<p>The standard input. The default value for $stdin.</p>
+</dd><dt>STDOUT
+<dd>
+<p>The standard output. The default value for $stdout.</p>
+</dd><dt>STDERR
+<dd>
+<p>The standard error output. The default value for $stderr.</p>
+</dd><dt><a href="ENV.html">ENV</a>
+<dd>
+<p>The hash contains current environment variables.</p>
+</dd><dt><a href="ARGF.html">ARGF</a>
+<dd>
+<p>The alias to the $&lt;.</p>
+</dd><dt>ARGV
+<dd>
+<p>The alias to the $*.</p>
+</dd><dt>DATA
+<dd>
+<p>The file object of the script, pointing just after __END__.</p>
+</dd><dt>RUBY_VERSION
+<dd>
+<p>The ruby version string (VERSION was deprecated).</p>
+</dd><dt>RUBY_RELEASE_DATE
+<dd>
+<p>The release date string.</p>
+</dd><dt>RUBY_PLATFORM
+<dd>
+<p>The platform identifier.</p>
+</dd></dl>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

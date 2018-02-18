@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Sync_m - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-append_features">::append_features</a>
+    
+    <li ><a href="#method-c-define_aliases">::define_aliases</a>
+    
+    <li class="calls-super" ><a href="#method-c-extend_object">::extend_object</a>
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-sync_exclusive-3F">#sync_exclusive?</a>
+    
+    <li ><a href="#method-i-sync_extend">#sync_extend</a>
+    
+    <li ><a href="#method-i-sync_initialize">#sync_initialize</a>
+    
+    <li ><a href="#method-i-sync_inspect">#sync_inspect</a>
+    
+    <li ><a href="#method-i-sync_lock">#sync_lock</a>
+    
+    <li ><a href="#method-i-sync_locked-3F">#sync_locked?</a>
+    
+    <li ><a href="#method-i-sync_shared-3F">#sync_shared?</a>
+    
+    <li ><a href="#method-i-sync_synchronize">#sync_synchronize</a>
+    
+    <li ><a href="#method-i-sync_try_lock">#sync_try_lock</a>
+    
+    <li ><a href="#method-i-sync_try_lock_sub">#sync_try_lock_sub</a>
+    
+    <li ><a href="#method-i-sync_unlock">#sync_unlock</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Sync_m">
+  <h1 id="module-Sync_m" class="module">
+    module Sync_m
+  </h1>
+
+  <section class="description">
+    
+<p>A module that provides a two-phase lock with a counter.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="EX">EX
+        
+        <dd>
+        
+      
+        <dt id="SH">SH
+        
+        <dd>
+        
+      
+        <dt id="UN">UN
+        
+        <dd><p>lock mode</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-sync_ex_count" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">sync_ex_count</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-sync_ex_locker" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">sync_ex_locker</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-sync_mode" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">sync_mode</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-sync_sh_locker" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">sync_sh_locker</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-sync_upgrade_waiting" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">sync_upgrade_waiting</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-sync_waiting" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">sync_waiting</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-append_features" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_features</span><span
+            class="method-args">(cl)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="append_features-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Sync_m</span>.<span class="ruby-identifier">append_features</span>(<span class="ruby-identifier">cl</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-comment"># do nothing for Modules</span>
+  <span class="ruby-comment"># make aliases for Classes.</span>
+  <span class="ruby-identifier">define_aliases</span>(<span class="ruby-identifier">cl</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">cl</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">Module</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-define_aliases" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">define_aliases</span><span
+            class="method-args">(cl)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="define_aliases-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Sync_m</span>.<span class="ruby-identifier">define_aliases</span>(<span class="ruby-identifier">cl</span>)
+  <span class="ruby-identifier">cl</span>.<span class="ruby-identifier">module_eval</span> <span class="ruby-string">%q{
+    alias locked? sync_locked?
+    alias shared? sync_shared?
+    alias exclusive? sync_exclusive?
+    alias lock sync_lock
+    alias unlock sync_unlock
+    alias try_lock sync_try_lock
+    alias synchronize sync_synchronize
+  }</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-extend_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extend_object</span><span
+            class="method-args">(obj)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="extend_object-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Sync_m</span>.<span class="ruby-identifier">extend_object</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">sync_extend</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 266</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">sync_initialize</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-sync_exclusive-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync_exclusive?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sync_exclusive-3F-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync_exclusive?</span>
+  <span class="ruby-identifier">sync_mode</span> <span class="ruby-operator">==</span> <span class="ruby-constant">EX</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sync_extend" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync_extend</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sync_extend-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync_extend</span>
+  <span class="ruby-keyword">unless</span> (<span class="ruby-keyword">defined?</span> <span class="ruby-identifier">locked?</span> <span class="ruby-keyword">and</span>
+          <span class="ruby-keyword">defined?</span> <span class="ruby-identifier">shared?</span> <span class="ruby-keyword">and</span>
+          <span class="ruby-keyword">defined?</span> <span class="ruby-identifier">exclusive?</span> <span class="ruby-keyword">and</span>
+          <span class="ruby-keyword">defined?</span> <span class="ruby-identifier">lock</span> <span class="ruby-keyword">and</span>
+          <span class="ruby-keyword">defined?</span> <span class="ruby-identifier">unlock</span> <span class="ruby-keyword">and</span>
+          <span class="ruby-keyword">defined?</span> <span class="ruby-identifier">try_lock</span> <span class="ruby-keyword">and</span>
+          <span class="ruby-keyword">defined?</span> <span class="ruby-identifier">synchronize</span>)
+    <span class="ruby-constant">Sync_m</span>.<span class="ruby-identifier">define_aliases</span>(<span class="ruby-identifier">singleton_class</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">sync_initialize</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sync_inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync_inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sync_inspect-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 248</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync_inspect</span>
+  <span class="ruby-identifier">sync_iv</span> = <span class="ruby-identifier">instance_variables</span>.<span class="ruby-identifier">select</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">iv</span><span class="ruby-operator">|</span> <span class="ruby-regexp">/^@sync_/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">iv</span>.<span class="ruby-identifier">id2name</span>}.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">iv</span><span class="ruby-operator">|</span> <span class="ruby-identifier">iv</span>.<span class="ruby-identifier">id2name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;=&#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">instance_eval</span>(<span class="ruby-identifier">iv</span>.<span class="ruby-identifier">id2name</span>).<span class="ruby-identifier">inspect</span>}.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;,&quot;</span>)
+  <span class="ruby-identifier">print</span> <span class="ruby-node">&quot;&lt;#{self.class}.extend Sync_m: #{inspect}, &lt;Sync_m: #{sync_iv}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sync_lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync_lock</span><span
+            class="method-args">(m = EX)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sync_lock-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync_lock</span>(<span class="ruby-identifier">m</span> = <span class="ruby-constant">EX</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">unlock</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">==</span> <span class="ruby-constant">UN</span>
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">handle_interrupt</span>(<span class="ruby-constant">StandardError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:on_blocking</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-ivar">@sync_mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">sync_try_lock_sub</span>(<span class="ruby-identifier">m</span>)
+            <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">sync_sh_locker</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>]
+              <span class="ruby-identifier">sync_upgrade_waiting</span>.<span class="ruby-identifier">push</span> [<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>, <span class="ruby-identifier">sync_sh_locker</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>]]
+              <span class="ruby-identifier">sync_sh_locker</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sync_waiting</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">sync_upgrade_waiting</span>.<span class="ruby-identifier">reverse_each</span>.<span class="ruby-identifier">any?</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">w</span><span class="ruby-operator">|</span> <span class="ruby-identifier">w</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span> }
+                <span class="ruby-identifier">sync_waiting</span>.<span class="ruby-identifier">push</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-ivar">@sync_mutex</span>.<span class="ruby-identifier">sleep</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">ensure</span>
+          <span class="ruby-identifier">sync_waiting</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sync_locked-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync_locked?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>accessing</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sync_locked-3F-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync_locked?</span>
+  <span class="ruby-identifier">sync_mode</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">UN</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sync_shared-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync_shared?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sync_shared-3F-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync_shared?</span>
+  <span class="ruby-identifier">sync_mode</span> <span class="ruby-operator">==</span> <span class="ruby-constant">SH</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sync_synchronize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync_synchronize</span><span
+            class="method-args">(mode = EX) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sync_synchronize-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync_synchronize</span>(<span class="ruby-identifier">mode</span> = <span class="ruby-constant">EX</span>)
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">handle_interrupt</span>(<span class="ruby-constant">StandardError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:on_blocking</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">sync_lock</span>(<span class="ruby-identifier">mode</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">yield</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-identifier">sync_unlock</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sync_try_lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync_try_lock</span><span
+            class="method-args">(mode = EX)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>locking methods.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sync_try_lock-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync_try_lock</span>(<span class="ruby-identifier">mode</span> = <span class="ruby-constant">EX</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">unlock</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-constant">UN</span>
+  <span class="ruby-ivar">@sync_mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">sync_try_lock_sub</span>(<span class="ruby-identifier">mode</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sync_unlock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync_unlock</span><span
+            class="method-args">(m = EX)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sync_unlock-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync_unlock</span>(<span class="ruby-identifier">m</span> = <span class="ruby-constant">EX</span>)
+  <span class="ruby-identifier">wakeup_threads</span> = []
+  <span class="ruby-ivar">@sync_mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">sync_mode</span> <span class="ruby-operator">==</span> <span class="ruby-constant">UN</span>
+      <span class="ruby-constant">Err</span><span class="ruby-operator">::</span><span class="ruby-constant">UnknownLocker</span>.<span class="ruby-constant">Fail</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">m</span> = <span class="ruby-identifier">sync_mode</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">==</span> <span class="ruby-constant">EX</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">sync_mode</span> <span class="ruby-operator">==</span> <span class="ruby-constant">SH</span>
+
+    <span class="ruby-identifier">runnable</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">m</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">UN</span>
+      <span class="ruby-constant">Err</span><span class="ruby-operator">::</span><span class="ruby-constant">UnknownLocker</span>.<span class="ruby-constant">Fail</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)
+
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">EX</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">sync_ex_locker</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">sync_ex_count</span> = <span class="ruby-identifier">sync_ex_count</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+          <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sync_ex_locker</span> = <span class="ruby-keyword">nil</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">sync_sh_locker</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)
+            <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sync_mode</span> = <span class="ruby-constant">SH</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sync_mode</span> = <span class="ruby-constant">UN</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">runnable</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-constant">Err</span><span class="ruby-operator">::</span><span class="ruby-constant">UnknownLocker</span>.<span class="ruby-constant">Fail</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)
+      <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">SH</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">count</span> = <span class="ruby-identifier">sync_sh_locker</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>]).<span class="ruby-identifier">nil?</span>
+        <span class="ruby-constant">Err</span><span class="ruby-operator">::</span><span class="ruby-constant">UnknownLocker</span>.<span class="ruby-constant">Fail</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">sync_sh_locker</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>] = <span class="ruby-identifier">count</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">sync_sh_locker</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">sync_sh_locker</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">sync_ex_count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+            <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sync_mode</span> = <span class="ruby-constant">UN</span>
+            <span class="ruby-identifier">runnable</span> = <span class="ruby-keyword">true</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">runnable</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">sync_upgrade_waiting</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">th</span>, <span class="ruby-identifier">count</span> = <span class="ruby-identifier">sync_upgrade_waiting</span>.<span class="ruby-identifier">shift</span>
+        <span class="ruby-identifier">sync_sh_locker</span>[<span class="ruby-identifier">th</span>] = <span class="ruby-identifier">count</span>
+        <span class="ruby-identifier">th</span>.<span class="ruby-identifier">wakeup</span>
+        <span class="ruby-identifier">wakeup_threads</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">th</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">wait</span> = <span class="ruby-identifier">sync_waiting</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sync_waiting</span> = []
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">th</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">wait</span>
+          <span class="ruby-identifier">th</span>.<span class="ruby-identifier">wakeup</span>
+          <span class="ruby-identifier">wakeup_threads</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">th</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">th</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">wakeup_threads</span>
+    <span class="ruby-identifier">th</span>.<span class="ruby-identifier">run</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-sync_initialize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync_initialize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sync_initialize-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 255</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync_initialize</span>
+  <span class="ruby-ivar">@sync_mode</span> = <span class="ruby-constant">UN</span>
+  <span class="ruby-ivar">@sync_waiting</span> = []
+  <span class="ruby-ivar">@sync_upgrade_waiting</span> = []
+  <span class="ruby-ivar">@sync_sh_locker</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@sync_ex_locker</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@sync_ex_count</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-ivar">@sync_mutex</span> = <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sync_try_lock_sub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sync_try_lock_sub</span><span
+            class="method-args">(m)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sync_try_lock_sub-source">
+            <pre><span class="ruby-comment"># File lib/sync.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sync_try_lock_sub</span>(<span class="ruby-identifier">m</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">m</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">SH</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">sync_mode</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">UN</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sync_mode</span> = <span class="ruby-identifier">m</span>
+      <span class="ruby-identifier">sync_sh_locker</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>] = <span class="ruby-value">1</span>
+      <span class="ruby-identifier">ret</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">SH</span>
+      <span class="ruby-identifier">count</span> = <span class="ruby-value">0</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">count</span> = <span class="ruby-identifier">sync_sh_locker</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>]
+      <span class="ruby-identifier">sync_sh_locker</span>[<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>] = <span class="ruby-identifier">count</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">ret</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">EX</span>
+      <span class="ruby-comment"># in EX mode, lock will upgrade to EX lock</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">sync_ex_locker</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sync_ex_count</span> = <span class="ruby-identifier">sync_ex_count</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">ret</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">ret</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">EX</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">sync_mode</span> <span class="ruby-operator">==</span> <span class="ruby-constant">UN</span> <span class="ruby-keyword">or</span>
+        <span class="ruby-identifier">sync_mode</span> <span class="ruby-operator">==</span> <span class="ruby-constant">SH</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">sync_sh_locker</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">sync_sh_locker</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>)
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sync_mode</span> = <span class="ruby-identifier">m</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sync_ex_locker</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sync_ex_count</span> = <span class="ruby-value">1</span>
+      <span class="ruby-identifier">ret</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">sync_mode</span> <span class="ruby-operator">==</span> <span class="ruby-constant">EX</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">sync_ex_locker</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sync_ex_count</span> = <span class="ruby-identifier">sync_ex_count</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">ret</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">ret</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Err</span><span class="ruby-operator">::</span><span class="ruby-constant">LockModeFailer</span>.<span class="ruby-constant">Fail</span> <span class="ruby-identifier">m</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

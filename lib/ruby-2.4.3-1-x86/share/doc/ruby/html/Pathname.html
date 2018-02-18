@@ -1,0 +1,4854 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pathname - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#class-Pathname-label-Examples">Examples</a>
+    <li><a href="#class-Pathname-label-Example+1-3A+Using+Pathname">Example 1: Using Pathname</a>
+    <li><a href="#class-Pathname-label-Example+2-3A+Using+standard+Ruby">Example 2: Using standard Ruby</a>
+    <li><a href="#class-Pathname-label-Example+3-3A+Special+features">Example 3: Special features</a>
+    <li><a href="#class-Pathname-label-Breakdown+of+functionality">Breakdown of functionality</a>
+    <li><a href="#class-Pathname-label-Core+methods">Core methods</a>
+    <li><a href="#class-Pathname-label-File+status+predicate+methods">File status predicate methods</a>
+    <li><a href="#class-Pathname-label-File+property+and+manipulation+methods">File property and manipulation methods</a>
+    <li><a href="#class-Pathname-label-Directory+methods">Directory methods</a>
+    <li><a href="#class-Pathname-label-IO">IO</a>
+    <li><a href="#class-Pathname-label-Utilities">Utilities</a>
+    <li><a href="#class-Pathname-label-Method+documentation">Method documentation</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-getwd">::getwd</a>
+    
+    <li ><a href="#method-c-glob">::glob</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-pwd">::pwd</a>
+    
+    <li ><a href="#method-i-2B">#+</a>
+    
+    <li ><a href="#method-i-2F">#/</a>
+    
+    <li ><a href="#method-i-3C-3D-3E">#&lt;=&gt;</a>
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-3D-3D-3D">#===</a>
+    
+    <li ><a href="#method-i-absolute-3F">#absolute?</a>
+    
+    <li ><a href="#method-i-ascend">#ascend</a>
+    
+    <li ><a href="#method-i-atime">#atime</a>
+    
+    <li ><a href="#method-i-basename">#basename</a>
+    
+    <li ><a href="#method-i-binread">#binread</a>
+    
+    <li ><a href="#method-i-binwrite">#binwrite</a>
+    
+    <li ><a href="#method-i-birthtime">#birthtime</a>
+    
+    <li ><a href="#method-i-blockdev-3F">#blockdev?</a>
+    
+    <li ><a href="#method-i-chardev-3F">#chardev?</a>
+    
+    <li ><a href="#method-i-children">#children</a>
+    
+    <li ><a href="#method-i-chmod">#chmod</a>
+    
+    <li ><a href="#method-i-chown">#chown</a>
+    
+    <li ><a href="#method-i-cleanpath">#cleanpath</a>
+    
+    <li ><a href="#method-i-ctime">#ctime</a>
+    
+    <li ><a href="#method-i-delete">#delete</a>
+    
+    <li ><a href="#method-i-descend">#descend</a>
+    
+    <li ><a href="#method-i-directory-3F">#directory?</a>
+    
+    <li ><a href="#method-i-dirname">#dirname</a>
+    
+    <li ><a href="#method-i-each_child">#each_child</a>
+    
+    <li ><a href="#method-i-each_entry">#each_entry</a>
+    
+    <li ><a href="#method-i-each_filename">#each_filename</a>
+    
+    <li ><a href="#method-i-each_line">#each_line</a>
+    
+    <li ><a href="#method-i-empty-3F">#empty?</a>
+    
+    <li ><a href="#method-i-entries">#entries</a>
+    
+    <li ><a href="#method-i-eql-3F">#eql?</a>
+    
+    <li ><a href="#method-i-executable-3F">#executable?</a>
+    
+    <li ><a href="#method-i-executable_real-3F">#executable_real?</a>
+    
+    <li ><a href="#method-i-exist-3F">#exist?</a>
+    
+    <li ><a href="#method-i-expand_path">#expand_path</a>
+    
+    <li ><a href="#method-i-extname">#extname</a>
+    
+    <li ><a href="#method-i-file-3F">#file?</a>
+    
+    <li ><a href="#method-i-find">#find</a>
+    
+    <li ><a href="#method-i-fnmatch">#fnmatch</a>
+    
+    <li ><a href="#method-i-fnmatch-3F">#fnmatch?</a>
+    
+    <li ><a href="#method-i-freeze">#freeze</a>
+    
+    <li ><a href="#method-i-ftype">#ftype</a>
+    
+    <li ><a href="#method-i-grpowned-3F">#grpowned?</a>
+    
+    <li ><a href="#method-i-join">#join</a>
+    
+    <li ><a href="#method-i-lchmod">#lchmod</a>
+    
+    <li ><a href="#method-i-lchown">#lchown</a>
+    
+    <li ><a href="#method-i-lstat">#lstat</a>
+    
+    <li ><a href="#method-i-make_link">#make_link</a>
+    
+    <li ><a href="#method-i-make_symlink">#make_symlink</a>
+    
+    <li ><a href="#method-i-mkdir">#mkdir</a>
+    
+    <li ><a href="#method-i-mkpath">#mkpath</a>
+    
+    <li ><a href="#method-i-mountpoint-3F">#mountpoint?</a>
+    
+    <li ><a href="#method-i-mtime">#mtime</a>
+    
+    <li ><a href="#method-i-open">#open</a>
+    
+    <li ><a href="#method-i-opendir">#opendir</a>
+    
+    <li ><a href="#method-i-owned-3F">#owned?</a>
+    
+    <li ><a href="#method-i-parent">#parent</a>
+    
+    <li ><a href="#method-i-pipe-3F">#pipe?</a>
+    
+    <li ><a href="#method-i-read">#read</a>
+    
+    <li ><a href="#method-i-readable-3F">#readable?</a>
+    
+    <li ><a href="#method-i-readable_real-3F">#readable_real?</a>
+    
+    <li ><a href="#method-i-readlines">#readlines</a>
+    
+    <li ><a href="#method-i-readlink">#readlink</a>
+    
+    <li ><a href="#method-i-realdirpath">#realdirpath</a>
+    
+    <li ><a href="#method-i-realpath">#realpath</a>
+    
+    <li ><a href="#method-i-relative-3F">#relative?</a>
+    
+    <li ><a href="#method-i-relative_path_from">#relative_path_from</a>
+    
+    <li ><a href="#method-i-rename">#rename</a>
+    
+    <li ><a href="#method-i-rmdir">#rmdir</a>
+    
+    <li ><a href="#method-i-rmtree">#rmtree</a>
+    
+    <li ><a href="#method-i-root-3F">#root?</a>
+    
+    <li ><a href="#method-i-setgid-3F">#setgid?</a>
+    
+    <li ><a href="#method-i-setuid-3F">#setuid?</a>
+    
+    <li ><a href="#method-i-size">#size</a>
+    
+    <li ><a href="#method-i-size-3F">#size?</a>
+    
+    <li ><a href="#method-i-socket-3F">#socket?</a>
+    
+    <li ><a href="#method-i-split">#split</a>
+    
+    <li ><a href="#method-i-stat">#stat</a>
+    
+    <li ><a href="#method-i-sticky-3F">#sticky?</a>
+    
+    <li ><a href="#method-i-sub">#sub</a>
+    
+    <li ><a href="#method-i-sub_ext">#sub_ext</a>
+    
+    <li ><a href="#method-i-symlink-3F">#symlink?</a>
+    
+    <li ><a href="#method-i-sysopen">#sysopen</a>
+    
+    <li ><a href="#method-i-taint">#taint</a>
+    
+    <li ><a href="#method-i-to_path">#to_path</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-truncate">#truncate</a>
+    
+    <li ><a href="#method-i-unlink">#unlink</a>
+    
+    <li ><a href="#method-i-untaint">#untaint</a>
+    
+    <li ><a href="#method-i-utime">#utime</a>
+    
+    <li ><a href="#method-i-world_readable-3F">#world_readable?</a>
+    
+    <li ><a href="#method-i-world_writable-3F">#world_writable?</a>
+    
+    <li ><a href="#method-i-writable-3F">#writable?</a>
+    
+    <li ><a href="#method-i-writable_real-3F">#writable_real?</a>
+    
+    <li ><a href="#method-i-write">#write</a>
+    
+    <li ><a href="#method-i-zero-3F">#zero?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pathname">
+  <h1 id="class-Pathname" class="class">
+    class Pathname
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Pathname.html">Pathname</a> represents the name of a file or
+directory on the filesystem, but not the file itself.</p>
+
+<p>The pathname depends on the Operating System: Unix, Windows, etc. This
+library works with pathnames of local OS, however non-Unix pathnames are
+supported experimentally.</p>
+
+<p>A <a href="Pathname.html">Pathname</a> can be relative or absolute. 
+It&#39;s not until you try to reference the file that it even matters
+whether the file exists or not.</p>
+
+<p><a href="Pathname.html">Pathname</a> is immutable.  It has no method for
+destructive update.</p>
+
+<p>The goal of this class is to manipulate file path information in a neater
+way than standard Ruby provides.  The examples below demonstrate the
+difference.</p>
+
+<p><strong>All</strong> functionality from <a href="File.html">File</a>, <a
+href="FileTest.html">FileTest</a>, and some from <a href="Dir.html">Dir</a>
+and <a href="FileUtils.html">FileUtils</a> is included, in an unsurprising
+way.  It is essentially a facade for all of these, and more.</p>
+
+<h2 id="class-Pathname-label-Examples">Examples<span><a href="#class-Pathname-label-Examples">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="class-Pathname-label-Example+1-3A+Using+Pathname">Example 1: Using <a href="Pathname.html">Pathname</a><span><a href="#class-Pathname-label-Example+1-3A+Using+Pathname">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;pathname&#39;</span>
+<span class="ruby-identifier">pn</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;/usr/bin/ruby&quot;</span>)
+<span class="ruby-identifier">size</span> = <span class="ruby-identifier">pn</span>.<span class="ruby-identifier">size</span>              <span class="ruby-comment"># 27662</span>
+<span class="ruby-identifier">isdir</span> = <span class="ruby-identifier">pn</span>.<span class="ruby-identifier">directory?</span>       <span class="ruby-comment"># false</span>
+<span class="ruby-identifier">dir</span>  = <span class="ruby-identifier">pn</span>.<span class="ruby-identifier">dirname</span>           <span class="ruby-comment"># Pathname:/usr/bin</span>
+<span class="ruby-identifier">base</span> = <span class="ruby-identifier">pn</span>.<span class="ruby-identifier">basename</span>          <span class="ruby-comment"># Pathname:ruby</span>
+<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">base</span> = <span class="ruby-identifier">pn</span>.<span class="ruby-identifier">split</span>        <span class="ruby-comment"># [Pathname:/usr/bin, Pathname:ruby]</span>
+<span class="ruby-identifier">data</span> = <span class="ruby-identifier">pn</span>.<span class="ruby-identifier">read</span>
+<span class="ruby-identifier">pn</span>.<span class="ruby-identifier">open</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">_</span> }
+<span class="ruby-identifier">pn</span>.<span class="ruby-identifier">each_line</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">_</span> }
+</pre>
+
+<h3 id="class-Pathname-label-Example+2-3A+Using+standard+Ruby">Example 2: Using standard Ruby<span><a href="#class-Pathname-label-Example+2-3A+Using+standard+Ruby">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-identifier">pn</span> = <span class="ruby-string">&quot;/usr/bin/ruby&quot;</span>
+<span class="ruby-identifier">size</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">size</span>(<span class="ruby-identifier">pn</span>)        <span class="ruby-comment"># 27662</span>
+<span class="ruby-identifier">isdir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">pn</span>) <span class="ruby-comment"># false</span>
+<span class="ruby-identifier">dir</span>  = <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">pn</span>)     <span class="ruby-comment"># &quot;/usr/bin&quot;</span>
+<span class="ruby-identifier">base</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">pn</span>)    <span class="ruby-comment"># &quot;ruby&quot;</span>
+<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">base</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">split</span>(<span class="ruby-identifier">pn</span>)  <span class="ruby-comment"># [&quot;/usr/bin&quot;, &quot;ruby&quot;]</span>
+<span class="ruby-identifier">data</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">pn</span>)
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">pn</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">_</span> }
+<span class="ruby-constant">File</span>.<span class="ruby-identifier">foreach</span>(<span class="ruby-identifier">pn</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> <span class="ruby-identifier">_</span> }
+</pre>
+
+<h3 id="class-Pathname-label-Example+3-3A+Special+features">Example 3: Special features<span><a href="#class-Pathname-label-Example+3-3A+Special+features">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<pre class="ruby"><span class="ruby-identifier">p1</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;/usr/lib&quot;</span>)   <span class="ruby-comment"># Pathname:/usr/lib</span>
+<span class="ruby-identifier">p2</span> = <span class="ruby-identifier">p1</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;ruby/1.8&quot;</span>            <span class="ruby-comment"># Pathname:/usr/lib/ruby/1.8</span>
+<span class="ruby-identifier">p3</span> = <span class="ruby-identifier">p1</span>.<span class="ruby-identifier">parent</span>                  <span class="ruby-comment"># Pathname:/usr</span>
+<span class="ruby-identifier">p4</span> = <span class="ruby-identifier">p2</span>.<span class="ruby-identifier">relative_path_from</span>(<span class="ruby-identifier">p3</span>)  <span class="ruby-comment"># Pathname:lib/ruby/1.8</span>
+<span class="ruby-identifier">pwd</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">pwd</span>              <span class="ruby-comment"># Pathname:/home/gavin</span>
+<span class="ruby-identifier">pwd</span>.<span class="ruby-identifier">absolute?</span>                   <span class="ruby-comment"># true</span>
+<span class="ruby-identifier">p5</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span> <span class="ruby-string">&quot;.&quot;</span>           <span class="ruby-comment"># Pathname:.</span>
+<span class="ruby-identifier">p5</span> = <span class="ruby-identifier">p5</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;music/../articles&quot;</span>   <span class="ruby-comment"># Pathname:music/../articles</span>
+<span class="ruby-identifier">p5</span>.<span class="ruby-identifier">cleanpath</span>                    <span class="ruby-comment"># Pathname:articles</span>
+<span class="ruby-identifier">p5</span>.<span class="ruby-identifier">realpath</span>                     <span class="ruby-comment"># Pathname:/home/gavin/articles</span>
+<span class="ruby-identifier">p5</span>.<span class="ruby-identifier">children</span>                     <span class="ruby-comment"># [Pathname:/home/gavin/articles/linux, ...]</span>
+</pre>
+
+<h2 id="class-Pathname-label-Breakdown+of+functionality">Breakdown of functionality<span><a href="#class-Pathname-label-Breakdown+of+functionality">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="class-Pathname-label-Core+methods">Core methods<span><a href="#class-Pathname-label-Core+methods">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>These methods are effectively manipulating a String, because that&#39;s all
+a path is.  None of these access the file system except for <a
+href="Pathname.html#method-i-mountpoint-3F">mountpoint?</a>, <a
+href="Pathname.html#method-i-children">children</a>, <a
+href="Pathname.html#method-i-each_child">each_child</a>, <a
+href="Pathname.html#method-i-realdirpath">realdirpath</a> and <a
+href="Pathname.html#method-i-realpath">realpath</a>.</p>
+<ul><li>
+<p>+</p>
+</li><li>
+<p><a href="Pathname.html#method-i-join">join</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-parent">parent</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-root-3F">root?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-absolute-3F">absolute?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-relative-3F">relative?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-relative_path_from">relative_path_from</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-each_filename">each_filename</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-cleanpath">cleanpath</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-realpath">realpath</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-realdirpath">realdirpath</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-children">children</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-each_child">each_child</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-mountpoint-3F">mountpoint?</a></p>
+</li></ul>
+
+<h3 id="class-Pathname-label-File+status+predicate+methods"><a href="File.html">File</a> status predicate methods<span><a href="#class-Pathname-label-File+status+predicate+methods">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>These methods are a facade for FileTest:</p>
+<ul><li>
+<p><a href="Pathname.html#method-i-blockdev-3F">blockdev?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-chardev-3F">chardev?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-directory-3F">directory?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-executable-3F">executable?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-executable_real-3F">executable_real?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-exist-3F">exist?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-file-3F">file?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-grpowned-3F">grpowned?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-owned-3F">owned?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-pipe-3F">pipe?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-readable-3F">readable?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-world_readable-3F">world_readable?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-readable_real-3F">readable_real?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-setgid-3F">setgid?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-setuid-3F">setuid?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-size">size</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-size-3F">size?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-socket-3F">socket?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-sticky-3F">sticky?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-symlink-3F">symlink?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-writable-3F">writable?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-world_writable-3F">world_writable?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-writable_real-3F">writable_real?</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-zero-3F">zero?</a></p>
+</li></ul>
+
+<h3 id="class-Pathname-label-File+property+and+manipulation+methods"><a href="File.html">File</a> property and manipulation methods<span><a href="#class-Pathname-label-File+property+and+manipulation+methods">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>These methods are a facade for File:</p>
+<ul><li>
+<p><a href="Pathname.html#method-i-atime">atime</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-birthtime">birthtime</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-ctime">ctime</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-mtime">mtime</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-chmod">chmod(mode)</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-lchmod">lchmod(mode)</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-chown">chown</a>(owner, group)</p>
+</li><li>
+<p><a href="Pathname.html#method-i-lchown">lchown</a>(owner, group)</p>
+</li><li>
+<p><a href="Pathname.html#method-i-fnmatch">fnmatch</a>(pattern, *args)</p>
+</li><li>
+<p><a href="Pathname.html#method-i-fnmatch-3F">fnmatch?</a>(pattern, *args)</p>
+</li><li>
+<p><a href="Pathname.html#method-i-ftype">ftype</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-make_link">make_link(old)</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-open">open</a>(*args, &amp;block)</p>
+</li><li>
+<p><a href="Pathname.html#method-i-readlink">readlink</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-rename">rename(to)</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-stat">stat</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-lstat">lstat</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-make_symlink">make_symlink(old)</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-truncate">truncate(length)</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-utime">utime</a>(atime, mtime)</p>
+</li><li>
+<p><a href="Pathname.html#method-i-basename">basename(*args)</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-dirname">dirname</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-extname">extname</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-expand_path">expand_path(*args)</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-split">split</a></p>
+</li></ul>
+
+<h3 id="class-Pathname-label-Directory+methods">Directory methods<span><a href="#class-Pathname-label-Directory+methods">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>These methods are a facade for Dir:</p>
+<ul><li>
+<p><a href="Pathname.html#method-c-glob">::glob</a></p>
+</li><li>
+<p><a href="Pathname.html#method-c-getwd">::getwd</a> / <a
+href="Pathname.html#method-c-pwd">::pwd</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-rmdir">rmdir</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-entries">entries</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-each_entry">each_entry</a>(&amp;block)</p>
+</li><li>
+<p><a href="Pathname.html#method-i-mkdir">mkdir(*args)</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-opendir">opendir(*args)</a></p>
+</li></ul>
+
+<h3 id="class-Pathname-label-IO"><a href="IO.html">IO</a><span><a href="#class-Pathname-label-IO">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>These methods are a facade for IO:</p>
+<ul><li>
+<p><a href="Pathname.html#method-i-each_line">each_line</a>(*args, &amp;block)</p>
+</li><li>
+<p><a href="Pathname.html#method-i-read">read(*args)</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-binread">binread(*args)</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-readlines">readlines(*args)</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-sysopen">sysopen(*args)</a></p>
+</li></ul>
+
+<h3 id="class-Pathname-label-Utilities">Utilities<span><a href="#class-Pathname-label-Utilities">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>These methods are a mixture of <a href="Find.html">Find</a>, <a
+href="FileUtils.html">FileUtils</a>, and others:</p>
+<ul><li>
+<p><a href="Pathname.html#method-i-find">find</a>(&amp;block)</p>
+</li><li>
+<p><a href="Pathname.html#method-i-mkpath">mkpath</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-rmtree">rmtree</a></p>
+</li><li>
+<p><a href="Pathname.html#method-i-unlink">unlink</a> / <a
+href="Pathname.html#method-i-delete">delete</a></p>
+</li></ul>
+
+<h2 id="class-Pathname-label-Method+documentation"><a href="Method.html">Method</a> documentation<span><a href="#class-Pathname-label-Method+documentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>As the above section shows, most of the methods in <a
+href="Pathname.html">Pathname</a> are facades.  The documentation for these
+methods generally just says, for instance, “See <a
+href="FileTest.html#method-i-writable-3F">FileTest#writable?</a>”, as you
+should be familiar with the original method anyway, and its documentation
+(e.g. through <code>ri</code>) will contain more information.  In some
+cases, a brief description will follow.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="SAME_PATHS">SAME_PATHS
+        
+        <dd>
+        
+      
+        <dt id="SEPARATOR_LIST">SEPARATOR_LIST
+        
+        <dd>
+        
+      
+        <dt id="SEPARATOR_PAT">SEPARATOR_PAT
+        
+        <dd>
+        
+      
+        <dt id="TO_PATH">TO_PATH
+        
+        <dd><p><a href="Pathname.html#method-i-to_path">#to_path</a> is implemented so <a
+href="Pathname.html">Pathname</a> objects are usable with <a
+href="File.html#method-c-open">File.open</a>, etc.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-getwd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getwd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the current working directory as a <a
+href="Pathname.html">Pathname</a>.</p>
+
+<pre class="ruby"><span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">getwd</span>
+    <span class="ruby-comment">#=&gt; #&lt;Pathname:/home/zzak/projects/ruby&gt;</span>
+</pre>
+
+<p>See <a href="Dir.html#method-c-getwd">Dir.getwd</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="getwd-source">
+            <pre>static VALUE
+path_s_getwd(VALUE klass)
+{
+    VALUE str;
+    str = rb_funcall(rb_cDir, rb_intern(&quot;getwd&quot;), 0);
+    return rb_class_new_instance(1, &amp;str, klass);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-glob" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">glob</span><span
+            class="method-args">(p1, p2 = v2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns or yields <a href="Pathname.html">Pathname</a> objects.</p>
+
+<pre class="ruby"><span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-string">&quot;config/&quot;</span> <span class="ruby-string">&quot;*.rb&quot;</span>)
+    <span class="ruby-comment">#=&gt; [#&lt;Pathname:config/environment.rb&gt;, #&lt;Pathname:config/routes.rb&gt;, ..]</span>
+</pre>
+
+<p>See <a href="Dir.html#method-c-glob">Dir.glob</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="glob-source">
+            <pre>static VALUE
+path_s_glob(int argc, VALUE *argv, VALUE klass)
+{
+    VALUE args[2];
+    int n;
+
+    n = rb_scan_args(argc, argv, &quot;11&quot;, &amp;args[0], &amp;args[1]);
+    if (rb_block_given_p()) {
+        return rb_block_call(rb_cDir, rb_intern(&quot;glob&quot;), n, args, glob_i, klass);
+    }
+    else {
+        VALUE ary;
+        long i;
+        ary = rb_funcallv(rb_cDir, rb_intern(&quot;glob&quot;), n, args);
+        ary = rb_convert_type(ary, T_ARRAY, &quot;Array&quot;, &quot;to_ary&quot;);
+        for (i = 0; i &lt; RARRAY_LEN(ary); i++) {
+            VALUE elt = RARRAY_AREF(ary, i);
+            elt = rb_class_new_instance(1, &amp;elt, klass);
+            rb_ary_store(ary, i, elt);
+        }
+        return ary;
+    }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a <a href="Pathname.html">Pathname</a> object from the given String
+(or String-like object). If <code>path</code> contains a NULL character
+(<code>\0</code>), an <a href="ArgumentError.html">ArgumentError</a> is
+raised.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE
+path_initialize(VALUE self, VALUE arg)
+{
+    VALUE str;
+    if (RB_TYPE_P(arg, T_STRING)) {
+        str = arg;
+    }
+    else {
+        str = rb_check_funcall(arg, id_to_path, 0, NULL);
+        if (str == Qundef)
+            str = arg;
+        StringValue(str);
+    }
+    if (memchr(RSTRING_PTR(str), &#39;\0&#39;, RSTRING_LEN(str)))
+        rb_raise(rb_eArgError, &quot;pathname contains null byte&quot;);
+    str = rb_obj_dup(str);
+
+    set_strpath(self, str);
+    OBJ_INFECT(self, str);
+    return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pwd" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pwd</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the current working directory as a <a
+href="Pathname.html">Pathname</a>.</p>
+
+<pre class="ruby"><span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">getwd</span>
+    <span class="ruby-comment">#=&gt; #&lt;Pathname:/home/zzak/projects/ruby&gt;</span>
+</pre>
+
+<p>See <a href="Dir.html#method-c-getwd">Dir.getwd</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pwd-source">
+            <pre>static VALUE
+path_s_getwd(VALUE klass)
+{
+    VALUE str;
+    str = rb_funcall(rb_cDir, rb_intern(&quot;getwd&quot;), 0);
+    return rb_class_new_instance(1, &amp;str, klass);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-2B" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">+</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Appends a pathname fragment to <code>self</code> to produce a new <a
+href="Pathname.html">Pathname</a> object.</p>
+
+<pre class="ruby"><span class="ruby-identifier">p1</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;/usr&quot;</span>)      <span class="ruby-comment"># Pathname:/usr</span>
+<span class="ruby-identifier">p2</span> = <span class="ruby-identifier">p1</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;bin/ruby&quot;</span>           <span class="ruby-comment"># Pathname:/usr/bin/ruby</span>
+<span class="ruby-identifier">p3</span> = <span class="ruby-identifier">p1</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/etc/passwd&quot;</span>        <span class="ruby-comment"># Pathname:/etc/passwd</span>
+
+<span class="ruby-comment"># / is aliased to +.</span>
+<span class="ruby-identifier">p4</span> = <span class="ruby-identifier">p1</span> <span class="ruby-operator">/</span> <span class="ruby-string">&quot;bin/ruby&quot;</span>           <span class="ruby-comment"># Pathname:/usr/bin/ruby</span>
+<span class="ruby-identifier">p5</span> = <span class="ruby-identifier">p1</span> <span class="ruby-operator">/</span> <span class="ruby-string">&quot;/etc/passwd&quot;</span>        <span class="ruby-comment"># Pathname:/etc/passwd</span>
+</pre>
+
+<p>This method doesn&#39;t access the file system; it is pure string
+manipulation.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="2B-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 347</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">+</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">other</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">other</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Pathname</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">other</span>
+  <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">plus</span>(<span class="ruby-ivar">@path</span>, <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_s</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Pathname.html#method-i-2F">/</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-2F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">/</span><span
+            class="method-args">(other)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Pathname.html#method-i-2B">+</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-3C-3D-3E" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;=&gt;</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Provides a case-sensitive comparison operator for pathnames.</p>
+
+<pre class="ruby"><span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/usr&#39;</span>) <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/usr/bin&#39;</span>)
+    <span class="ruby-comment">#=&gt; -1</span>
+<span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/usr/bin&#39;</span>) <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/usr/bin&#39;</span>)
+    <span class="ruby-comment">#=&gt; 0</span>
+<span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/usr/bin&#39;</span>) <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/USR/BIN&#39;</span>)
+    <span class="ruby-comment">#=&gt; 1</span>
+</pre>
+
+<p>It will return <code>-1</code>, <code>0</code> or <code>1</code> depending
+on the value of the left argument relative to the right argument. Or it
+will return <code>nil</code> if the arguments are not comparable.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3C-3D-3E-source">
+            <pre>static VALUE
+path_cmp(VALUE self, VALUE other)
+{
+    VALUE s1, s2;
+    char *p1, *p2;
+    char *e1, *e2;
+    if (!rb_obj_is_kind_of(other, rb_cPathname))
+        return Qnil;
+    s1 = get_strpath(self);
+    s2 = get_strpath(other);
+    p1 = RSTRING_PTR(s1);
+    p2 = RSTRING_PTR(s2);
+    e1 = p1 + RSTRING_LEN(s1);
+    e2 = p2 + RSTRING_LEN(s2);
+    while (p1 &lt; e1 &amp;&amp; p2 &lt; e2) {
+        int c1, c2;
+        c1 = (unsigned char)*p1++;
+        c2 = (unsigned char)*p2++;
+        if (c1 == &#39;/&#39;) c1 = &#39;\0&#39;;
+        if (c2 == &#39;/&#39;) c2 = &#39;\0&#39;;
+        if (c1 != c2) {
+            if (c1 &lt; c2)
+                return INT2FIX(-1);
+            else
+                return INT2FIX(1);
+        }
+    }
+    if (p1 &lt; e1)
+        return INT2FIX(1);
+    if (p2 &lt; e2)
+        return INT2FIX(-1);
+    return INT2FIX(0);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Compare this pathname with <code>other</code>.  The comparison is
+string-based. Be aware that two different paths (<code>foo.txt</code> and
+<code>./foo.txt</code>) can refer to the same file.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre>static VALUE
+path_eq(VALUE self, VALUE other)
+{
+    if (!rb_obj_is_kind_of(other, rb_cPathname))
+        return Qfalse;
+    return rb_str_equal(get_strpath(self), get_strpath(other));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-3D-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">===</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Compare this pathname with <code>other</code>.  The comparison is
+string-based. Be aware that two different paths (<code>foo.txt</code> and
+<code>./foo.txt</code>) can refer to the same file.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-3D-source">
+            <pre>static VALUE
+path_eq(VALUE self, VALUE other)
+{
+    if (!rb_obj_is_kind_of(other, rb_cPathname))
+        return Qfalse;
+    return rb_str_equal(get_strpath(self), get_strpath(other));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-absolute-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">absolute?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Predicate method for testing whether a path is absolute.</p>
+
+<p>It returns <code>true</code> if the pathname begins with a slash.</p>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/im/sure&#39;</span>)
+<span class="ruby-identifier">p</span>.<span class="ruby-identifier">absolute?</span>
+    <span class="ruby-comment">#=&gt; true</span>
+
+<span class="ruby-identifier">p</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;not/so/sure&#39;</span>)
+<span class="ruby-identifier">p</span>.<span class="ruby-identifier">absolute?</span>
+    <span class="ruby-comment">#=&gt; false</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="absolute-3F-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">absolute?</span>
+  <span class="ruby-operator">!</span><span class="ruby-identifier">relative?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ascend" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ascend</span><span
+            class="method-args">() { |self| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Iterates over and yields a new <a href="Pathname.html">Pathname</a> object
+for each element in the given path in ascending order.</p>
+
+<pre class="ruby"><span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/path/to/some/file.rb&#39;</span>).<span class="ruby-identifier">ascend</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">v</span>}
+   <span class="ruby-comment">#&lt;Pathname:/path/to/some/file.rb&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:/path/to/some&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:/path/to&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:/path&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:/&gt;</span>
+
+<span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;path/to/some/file.rb&#39;</span>).<span class="ruby-identifier">ascend</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">v</span>}
+   <span class="ruby-comment">#&lt;Pathname:path/to/some/file.rb&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:path/to/some&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:path/to&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:path&gt;</span>
+</pre>
+
+<p>Returns an <a href="Enumerator.html">Enumerator</a> if no block was given.</p>
+
+<pre>enum = Pathname.new(&quot;/usr/bin/ruby&quot;).ascend
+  # ... do stuff ...
+enum.each { |e| ... }
+  # yields Pathnames /usr/bin/ruby, /usr/bin, /usr, and /.</pre>
+
+<p>It doesn&#39;t access the filesystem.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ascend-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 323</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ascend</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-identifier">__method__</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">path</span> = <span class="ruby-ivar">@path</span>
+  <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">r</span> = <span class="ruby-identifier">chop_basename</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-identifier">path</span>, = <span class="ruby-identifier">r</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">del_trailing_separator</span>(<span class="ruby-identifier">path</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-atime" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            atime     &rarr; time
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the last access time for the file.</p>
+
+<p>See <a href="File.html#method-c-atime">File.atime</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="atime-source">
+            <pre>static VALUE
+path_atime(VALUE self)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;atime&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-basename" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">basename</span><span
+            class="method-args">(p1 = v1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the last component of the path.</p>
+
+<p>See <a href="File.html#method-c-basename">File.basename</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="basename-source">
+            <pre>static VALUE
+path_basename(int argc, VALUE *argv, VALUE self)
+{
+    VALUE str = get_strpath(self);
+    VALUE fext;
+    if (rb_scan_args(argc, argv, &quot;01&quot;, &amp;fext) == 0)
+        str = rb_funcall(rb_cFile, rb_intern(&quot;basename&quot;), 1, str);
+    else
+        str = rb_funcall(rb_cFile, rb_intern(&quot;basename&quot;), 2, str, fext);
+    return rb_class_new_instance(1, &amp;str, rb_obj_class(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-binread" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            binread([length [, offset]]) &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns all the bytes from the file, or the first <code>N</code> if
+specified.</p>
+
+<p>See <a href="IO.html#method-c-binread">IO.binread</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="binread-source">
+            <pre>static VALUE
+path_binread(int argc, VALUE *argv, VALUE self)
+{
+    VALUE args[3];
+    int n;
+
+    args[0] = get_strpath(self);
+    n = rb_scan_args(argc, argv, &quot;02&quot;, &amp;args[1], &amp;args[2]);
+    return rb_funcallv(rb_cIO, rb_intern(&quot;binread&quot;), 1+n, args);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-binwrite" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            binwrite(string, [offset] )   &rarr; fixnum
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            binwrite(string, [offset], open_args )   &rarr; fixnum
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes <code>contents</code> to the file, opening it in binary mode.</p>
+
+<p>See <a href="IO.html#method-c-binwrite">IO.binwrite</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="binwrite-source">
+            <pre>static VALUE
+path_binwrite(int argc, VALUE *argv, VALUE self)
+{
+    VALUE args[4];
+    int n;
+
+    args[0] = get_strpath(self);
+    n = rb_scan_args(argc, argv, &quot;03&quot;, &amp;args[1], &amp;args[2], &amp;args[3]);
+    return rb_funcallv(rb_cIO, rb_intern(&quot;binwrite&quot;), 1+n, args);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-birthtime" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            birthtime &rarr; time
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the birth time for the file. If the platform doesn&#39;t have
+birthtime, raises <a
+href="NotImplementedError.html">NotImplementedError</a>.</p>
+
+<p>See <a href="File.html#method-c-birthtime">File.birthtime</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="birthtime-source">
+            <pre>static VALUE
+path_birthtime(VALUE self)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;birthtime&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-blockdev-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blockdev?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-blockdev-3F">FileTest#blockdev?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="blockdev-3F-source">
+            <pre>static VALUE
+path_blockdev_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;blockdev?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-chardev-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">chardev?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-chardev-3F">FileTest#chardev?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="chardev-3F-source">
+            <pre>static VALUE
+path_chardev_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;chardev?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-children" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">children</span><span
+            class="method-args">(with_directory=true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the children of the directory (files and subdirectories, not
+recursive) as an array of <a href="Pathname.html">Pathname</a> objects.</p>
+
+<p>By default, the returned pathnames will have enough information to access
+the files. If you set <code>with_directory</code> to <code>false</code>,
+then the returned pathnames will contain the filename only.</p>
+
+<p>For example:</p>
+
+<pre>pn = Pathname(&quot;/usr/lib/ruby/1.8&quot;)
+pn.children
+    # -&gt; [ Pathname:/usr/lib/ruby/1.8/English.rb,
+           Pathname:/usr/lib/ruby/1.8/Env.rb,
+           Pathname:/usr/lib/ruby/1.8/abbrev.rb, ... ]
+pn.children(false)
+    # -&gt; [ Pathname:English.rb, Pathname:Env.rb, Pathname:abbrev.rb, ... ]</pre>
+
+<p>Note that the results never contain the entries <code>.</code> and
+<code>..</code> in the directory because they are not children.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="children-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 438</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">children</span>(<span class="ruby-identifier">with_directory</span>=<span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">with_directory</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;.&#39;</span>
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">foreach</span>(<span class="ruby-ivar">@path</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;.&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">e</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;..&#39;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">with_directory</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@path</span>, <span class="ruby-identifier">e</span>))
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">e</span>)
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-chmod" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            chmod     &rarr; integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Changes file permissions.</p>
+
+<p>See <a href="File.html#method-c-chmod">File.chmod</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="chmod-source">
+            <pre>static VALUE
+path_chmod(VALUE self, VALUE mode)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;chmod&quot;), 2, mode, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-chown" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            chown     &rarr; integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Change owner and group of the file.</p>
+
+<p>See <a href="File.html#method-c-chown">File.chown</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="chown-source">
+            <pre>static VALUE
+path_chown(VALUE self, VALUE owner, VALUE group)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;chown&quot;), 3, owner, group, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cleanpath" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cleanpath</span><span
+            class="method-args">(consider_symlink=false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns clean pathname of <code>self</code> with consecutive slashes and
+useless dots removed.  The filesystem is not accessed.</p>
+
+<p>If <code>consider_symlink</code> is <code>true</code>, then a more
+conservative algorithm is used to avoid breaking symbolic linkages.  This
+may retain more <code>..</code> entries than absolutely necessary, but
+without accessing the filesystem, this can&#39;t be avoided.</p>
+
+<p>See <a href="Pathname.html#method-i-realpath">#realpath</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cleanpath-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cleanpath</span>(<span class="ruby-identifier">consider_symlink</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">consider_symlink</span>
+    <span class="ruby-identifier">cleanpath_conservative</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">cleanpath_aggressive</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ctime" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            ctime     &rarr; time
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the last change time, using directory information, not the file
+itself.</p>
+
+<p>See <a href="File.html#method-c-ctime">File.ctime</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ctime-source">
+            <pre>static VALUE
+path_ctime(VALUE self)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;ctime&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes a file or directory, using <a
+href="File.html#method-c-unlink">File.unlink</a> if <code>self</code> is a
+file, or <a href="Dir.html#method-c-unlink">Dir.unlink</a> as necessary.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete-source">
+            <pre>static VALUE
+path_unlink(VALUE self)
+{
+    VALUE eENOTDIR = rb_const_get_at(rb_mErrno, rb_intern(&quot;ENOTDIR&quot;));
+    VALUE str = get_strpath(self);
+    return rb_rescue2(unlink_body, str, unlink_rescue, str, eENOTDIR, (VALUE)0);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-descend" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">descend</span><span
+            class="method-args">() { |v| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Iterates over and yields a new <a href="Pathname.html">Pathname</a> object
+for each element in the given path in descending order.</p>
+
+<pre class="ruby"><span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/path/to/some/file.rb&#39;</span>).<span class="ruby-identifier">descend</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">v</span>}
+   <span class="ruby-comment">#&lt;Pathname:/&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:/path&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:/path/to&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:/path/to/some&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:/path/to/some/file.rb&gt;</span>
+
+<span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;path/to/some/file.rb&#39;</span>).<span class="ruby-identifier">descend</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">v</span>}
+   <span class="ruby-comment">#&lt;Pathname:path&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:path/to&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:path/to/some&gt;</span>
+   <span class="ruby-comment">#&lt;Pathname:path/to/some/file.rb&gt;</span>
+</pre>
+
+<p>Returns an <a href="Enumerator.html">Enumerator</a> if no block was given.</p>
+
+<pre>enum = Pathname.new(&quot;/usr/bin/ruby&quot;).descend
+  # ... do stuff ...
+enum.each { |e| ... }
+  # yields Pathnames /, /usr, /usr/bin, and /usr/bin/ruby.</pre>
+
+<p>It doesn&#39;t access the filesystem.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="descend-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 290</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">descend</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-identifier">__method__</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">vs</span> = []
+  <span class="ruby-identifier">ascend</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">vs</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">v</span> }
+  <span class="ruby-identifier">vs</span>.<span class="ruby-identifier">reverse_each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">v</span> }
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-directory-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">directory?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-directory-3F">FileTest#directory?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="directory-3F-source">
+            <pre>static VALUE
+path_directory_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;directory?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dirname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dirname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns all but the last component of the path.</p>
+
+<p>See <a href="File.html#method-c-dirname">File.dirname</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="dirname-source">
+            <pre>static VALUE
+path_dirname(VALUE self)
+{
+    VALUE str = get_strpath(self);
+    str = rb_funcall(rb_cFile, rb_intern(&quot;dirname&quot;), 1, str);
+    return rb_class_new_instance(1, &amp;str, rb_obj_class(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_child" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_child</span><span
+            class="method-args">(with_directory=true, &b)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Iterates over the children of the directory (files and subdirectories, not
+recursive).</p>
+
+<p>It yields <a href="Pathname.html">Pathname</a> object for each child.</p>
+
+<p>By default, the yielded pathnames will have enough information to access
+the files.</p>
+
+<p>If you set <code>with_directory</code> to <code>false</code>, then the
+returned pathnames will contain the filename only.</p>
+
+<pre class="ruby"><span class="ruby-constant">Pathname</span>(<span class="ruby-string">&quot;/usr/local&quot;</span>).<span class="ruby-identifier">each_child</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">f</span> }
+<span class="ruby-comment">#=&gt; #&lt;Pathname:/usr/local/share&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:/usr/local/bin&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:/usr/local/games&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:/usr/local/lib&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:/usr/local/include&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:/usr/local/sbin&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:/usr/local/src&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:/usr/local/man&gt;</span>
+
+<span class="ruby-constant">Pathname</span>(<span class="ruby-string">&quot;/usr/local&quot;</span>).<span class="ruby-identifier">each_child</span>(<span class="ruby-keyword">false</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span> <span class="ruby-identifier">f</span> }
+<span class="ruby-comment">#=&gt; #&lt;Pathname:share&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:bin&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:games&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:lib&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:include&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:sbin&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:src&gt;</span>
+<span class="ruby-comment">#   #&lt;Pathname:man&gt;</span>
+</pre>
+
+<p>Note that the results never contain the entries <code>.</code> and
+<code>..</code> in the directory because they are not children.</p>
+
+<p>See <a href="Pathname.html#method-i-children">#children</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="each_child-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 488</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">each_child</span>(<span class="ruby-identifier">with_directory</span>=<span class="ruby-keyword">true</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+  <span class="ruby-identifier">children</span>(<span class="ruby-identifier">with_directory</span>).<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_entry</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Iterates over the entries (files and subdirectories) in the directory,
+yielding a <a href="Pathname.html">Pathname</a> object for each entry.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="each_entry-source">
+            <pre>static VALUE
+path_each_entry(VALUE self)
+{
+    VALUE args[1];
+
+    args[0] = get_strpath(self);
+    return rb_block_call(rb_cDir, rb_intern(&quot;foreach&quot;), 1, args, each_entry_i, rb_obj_class(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_filename" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_filename</span><span
+            class="method-args">() { |filename| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Iterates over each component of the path.</p>
+
+<pre>Pathname.new(&quot;/usr/bin/ruby&quot;).each_filename {|filename| ... }
+  # yields &quot;usr&quot;, &quot;bin&quot;, and &quot;ruby&quot;.</pre>
+
+<p>Returns an <a href="Enumerator.html">Enumerator</a> if no block was given.</p>
+
+<pre>enum = Pathname.new(&quot;/usr/bin/ruby&quot;).each_filename
+  # ... do stuff ...
+enum.each { |e| ... }
+  # yields &quot;usr&quot;, &quot;bin&quot;, and &quot;ruby&quot;.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="each_filename-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 258</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">each_filename</span> <span class="ruby-comment"># :yield: filename</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-identifier">__method__</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">names</span> = <span class="ruby-identifier">split_names</span>(<span class="ruby-ivar">@path</span>)
+  <span class="ruby-identifier">names</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">filename</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">filename</span> }
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_line" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            each_line {|line| ... }
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            each_line(sep=$/ [, open_args]) {|line| block }     &rarr; nil
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            each_line(limit [, open_args]) {|line| block }      &rarr; nil
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            each_line(sep, limit [, open_args]) {|line| block } &rarr; nil
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            each_line(...)                                      &rarr; an_enumerator
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Iterates over each line in the file and yields a String object for each.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="each_line-source">
+            <pre>static VALUE
+path_each_line(int argc, VALUE *argv, VALUE self)
+{
+    VALUE args[4];
+    int n;
+
+    args[0] = get_strpath(self);
+    n = rb_scan_args(argc, argv, &quot;03&quot;, &amp;args[1], &amp;args[2], &amp;args[3]);
+    if (rb_block_given_p()) {
+        return rb_block_call(rb_cIO, rb_intern(&quot;foreach&quot;), 1+n, args, 0, 0);
+    }
+    else {
+        return rb_funcallv(rb_cIO, rb_intern(&quot;foreach&quot;), 1+n, args);
+    }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-empty-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">empty?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Tests the file is empty.</p>
+
+<p>See Dir#empty? and <a
+href="FileTest.html#method-i-empty-3F">FileTest#empty?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="empty-3F-source">
+            <pre>static VALUE
+path_empty_p(VALUE self)
+{
+
+    VALUE path = get_strpath(self);
+    if (RTEST(rb_funcall(rb_mFileTest, rb_intern(&quot;directory?&quot;), 1, path)))
+        return rb_funcall(rb_cDir, rb_intern(&quot;empty?&quot;), 1, path);
+    else
+        return rb_funcall(rb_mFileTest, rb_intern(&quot;empty?&quot;), 1, path);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-entries" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">entries</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the entries (files and subdirectories) in the directory, each as a
+<a href="Pathname.html">Pathname</a> object.</p>
+
+<p>The results contains just the names in the directory, without any trailing
+slashes or recursive look-up.</p>
+
+<pre class="ruby"><span class="ruby-identifier">pp</span> <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/usr/local&#39;</span>).<span class="ruby-identifier">entries</span>
+<span class="ruby-comment">#=&gt; [#&lt;Pathname:share&gt;,</span>
+<span class="ruby-comment">#    #&lt;Pathname:lib&gt;,</span>
+<span class="ruby-comment">#    #&lt;Pathname:..&gt;,</span>
+<span class="ruby-comment">#    #&lt;Pathname:include&gt;,</span>
+<span class="ruby-comment">#    #&lt;Pathname:etc&gt;,</span>
+<span class="ruby-comment">#    #&lt;Pathname:bin&gt;,</span>
+<span class="ruby-comment">#    #&lt;Pathname:man&gt;,</span>
+<span class="ruby-comment">#    #&lt;Pathname:games&gt;,</span>
+<span class="ruby-comment">#    #&lt;Pathname:.&gt;,</span>
+<span class="ruby-comment">#    #&lt;Pathname:sbin&gt;,</span>
+<span class="ruby-comment">#    #&lt;Pathname:src&gt;]</span>
+</pre>
+
+<p>The result may contain the current directory
+<code>#&lt;Pathname:.&gt;</code> and the parent directory
+<code>#&lt;Pathname:..&gt;</code>.</p>
+
+<p>If you don&#39;t want <code>.</code> and <code>..</code> and want
+directories, consider <a
+href="Pathname.html#method-i-children">#children</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="entries-source">
+            <pre>static VALUE
+path_entries(VALUE self)
+{
+    VALUE klass, str, ary;
+    long i;
+    klass = rb_obj_class(self);
+    str = get_strpath(self);
+    ary = rb_funcall(rb_cDir, rb_intern(&quot;entries&quot;), 1, str);
+    ary = rb_convert_type(ary, T_ARRAY, &quot;Array&quot;, &quot;to_ary&quot;);
+    for (i = 0; i &lt; RARRAY_LEN(ary); i++) {
+        VALUE elt = RARRAY_AREF(ary, i);
+        elt = rb_class_new_instance(1, &amp;elt, klass);
+        rb_ary_store(ary, i, elt);
+    }
+    return ary;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eql-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eql?</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Compare this pathname with <code>other</code>.  The comparison is
+string-based. Be aware that two different paths (<code>foo.txt</code> and
+<code>./foo.txt</code>) can refer to the same file.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="eql-3F-source">
+            <pre>static VALUE
+path_eq(VALUE self, VALUE other)
+{
+    if (!rb_obj_is_kind_of(other, rb_cPathname))
+        return Qfalse;
+    return rb_str_equal(get_strpath(self), get_strpath(other));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-executable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">executable?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a
+href="FileTest.html#method-i-executable-3F">FileTest#executable?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="executable-3F-source">
+            <pre>static VALUE
+path_executable_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;executable?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-executable_real-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">executable_real?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a
+href="FileTest.html#method-i-executable_real-3F">FileTest#executable_real?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="executable_real-3F-source">
+            <pre>static VALUE
+path_executable_real_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;executable_real?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exist-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exist?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-exist-3F">FileTest#exist?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="exist-3F-source">
+            <pre>static VALUE
+path_exist_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;exist?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-expand_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expand_path</span><span
+            class="method-args">(p1 = v1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the absolute path for the file.</p>
+
+<p>See <a href="File.html#method-c-expand_path">File.expand_path</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="expand_path-source">
+            <pre>static VALUE
+path_expand_path(int argc, VALUE *argv, VALUE self)
+{
+    VALUE str = get_strpath(self);
+    VALUE dname;
+    if (rb_scan_args(argc, argv, &quot;01&quot;, &amp;dname) == 0)
+        str = rb_funcall(rb_cFile, rb_intern(&quot;expand_path&quot;), 1, str);
+    else
+        str = rb_funcall(rb_cFile, rb_intern(&quot;expand_path&quot;), 2, str, dname);
+    return rb_class_new_instance(1, &amp;str, rb_obj_class(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extname" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extname</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the file&#39;s extension.</p>
+
+<p>See <a href="File.html#method-c-extname">File.extname</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="extname-source">
+            <pre>static VALUE
+path_extname(VALUE self)
+{
+    VALUE str = get_strpath(self);
+    return rb_funcall(rb_cFile, rb_intern(&quot;extname&quot;), 1, str);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-file-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-file-3F">FileTest#file?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="file-3F-source">
+            <pre>static VALUE
+path_file_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;file?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(ignore_error: true) { |pathname| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Iterates over the directory tree in a depth first manner, yielding a <a
+href="Pathname.html">Pathname</a> for each file under “this” directory.</p>
+
+<p>Returns an <a href="Enumerator.html">Enumerator</a> if no block is given.</p>
+
+<p>Since it is implemented by the standard library module <a
+href="Find.html">Find</a>, <a
+href="Find.html#method-i-prune">Find#prune</a> can be used to control the
+traversal.</p>
+
+<p>If <code>self</code> is <code>.</code>, yielded pathnames begin with a
+filename in the current directory, not <code>./</code>.</p>
+
+<p>See <a href="Find.html#method-i-find">Find#find</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 556</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">ignore_error</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>) <span class="ruby-comment"># :yield: pathname</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-identifier">__method__</span>, <span class="ruby-identifier">ignore_error</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ignore_error</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;find&#39;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@path</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;.&#39;</span>
+    <span class="ruby-constant">Find</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@path</span>, <span class="ruby-identifier">ignore_error</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ignore_error</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">f</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">%r{\A\./}</span>, <span class="ruby-string">&#39;&#39;</span>)) }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Find</span>.<span class="ruby-identifier">find</span>(<span class="ruby-ivar">@path</span>, <span class="ruby-identifier">ignore_error</span><span class="ruby-operator">:</span> <span class="ruby-identifier">ignore_error</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">f</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fnmatch" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            fnmatch(pattern, [flags])        &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            fnmatch?(pattern, [flags])       &rarr; string
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return <code>true</code> if the receiver matches the given pattern.</p>
+
+<p>See <a href="File.html#method-c-fnmatch">File.fnmatch</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fnmatch-source">
+            <pre>static VALUE
+path_fnmatch(int argc, VALUE *argv, VALUE self)
+{
+    VALUE str = get_strpath(self);
+    VALUE pattern, flags;
+    if (rb_scan_args(argc, argv, &quot;11&quot;, &amp;pattern, &amp;flags) == 1)
+        return rb_funcall(rb_cFile, rb_intern(&quot;fnmatch&quot;), 2, pattern, str);
+    else
+        return rb_funcall(rb_cFile, rb_intern(&quot;fnmatch&quot;), 3, pattern, str, flags);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fnmatch-3F" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            fnmatch?(pattern, [flags])       &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return <code>true</code> if the receiver matches the given pattern.</p>
+
+<p>See <a href="File.html#method-c-fnmatch">File.fnmatch</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fnmatch-3F-source">
+            <pre>static VALUE
+path_fnmatch(int argc, VALUE *argv, VALUE self)
+{
+    VALUE str = get_strpath(self);
+    VALUE pattern, flags;
+    if (rb_scan_args(argc, argv, &quot;11&quot;, &amp;pattern, &amp;flags) == 1)
+        return rb_funcall(rb_cFile, rb_intern(&quot;fnmatch&quot;), 2, pattern, str);
+    else
+        return rb_funcall(rb_cFile, rb_intern(&quot;fnmatch&quot;), 3, pattern, str, flags);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-freeze" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            freeze &rarr; obj
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Freezes this <a href="Pathname.html">Pathname</a>.</p>
+
+<p>See <a href="Object.html#method-i-freeze">Object#freeze</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="freeze-source">
+            <pre>static VALUE
+path_freeze(VALUE self)
+{
+    rb_call_super(0, 0);
+    rb_str_freeze(get_strpath(self));
+    return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ftype" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            ftype     &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns “type” of file (“file”, “directory”, etc).</p>
+
+<p>See <a href="File.html#method-c-ftype">File.ftype</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ftype-source">
+            <pre>static VALUE
+path_ftype(VALUE self)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;ftype&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-grpowned-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">grpowned?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-grpowned-3F">FileTest#grpowned?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="grpowned-3F-source">
+            <pre>static VALUE
+path_grpowned_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;grpowned?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-join" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">join</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Joins the given pathnames onto <code>self</code> to create a new <a
+href="Pathname.html">Pathname</a> object.</p>
+
+<pre class="ruby"><span class="ruby-identifier">path0</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;/usr&quot;</span>)                <span class="ruby-comment"># Pathname:/usr</span>
+<span class="ruby-identifier">path0</span> = <span class="ruby-identifier">path0</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;bin/ruby&quot;</span>)              <span class="ruby-comment"># Pathname:/usr/bin/ruby</span>
+    <span class="ruby-comment"># is the same as</span>
+<span class="ruby-identifier">path1</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;/usr&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;bin/ruby&quot;</span>   <span class="ruby-comment"># Pathname:/usr/bin/ruby</span>
+<span class="ruby-identifier">path0</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">path1</span>
+    <span class="ruby-comment">#=&gt; true</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="join-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 405</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">result</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Pathname</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">absolute?</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">reverse_each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">arg</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">arg</span>) <span class="ruby-keyword">unless</span> <span class="ruby-constant">Pathname</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">arg</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">arg</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">absolute?</span>
+  }
+  <span class="ruby-keyword">self</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lchmod" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            lchmod    &rarr; integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Same as <a href="Pathname.html#method-i-chmod">#chmod</a>, but does not
+follow symbolic links.</p>
+
+<p>See <a href="File.html#method-c-lchmod">File.lchmod</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="lchmod-source">
+            <pre>static VALUE
+path_lchmod(VALUE self, VALUE mode)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;lchmod&quot;), 2, mode, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lchown" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            lchown    &rarr; integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Same as <a href="Pathname.html#method-i-chown">#chown</a>, but does not
+follow symbolic links.</p>
+
+<p>See <a href="File.html#method-c-lchown">File.lchown</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="lchown-source">
+            <pre>static VALUE
+path_lchown(VALUE self, VALUE owner, VALUE group)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;lchown&quot;), 3, owner, group, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lstat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lstat</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="File.html#method-c-lstat">File.lstat</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="lstat-source">
+            <pre>static VALUE
+path_lstat(VALUE self)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;lstat&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-make_link" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            make_link(old)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a hard link at <em>pathname</em>.</p>
+
+<p>See <a href="File.html#method-c-link">File.link</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="make_link-source">
+            <pre>static VALUE
+path_make_link(VALUE self, VALUE old)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;link&quot;), 2, old, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-make_symlink" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            make_symlink(old)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a symbolic link.</p>
+
+<p>See <a href="File.html#method-c-symlink">File.symlink</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="make_symlink-source">
+            <pre>static VALUE
+path_make_symlink(VALUE self, VALUE old)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;symlink&quot;), 2, old, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mkdir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mkdir</span><span
+            class="method-args">(p1 = v1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create the referenced directory.</p>
+
+<p>See <a href="Dir.html#method-c-mkdir">Dir.mkdir</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mkdir-source">
+            <pre>static VALUE
+path_mkdir(int argc, VALUE *argv, VALUE self)
+{
+    VALUE str = get_strpath(self);
+    VALUE vmode;
+    if (rb_scan_args(argc, argv, &quot;01&quot;, &amp;vmode) == 0)
+        return rb_funcall(rb_cDir, rb_intern(&quot;mkdir&quot;), 1, str);
+    else
+        return rb_funcall(rb_cDir, rb_intern(&quot;mkdir&quot;), 2, str, vmode);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mkpath" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mkpath</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a full path, including any intermediate directories that don&#39;t
+yet exist.</p>
+
+<p>See <a href="FileUtils.html#method-i-mkpath">FileUtils#mkpath</a> and <a
+href="FileUtils.html#method-i-mkdir_p">FileUtils#mkdir_p</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="mkpath-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 573</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mkpath</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fileutils&#39;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkpath</span>(<span class="ruby-ivar">@path</span>)
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mountpoint-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mountpoint?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns <code>true</code> if <code>self</code> points to a mountpoint.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mountpoint-3F-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mountpoint?</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">stat1</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lstat</span>
+    <span class="ruby-identifier">stat2</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parent</span>.<span class="ruby-identifier">lstat</span>
+    <span class="ruby-identifier">stat1</span>.<span class="ruby-identifier">dev</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">stat2</span>.<span class="ruby-identifier">dev</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">stat1</span>.<span class="ruby-identifier">ino</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">stat2</span>.<span class="ruby-identifier">ino</span> <span class="ruby-operator">||</span>
+      <span class="ruby-identifier">stat1</span>.<span class="ruby-identifier">dev</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">stat2</span>.<span class="ruby-identifier">dev</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mtime" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            mtime     &rarr; time
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the last modified time of the file.</p>
+
+<p>See <a href="File.html#method-c-mtime">File.mtime</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mtime-source">
+            <pre>static VALUE
+path_mtime(VALUE self)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;mtime&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-open" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open</span><span
+            class="method-args">(p1 = v1, p2 = v2, p3 = v3)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Opens the file for reading or writing.</p>
+
+<p>See <a href="File.html#method-c-open">File.open</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="open-source">
+            <pre>static VALUE
+path_open(int argc, VALUE *argv, VALUE self)
+{
+    VALUE args[4];
+    int n;
+
+    args[0] = get_strpath(self);
+    n = rb_scan_args(argc, argv, &quot;03&quot;, &amp;args[1], &amp;args[2], &amp;args[3]);
+    if (rb_block_given_p()) {
+        return rb_block_call(rb_cFile, rb_intern(&quot;open&quot;), 1+n, args, 0, 0);
+    }
+    else {
+        return rb_funcallv(rb_cFile, rb_intern(&quot;open&quot;), 1+n, args);
+    }
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-opendir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">opendir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Opens the referenced directory.</p>
+
+<p>See <a href="Dir.html#method-c-open">Dir.open</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="opendir-source">
+            <pre>static VALUE
+path_opendir(VALUE self)
+{
+    VALUE args[1];
+
+    args[0] = get_strpath(self);
+    return rb_block_call(rb_cDir, rb_intern(&quot;open&quot;), 1, args, 0, 0);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-owned-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">owned?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-owned-3F">FileTest#owned?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="owned-3F-source">
+            <pre>static VALUE
+path_owned_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;owned?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parent</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the parent directory.</p>
+
+<p>This is same as <code>self + &#39;..&#39;</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="parent-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parent</span>
+  <span class="ruby-keyword">self</span> <span class="ruby-operator">+</span> <span class="ruby-string">&#39;..&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pipe-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pipe?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-pipe-3F">FileTest#pipe?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pipe-3F-source">
+            <pre>static VALUE
+path_pipe_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;pipe?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            read([length [, offset]]) &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            read([length [, offset]], open_args) &rarr; string
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns all data from the file, or the first <code>N</code> bytes if
+specified.</p>
+
+<p>See <a href="IO.html#method-c-read">IO.read</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read-source">
+            <pre>static VALUE
+path_read(int argc, VALUE *argv, VALUE self)
+{
+    VALUE args[4];
+    int n;
+
+    args[0] = get_strpath(self);
+    n = rb_scan_args(argc, argv, &quot;03&quot;, &amp;args[1], &amp;args[2], &amp;args[3]);
+    return rb_funcallv(rb_cIO, rb_intern(&quot;read&quot;), 1+n, args);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-readable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">readable?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-readable-3F">FileTest#readable?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="readable-3F-source">
+            <pre>static VALUE
+path_readable_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;readable?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-readable_real-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">readable_real?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a
+href="FileTest.html#method-i-readable_real-3F">FileTest#readable_real?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="readable_real-3F-source">
+            <pre>static VALUE
+path_readable_real_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;readable_real?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-readlines" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            readlines(sep=$/ [, open_args])     &rarr; array
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            readlines(limit [, open_args])      &rarr; array
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            readlines(sep, limit [, open_args]) &rarr; array
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns all the lines from the file.</p>
+
+<p>See <a href="IO.html#method-c-readlines">IO.readlines</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="readlines-source">
+            <pre>static VALUE
+path_readlines(int argc, VALUE *argv, VALUE self)
+{
+    VALUE args[4];
+    int n;
+
+    args[0] = get_strpath(self);
+    n = rb_scan_args(argc, argv, &quot;03&quot;, &amp;args[1], &amp;args[2], &amp;args[3]);
+    return rb_funcallv(rb_cIO, rb_intern(&quot;readlines&quot;), 1+n, args);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-readlink" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">readlink</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Read symbolic link.</p>
+
+<p>See <a href="File.html#method-c-readlink">File.readlink</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="readlink-source">
+            <pre>static VALUE
+path_readlink(VALUE self)
+{
+    VALUE str;
+    str = rb_funcall(rb_cFile, rb_intern(&quot;readlink&quot;), 1, get_strpath(self));
+    return rb_class_new_instance(1, &amp;str, rb_obj_class(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-realdirpath" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">realdirpath</span><span
+            class="method-args">(p1 = v1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the real (absolute) pathname of <code>self</code> in the actual
+filesystem.</p>
+
+<p>Does not contain symlinks or useless dots, <code>..</code> and
+<code>.</code>.</p>
+
+<p>The last component of the real pathname can be nonexistent.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="realdirpath-source">
+            <pre>static VALUE
+path_realdirpath(int argc, VALUE *argv, VALUE self)
+{
+    VALUE basedir, str;
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;basedir);
+    str = rb_funcall(rb_cFile, rb_intern(&quot;realdirpath&quot;), 2, get_strpath(self), basedir);
+    return rb_class_new_instance(1, &amp;str, rb_obj_class(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-realpath" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">realpath</span><span
+            class="method-args">(p1 = v1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the real (absolute) pathname for <code>self</code> in the actual
+filesystem.</p>
+
+<p>Does not contain symlinks or useless dots, <code>..</code> and
+<code>.</code>.</p>
+
+<p>All components of the pathname must exist when this method is called.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="realpath-source">
+            <pre>static VALUE
+path_realpath(int argc, VALUE *argv, VALUE self)
+{
+    VALUE basedir, str;
+    rb_scan_args(argc, argv, &quot;01&quot;, &amp;basedir);
+    str = rb_funcall(rb_cFile, rb_intern(&quot;realpath&quot;), 2, get_strpath(self), basedir);
+    return rb_class_new_instance(1, &amp;str, rb_obj_class(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-relative-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">relative?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The opposite of <a href="Pathname.html#method-i-absolute-3F">#absolute?</a></p>
+
+<p>It returns <code>false</code> if the pathname begins with a slash.</p>
+
+<pre class="ruby"><span class="ruby-identifier">p</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/im/sure&#39;</span>)
+<span class="ruby-identifier">p</span>.<span class="ruby-identifier">relative?</span>
+    <span class="ruby-comment">#=&gt; false</span>
+
+<span class="ruby-identifier">p</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;not/so/sure&#39;</span>)
+<span class="ruby-identifier">p</span>.<span class="ruby-identifier">relative?</span>
+    <span class="ruby-comment">#=&gt; true</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="relative-3F-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">relative?</span>
+  <span class="ruby-identifier">path</span> = <span class="ruby-ivar">@path</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">r</span> = <span class="ruby-identifier">chop_basename</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-identifier">path</span>, = <span class="ruby-identifier">r</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">path</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-relative_path_from" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">relative_path_from</span><span
+            class="method-args">(base_directory)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a relative path from the given <code>base_directory</code> to the
+receiver.</p>
+
+<p>If <code>self</code> is absolute, then <code>base_directory</code> must be
+absolute too.</p>
+
+<p>If <code>self</code> is relative, then <code>base_directory</code> must be
+relative too.</p>
+
+<p>This method doesn&#39;t access the filesystem.  It assumes no symlinks.</p>
+
+<p><a href="ArgumentError.html">ArgumentError</a> is raised when it cannot
+find a relative path.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="relative_path_from-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 503</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">relative_path_from</span>(<span class="ruby-identifier">base_directory</span>)
+  <span class="ruby-identifier">dest_directory</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cleanpath</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">base_directory</span> = <span class="ruby-identifier">base_directory</span>.<span class="ruby-identifier">cleanpath</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">dest_prefix</span> = <span class="ruby-identifier">dest_directory</span>
+  <span class="ruby-identifier">dest_names</span> = []
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">r</span> = <span class="ruby-identifier">chop_basename</span>(<span class="ruby-identifier">dest_prefix</span>)
+    <span class="ruby-identifier">dest_prefix</span>, <span class="ruby-identifier">basename</span> = <span class="ruby-identifier">r</span>
+    <span class="ruby-identifier">dest_names</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">basename</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">basename</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;.&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">base_prefix</span> = <span class="ruby-identifier">base_directory</span>
+  <span class="ruby-identifier">base_names</span> = []
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">r</span> = <span class="ruby-identifier">chop_basename</span>(<span class="ruby-identifier">base_prefix</span>)
+    <span class="ruby-identifier">base_prefix</span>, <span class="ruby-identifier">basename</span> = <span class="ruby-identifier">r</span>
+    <span class="ruby-identifier">base_names</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">basename</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">basename</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&#39;.&#39;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">SAME_PATHS</span>[<span class="ruby-identifier">dest_prefix</span>, <span class="ruby-identifier">base_prefix</span>]
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;different prefix: #{dest_prefix.inspect} and #{base_directory.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-operator">!</span><span class="ruby-identifier">dest_names</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span>
+        <span class="ruby-operator">!</span><span class="ruby-identifier">base_names</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span>
+        <span class="ruby-constant">SAME_PATHS</span>[<span class="ruby-identifier">dest_names</span>.<span class="ruby-identifier">first</span>, <span class="ruby-identifier">base_names</span>.<span class="ruby-identifier">first</span>]
+    <span class="ruby-identifier">dest_names</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-identifier">base_names</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">base_names</span>.<span class="ruby-identifier">include?</span> <span class="ruby-string">&#39;..&#39;</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;base_directory has ..: #{base_directory.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">base_names</span>.<span class="ruby-identifier">fill</span>(<span class="ruby-string">&#39;..&#39;</span>)
+  <span class="ruby-identifier">relpath_names</span> = <span class="ruby-identifier">base_names</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">dest_names</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">relpath_names</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;.&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">relpath_names</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rename" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rename</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Rename the file.</p>
+
+<p>See <a href="File.html#method-c-rename">File.rename</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="rename-source">
+            <pre>static VALUE
+path_rename(VALUE self, VALUE to)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;rename&quot;), 2, get_strpath(self), to);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rmdir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rmdir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remove the referenced directory.</p>
+
+<p>See <a href="Dir.html#method-c-rmdir">Dir.rmdir</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="rmdir-source">
+            <pre>static VALUE
+path_rmdir(VALUE self)
+{
+    return rb_funcall(rb_cDir, rb_intern(&quot;rmdir&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rmtree" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rmtree</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Recursively deletes a directory, including all directories beneath it.</p>
+
+<p>See <a href="FileUtils.html#method-i-rm_r">FileUtils#rm_r</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="rmtree-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 582</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rmtree</span>
+  <span class="ruby-comment"># The name &quot;rmtree&quot; is borrowed from File::Path of Perl.</span>
+  <span class="ruby-comment"># File::Path provides &quot;mkpath&quot; and &quot;rmtree&quot;.</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;fileutils&#39;</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_r</span>(<span class="ruby-ivar">@path</span>)
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-root-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">root?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Predicate method for root directories.  Returns <code>true</code> if the
+pathname consists of consecutive slashes.</p>
+
+<p>It doesn&#39;t access the filesystem.  So it may return <code>false</code>
+for some pathnames which points to roots such as <code>/usr/..</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="root-3F-source">
+            <pre><span class="ruby-comment"># File ext/pathname/lib/pathname.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">root?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span>(<span class="ruby-identifier">chop_basename</span>(<span class="ruby-ivar">@path</span>) <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-node">/#{SEPARATOR_PAT}/o</span> <span class="ruby-operator">=~</span> <span class="ruby-ivar">@path</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setgid-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setgid?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-setgid-3F">FileTest#setgid?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="setgid-3F-source">
+            <pre>static VALUE
+path_setgid_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;setgid?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-setuid-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setuid?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-setuid-3F">FileTest#setuid?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="setuid-3F-source">
+            <pre>static VALUE
+path_setuid_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;setuid?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">size</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-size">FileTest#size</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="size-source">
+            <pre>static VALUE
+path_size(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;size&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-size-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">size?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-size-3F">FileTest#size?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="size-3F-source">
+            <pre>static VALUE
+path_size_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;size?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-socket-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">socket?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-socket-3F">FileTest#socket?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="socket-3F-source">
+            <pre>static VALUE
+path_socket_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;socket?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-split" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">split</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the <a href="Pathname.html#method-i-dirname">dirname</a> and the <a
+href="Pathname.html#method-i-basename">basename</a> in an Array.</p>
+
+<p>See <a href="File.html#method-c-split">File.split</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="split-source">
+            <pre>static VALUE
+path_split(VALUE self)
+{
+    VALUE str = get_strpath(self);
+    VALUE ary, dirname, basename;
+    ary = rb_funcall(rb_cFile, rb_intern(&quot;split&quot;), 1, str);
+    ary = rb_check_array_type(ary);
+    dirname = rb_ary_entry(ary, 0);
+    basename = rb_ary_entry(ary, 1);
+    dirname = rb_class_new_instance(1, &amp;dirname, rb_obj_class(self));
+    basename = rb_class_new_instance(1, &amp;basename, rb_obj_class(self));
+    return rb_ary_new3(2, dirname, basename);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stat</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a <a href="File/Stat.html">File::Stat</a> object.</p>
+
+<p>See <a href="File.html#method-c-stat">File.stat</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stat-source">
+            <pre>static VALUE
+path_stat(VALUE self)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;stat&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sticky-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sticky?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-sticky-3F">FileTest#sticky?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sticky-3F-source">
+            <pre>static VALUE
+path_sticky_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;sticky?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sub</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a pathname which is substituted by <a
+href="String.html#method-i-sub">String#sub</a>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">path1</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/usr/bin/perl&#39;</span>)
+<span class="ruby-identifier">path1</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-string">&#39;perl&#39;</span>, <span class="ruby-string">&#39;ruby&#39;</span>)
+    <span class="ruby-comment">#=&gt; #&lt;Pathname:/usr/bin/ruby&gt;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="sub-source">
+            <pre>static VALUE
+path_sub(int argc, VALUE *argv, VALUE self)
+{
+    VALUE str = get_strpath(self);
+
+    if (rb_block_given_p()) {
+        str = rb_block_call(str, rb_intern(&quot;sub&quot;), argc, argv, 0, 0);
+    }
+    else {
+        str = rb_funcallv(str, rb_intern(&quot;sub&quot;), argc, argv);
+    }
+    return rb_class_new_instance(1, &amp;str, rb_obj_class(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sub_ext" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sub_ext</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a pathname with <code>repl</code> added as a suffix to the basename.</p>
+
+<p>If self has no extension part, <code>repl</code> is appended.</p>
+
+<pre class="ruby"><span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;/usr/bin/shutdown&#39;</span>).<span class="ruby-identifier">sub_ext</span>(<span class="ruby-string">&#39;.rb&#39;</span>)
+    <span class="ruby-comment">#=&gt; #&lt;Pathname:/usr/bin/shutdown.rb&gt;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="sub_ext-source">
+            <pre>static VALUE
+path_sub_ext(VALUE self, VALUE repl)
+{
+    VALUE str = get_strpath(self);
+    VALUE str2;
+    long extlen;
+    const char *ext;
+    const char *p;
+
+    StringValue(repl);
+    p = RSTRING_PTR(str);
+    extlen = RSTRING_LEN(str);
+    ext = ruby_enc_find_extname(p, &amp;extlen, rb_enc_get(str));
+    if (ext == NULL) {
+        ext = p + RSTRING_LEN(str);
+    }
+    else if (extlen &lt;= 1) {
+        ext += extlen;
+    }
+    str2 = rb_str_subseq(str, 0, ext-p);
+    rb_str_append(str2, repl);
+    OBJ_INFECT(str2, str);
+    return rb_class_new_instance(1, &amp;str2, rb_obj_class(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-symlink-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">symlink?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-symlink-3F">FileTest#symlink?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="symlink-3F-source">
+            <pre>static VALUE
+path_symlink_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;symlink?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sysopen" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            sysopen([mode, [perm]])  &rarr; fixnum
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="IO.html#method-c-sysopen">IO.sysopen</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sysopen-source">
+            <pre>static VALUE
+path_sysopen(int argc, VALUE *argv, VALUE self)
+{
+    VALUE args[3];
+    int n;
+
+    args[0] = get_strpath(self);
+    n = rb_scan_args(argc, argv, &quot;02&quot;, &amp;args[1], &amp;args[2]);
+    return rb_funcallv(rb_cIO, rb_intern(&quot;sysopen&quot;), 1+n, args);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-taint" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            taint &rarr; obj
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Taints this <a href="Pathname.html">Pathname</a>.</p>
+
+<p>See <a href="Object.html#method-i-taint">Object#taint</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="taint-source">
+            <pre>static VALUE
+path_taint(VALUE self)
+{
+    rb_call_super(0, 0);
+    rb_obj_taint(get_strpath(self));
+    return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_path" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            to_path          &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return the path as a String.</p>
+
+<p><a href="Pathname.html#method-i-to_path">#to_path</a> is implemented so <a
+href="Pathname.html">Pathname</a> objects are usable with <a
+href="File.html#method-c-open">File.open</a>, etc.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_path-source">
+            <pre>static VALUE
+path_to_s(VALUE self)
+{
+    return rb_obj_dup(get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            to_s             &rarr; string
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return the path as a String.</p>
+
+<p><a href="Pathname.html#method-i-to_path">#to_path</a> is implemented so <a
+href="Pathname.html">Pathname</a> objects are usable with <a
+href="File.html#method-c-open">File.open</a>, etc.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre>static VALUE
+path_to_s(VALUE self)
+{
+    return rb_obj_dup(get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-truncate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">truncate</span><span
+            class="method-args">(p1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Truncates the file to <code>length</code> bytes.</p>
+
+<p>See <a href="File.html#method-c-truncate">File.truncate</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="truncate-source">
+            <pre>static VALUE
+path_truncate(VALUE self, VALUE length)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;truncate&quot;), 2, get_strpath(self), length);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unlink" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unlink</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes a file or directory, using <a
+href="File.html#method-c-unlink">File.unlink</a> if <code>self</code> is a
+file, or <a href="Dir.html#method-c-unlink">Dir.unlink</a> as necessary.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unlink-source">
+            <pre>static VALUE
+path_unlink(VALUE self)
+{
+    VALUE eENOTDIR = rb_const_get_at(rb_mErrno, rb_intern(&quot;ENOTDIR&quot;));
+    VALUE str = get_strpath(self);
+    return rb_rescue2(unlink_body, str, unlink_rescue, str, eENOTDIR, (VALUE)0);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-untaint" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            untaint &rarr; obj
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Untaints this <a href="Pathname.html">Pathname</a>.</p>
+
+<p>See <a href="Object.html#method-i-untaint">Object#untaint</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="untaint-source">
+            <pre>static VALUE
+path_untaint(VALUE self)
+{
+    rb_call_super(0, 0);
+    rb_obj_untaint(get_strpath(self));
+    return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-utime" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">utime</span><span
+            class="method-args">(p1, p2)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update the access and modification times of the file.</p>
+
+<p>See <a href="File.html#method-c-utime">File.utime</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="utime-source">
+            <pre>static VALUE
+path_utime(VALUE self, VALUE atime, VALUE mtime)
+{
+    return rb_funcall(rb_cFile, rb_intern(&quot;utime&quot;), 3, atime, mtime, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-world_readable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">world_readable?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a
+href="FileTest.html#method-i-world_readable-3F">FileTest#world_readable?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="world_readable-3F-source">
+            <pre>static VALUE
+path_world_readable_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;world_readable?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-world_writable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">world_writable?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a
+href="FileTest.html#method-i-world_writable-3F">FileTest#world_writable?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="world_writable-3F-source">
+            <pre>static VALUE
+path_world_writable_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;world_writable?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-writable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">writable?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-writable-3F">FileTest#writable?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="writable-3F-source">
+            <pre>static VALUE
+path_writable_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;writable?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-writable_real-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">writable_real?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a
+href="FileTest.html#method-i-writable_real-3F">FileTest#writable_real?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="writable_real-3F-source">
+            <pre>static VALUE
+path_writable_real_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;writable_real?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write(string, [offset] )   &rarr; fixnum
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            write(string, [offset], open_args )   &rarr; fixnum
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Writes <code>contents</code> to the file.</p>
+
+<p>See <a href="IO.html#method-c-write">IO.write</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write-source">
+            <pre>static VALUE
+path_write(int argc, VALUE *argv, VALUE self)
+{
+    VALUE args[4];
+    int n;
+
+    args[0] = get_strpath(self);
+    n = rb_scan_args(argc, argv, &quot;03&quot;, &amp;args[1], &amp;args[2], &amp;args[3]);
+    return rb_funcallv(rb_cIO, rb_intern(&quot;write&quot;), 1+n, args);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-zero-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zero?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>See <a href="FileTest.html#method-i-zero-3F">FileTest#zero?</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="zero-3F-source">
+            <pre>static VALUE
+path_zero_p(VALUE self)
+{
+    return rb_funcall(rb_mFileTest, rb_intern(&quot;zero?&quot;), 1, get_strpath(self));
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

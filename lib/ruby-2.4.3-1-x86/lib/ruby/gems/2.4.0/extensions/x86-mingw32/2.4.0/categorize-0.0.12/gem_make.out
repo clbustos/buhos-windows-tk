@@ -1,0 +1,51 @@
+current directory: E:/buhos-win32/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/categorize-0.0.12/ext/categorize
+E:/buhos-win32/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20180209-4860-8lp16f.rb extconf.rb
+creating Makefile
+
+current directory: E:/buhos-win32/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/categorize-0.0.12/ext/categorize
+make "DESTDIR=" clean
+
+current directory: E:/buhos-win32/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/categorize-0.0.12/ext/categorize
+make "DESTDIR="
+generating categorize-i386-mingw32.def
+compiling categorize.c
+categorize.c: In function 'fetch':
+categorize.c:54:7: warning: implicit declaration of function 'hsearch'; did you mean 'tsearch'? [-Wimplicit-function-declaration]
+   p = hsearch(e, FIND);
+       ^~~~~~~
+       tsearch
+categorize.c:54:5: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   p = hsearch(e, FIND);
+     ^
+categorize.c: In function 'store':
+categorize.c:72:5: warning: assignment makes pointer from integer without a cast [-Wint-conversion]
+   p = hsearch(e, ENTER);
+     ^
+categorize.c: In function 'method_model':
+categorize.c:165:7: warning: implicit declaration of function 'hcreate'; did you mean 'creat'? [-Wimplicit-function-declaration]
+   if (hcreate(2 * num_grams) == 0)
+       ^~~~~~~
+       creat
+categorize.c:359:3: warning: implicit declaration of function 'hdestroy'; did you mean 'HeapDestroy'? [-Wimplicit-function-declaration]
+   hdestroy();
+   ^~~~~~~~
+   HeapDestroy
+linking shared-object categorize/categorize.so
+categorize.o:categorize.c:(.text+0xae): undefined reference to `hsearch'
+categorize.o:categorize.c:(.text+0xd3): undefined reference to `hsearch'
+categorize.o:categorize.c:(.text+0x130): undefined reference to `hsearch'
+categorize.o:categorize.c:(.text+0x14f): undefined reference to `hsearch'
+categorize.o:categorize.c:(.text+0x1bb): undefined reference to `hsearch'
+categorize.o:categorize.c:(.text+0x1fb): more undefined references to `hsearch' follow
+categorize.o:categorize.c:(.text+0x3a7): undefined reference to `hcreate'
+categorize.o:categorize.c:(.text+0x5b8): undefined reference to `hsearch'
+categorize.o:categorize.c:(.text+0x654): undefined reference to `hsearch'
+categorize.o:categorize.c:(.text+0x681): undefined reference to `hsearch'
+categorize.o:categorize.c:(.text+0x72c): undefined reference to `hsearch'
+categorize.o:categorize.c:(.text+0x776): undefined reference to `hsearch'
+categorize.o:categorize.c:(.text+0x84e): more undefined references to `hsearch' follow
+categorize.o:categorize.c:(.text+0xb9c): undefined reference to `hdestroy'
+collect2.exe: error: ld returned 1 exit status
+make: *** [Makefile:259: categorize.so] Error 1
+
+make failed, exit code 2

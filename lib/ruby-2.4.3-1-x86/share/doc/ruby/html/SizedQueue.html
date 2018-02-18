@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class SizedQueue - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3C-3C">#&lt;&lt;</a>
+    
+    <li ><a href="#method-i-clear">#clear</a>
+    
+    <li ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-deq">#deq</a>
+    
+    <li ><a href="#method-i-enq">#enq</a>
+    
+    <li ><a href="#method-i-max">#max</a>
+    
+    <li ><a href="#method-i-max-3D">#max=</a>
+    
+    <li ><a href="#method-i-num_waiting">#num_waiting</a>
+    
+    <li ><a href="#method-i-pop">#pop</a>
+    
+    <li ><a href="#method-i-push">#push</a>
+    
+    <li ><a href="#method-i-shift">#shift</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-SizedQueue">
+  <h1 id="class-SizedQueue" class="class">
+    class SizedQueue
+  </h1>
+
+  <section class="description">
+    
+<p>This class represents queues of specified size capacity.  The push
+operation may be blocked if the capacity is full.</p>
+
+<p>See <a href="Queue.html">Queue</a> for an example of how a <a
+href="SizedQueue.html">SizedQueue</a> works.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            new(max)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Creates a fixed-length queue with a maximum size of <code>max</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre>static VALUE
+rb_szqueue_initialize(VALUE self, VALUE vmax)
+{
+    long max;
+
+    max = NUM2LONG(vmax);
+    if (max &lt;= 0) {
+        rb_raise(rb_eArgError, &quot;queue size must be positive&quot;);
+    }
+
+    RSTRUCT_SET(self, QUEUE_QUE, ary_buf_new());
+    RSTRUCT_SET(self, QUEUE_WAITERS, ary_buf_new());
+    RSTRUCT_SET(self, SZQUEUE_WAITERS, ary_buf_new());
+    RSTRUCT_SET(self, SZQUEUE_MAX, vmax);
+
+    return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3C-3C" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;&lt;</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="SizedQueue.html#method-i-push">push</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes all objects from the queue.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear-source">
+            <pre>static VALUE
+rb_szqueue_clear(VALUE self)
+{
+    rb_ary_clear(GET_QUEUE_QUE(self));
+    wakeup_all_threads(GET_SZQUEUE_WAITERS(self));
+    return self;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            close
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Similar to <a href="Queue.html#method-i-close">Queue#close</a>.</p>
+
+<p>The difference is behavior with waiting enqueuing threads.</p>
+
+<p>If there are waiting enqueuing threads, they are interrupted by raising
+ClosedQueueError(&#39;queue closed&#39;).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre>static VALUE
+rb_szqueue_close(VALUE self)
+{
+    return queue_do_close(self, TRUE);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deq" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">deq</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="SizedQueue.html#method-i-pop">pop</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-enq" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">enq</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="SizedQueue.html#method-i-push">push</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-max" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">max</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the maximum size of the queue.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="max-source">
+            <pre>static VALUE
+rb_szqueue_max_get(VALUE self)
+{
+    return GET_SZQUEUE_MAX(self);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-max-3D" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            max=(number)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets the maximum size of the queue to the given <code>number</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="max-3D-source">
+            <pre>static VALUE
+rb_szqueue_max_set(VALUE self, VALUE vmax)
+{
+    long max = NUM2LONG(vmax), diff = 0;
+    VALUE t;
+
+    if (max &lt;= 0) {
+        rb_raise(rb_eArgError, &quot;queue size must be positive&quot;);
+    }
+    if ((unsigned long)max &gt; GET_SZQUEUE_ULONGMAX(self)) {
+        diff = max - GET_SZQUEUE_ULONGMAX(self);
+    }
+    RSTRUCT_SET(self, SZQUEUE_MAX, vmax);
+    while (diff-- &gt; 0 &amp;&amp; !NIL_P(t = rb_ary_shift(GET_SZQUEUE_WAITERS(self)))) {
+        rb_thread_wakeup_alive(t);
+    }
+    return vmax;
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-num_waiting" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">num_waiting</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of threads waiting on the queue.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="num_waiting-source">
+            <pre>static VALUE
+rb_szqueue_num_waiting(VALUE self)
+{
+    long len = queue_num_waiting(self) + szqueue_num_waiting_producer(self);
+    return ULONG2NUM(len);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pop" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pop(non_block=false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            deq(non_block=false)
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            shift(non_block=false)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Retrieves data from the queue.</p>
+
+<p>If the queue is empty, the calling thread is suspended until data is pushed
+onto the queue. If <code>non_block</code> is true, the thread isn&#39;t
+suspended, and <code>ThreadError</code> is raised.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pop-source">
+            <pre>static VALUE
+rb_szqueue_pop(int argc, VALUE *argv, VALUE self)
+{
+    int should_block = queue_pop_should_block(argc, argv);
+    return szqueue_do_pop(self, should_block);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="SizedQueue.html#method-i-deq">deq</a>, <a href="SizedQueue.html#method-i-shift">shift</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-push" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            push(object, non_block=false)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            enq(object, non_block=false)
+          </span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            &lt;&lt;(object)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Pushes <code>object</code> to the queue.</p>
+
+<p>If there is no space left in the queue, waits until space becomes
+available, unless <code>non_block</code> is true.  If
+<code>non_block</code> is true, the thread isn&#39;t suspended, and
+<code>ThreadError</code> is raised.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="push-source">
+            <pre>static VALUE
+rb_szqueue_push(int argc, VALUE *argv, VALUE self)
+{
+    struct waiting_delete args;
+    int should_block = szqueue_push_should_block(argc, argv);
+    args.waiting = GET_SZQUEUE_WAITERS(self);
+    args.th      = rb_thread_current();
+
+    while (queue_length(self) &gt;= GET_SZQUEUE_ULONGMAX(self)) {
+        if (!should_block) {
+            rb_raise(rb_eThreadError, &quot;queue full&quot;);
+        }
+        else if (queue_closed_p(self)) {
+            goto closed;
+        }
+        else {
+            rb_ary_push(args.waiting, args.th);
+            rb_ensure(queue_sleep, Qfalse, queue_delete_from_waiting, (VALUE)&amp;args);
+        }
+    }
+
+    if (queue_closed_p(self)) {
+      closed:
+        raise_closed_queue_error(self);
+    }
+
+    return queue_do_push(self, argv[0]);
+}</pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="SizedQueue.html#method-i-enq">enq</a>, <a href="SizedQueue.html#method-i-3C-3C">&lt;&lt;</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shift" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">shift</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="SizedQueue.html#method-i-pop">pop</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

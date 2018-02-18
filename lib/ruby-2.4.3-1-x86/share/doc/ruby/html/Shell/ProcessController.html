@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Shell::ProcessController - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="../Forwardable.html">Forwardable</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-activate">::activate</a>
+    
+    <li ><a href="#method-c-active_process_controllers">::active_process_controllers</a>
+    
+    <li ><a href="#method-c-block_output_synchronize">::block_output_synchronize</a>
+    
+    <li ><a href="#method-c-each_active_object">::each_active_object</a>
+    
+    <li ><a href="#method-c-inactivate">::inactivate</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-wait_to_finish_all_process_controllers">::wait_to_finish_all_process_controllers</a>
+    
+    <li ><a href="#method-i-active_job-3F">#active_job?</a>
+    
+    <li ><a href="#method-i-active_jobs">#active_jobs</a>
+    
+    <li ><a href="#method-i-active_jobs_exist-3F">#active_jobs_exist?</a>
+    
+    <li ><a href="#method-i-add_schedule">#add_schedule</a>
+    
+    <li ><a href="#method-i-jobs">#jobs</a>
+    
+    <li ><a href="#method-i-jobs_exist-3F">#jobs_exist?</a>
+    
+    <li ><a href="#method-i-kill_job">#kill_job</a>
+    
+    <li ><a href="#method-i-sfork">#sfork</a>
+    
+    <li ><a href="#method-i-start_job">#start_job</a>
+    
+    <li ><a href="#method-i-terminate_job">#terminate_job</a>
+    
+    <li ><a href="#method-i-wait_all_jobs_execution">#wait_all_jobs_execution</a>
+    
+    <li ><a href="#method-i-waiting_job-3F">#waiting_job?</a>
+    
+    <li ><a href="#method-i-waiting_jobs">#waiting_jobs</a>
+    
+    <li ><a href="#method-i-waiting_jobs_exist-3F">#waiting_jobs_exist?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Shell::ProcessController">
+  <h1 id="class-Shell::ProcessController" class="class">
+    class Shell::ProcessController
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="USING_AT_EXIT_WHEN_PROCESS_EXIT">USING_AT_EXIT_WHEN_PROCESS_EXIT
+        
+        <dd><p>for shell-command complete finish at this process exit.</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-shell" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">shell</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-activate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">activate</span><span
+            class="method-args">(pc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="activate-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">activate</span>(<span class="ruby-identifier">pc</span>)
+  <span class="ruby-identifier">process_controllers_exclusive</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@ProcessControllers</span>[<span class="ruby-identifier">pc</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@ProcessControllers</span>[<span class="ruby-identifier">pc</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-active_process_controllers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">active_process_controllers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="active_process_controllers-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">active_process_controllers</span>
+  <span class="ruby-identifier">process_controllers_exclusive</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@ProcessControllers</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-block_output_synchronize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">block_output_synchronize</span><span
+            class="method-args">(&b)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="block_output_synchronize-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">block_output_synchronize</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+  <span class="ruby-ivar">@BlockOutputMonitor</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-each_active_object" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_active_object</span><span
+            class="method-args">() { |ref| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_active_object-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">each_active_object</span>
+  <span class="ruby-identifier">process_controllers_exclusive</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">ref</span> <span class="ruby-keyword">in</span> <span class="ruby-ivar">@ProcessControllers</span>.<span class="ruby-identifier">keys</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-identifier">ref</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-inactivate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inactivate</span><span
+            class="method-args">(pc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inactivate-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inactivate</span>(<span class="ruby-identifier">pc</span>)
+  <span class="ruby-identifier">process_controllers_exclusive</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ProcessControllers</span>[<span class="ruby-identifier">pc</span>]
+      <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@ProcessControllers</span>[<span class="ruby-identifier">pc</span>] <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>) <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@ProcessControllers</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">pc</span>)
+        <span class="ruby-ivar">@ProcessControllersCV</span>.<span class="ruby-identifier">signal</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(shell)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">shell</span>)
+  <span class="ruby-ivar">@shell</span> = <span class="ruby-identifier">shell</span>
+  <span class="ruby-ivar">@waiting_jobs</span> = []
+  <span class="ruby-ivar">@active_jobs</span> = []
+  <span class="ruby-ivar">@jobs_sync</span> = <span class="ruby-constant">Sync</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-ivar">@job_monitor</span> = <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@job_condition</span> = <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">ConditionVariable</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wait_to_finish_all_process_controllers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wait_to_finish_all_process_controllers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="wait_to_finish_all_process_controllers-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wait_to_finish_all_process_controllers</span>
+  <span class="ruby-identifier">process_controllers_exclusive</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">while</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@ProcessControllers</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-constant">Shell</span><span class="ruby-operator">::</span><span class="ruby-identifier">notify</span>(<span class="ruby-string">&quot;Process finishing, but active shell exists&quot;</span>,
+                    <span class="ruby-node">&quot;You can use Shell#transact or Shell#check_point for more safe execution.&quot;</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">Shell</span>.<span class="ruby-identifier">debug?</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">pc</span> <span class="ruby-keyword">in</span> <span class="ruby-ivar">@ProcessControllers</span>.<span class="ruby-identifier">keys</span>
+          <span class="ruby-constant">Shell</span><span class="ruby-operator">::</span><span class="ruby-identifier">notify</span>(<span class="ruby-string">&quot; Not finished jobs in &quot;</span><span class="ruby-operator">+</span><span class="ruby-identifier">pc</span>.<span class="ruby-identifier">shell</span>.<span class="ruby-identifier">to_s</span>)
+          <span class="ruby-keyword">for</span> <span class="ruby-identifier">com</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">pc</span>.<span class="ruby-identifier">jobs</span>
+            <span class="ruby-identifier">com</span>.<span class="ruby-identifier">notify</span>(<span class="ruby-string">&quot;  Jobs: %id&quot;</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@ProcessControllersCV</span>.<span class="ruby-identifier">wait</span>(<span class="ruby-ivar">@ProcessControllersMonitor</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-active_job-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">active_job?</span><span
+            class="method-args">(job)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="active_job-3F-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 179</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">active_job?</span>(<span class="ruby-identifier">job</span>)
+  <span class="ruby-ivar">@jobs_sync</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-value">:SH</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@active_jobs</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">job</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-active_jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">active_jobs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="active_jobs-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">active_jobs</span>
+  <span class="ruby-ivar">@active_jobs</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-active_jobs_exist-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">active_jobs_exist?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="active_jobs_exist-3F-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">active_jobs_exist?</span>
+  <span class="ruby-ivar">@jobs_sync</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-value">:SH</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@active_jobs</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_schedule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_schedule</span><span
+            class="method-args">(command)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>schedule a command</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_schedule-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_schedule</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-ivar">@jobs_sync</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-value">:EX</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">ProcessController</span>.<span class="ruby-identifier">activate</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@active_jobs</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">start_job</span> <span class="ruby-identifier">command</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@waiting_jobs</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">command</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">jobs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="jobs-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">jobs</span>
+  <span class="ruby-identifier">jobs</span> = []
+  <span class="ruby-ivar">@jobs_sync</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-value">:SH</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">jobs</span>.<span class="ruby-identifier">concat</span> <span class="ruby-ivar">@waiting_jobs</span>
+    <span class="ruby-identifier">jobs</span>.<span class="ruby-identifier">concat</span> <span class="ruby-ivar">@active_jobs</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">jobs</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-jobs_exist-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">jobs_exist?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="jobs_exist-3F-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">jobs_exist?</span>
+  <span class="ruby-ivar">@jobs_sync</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-value">:SH</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@active_jobs</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-keyword">or</span> <span class="ruby-ivar">@waiting_jobs</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-kill_job" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">kill_job</span><span
+            class="method-args">(sig, command)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>kill a job</p>
+          
+          
+
+          
+          <div class="method-source-code" id="kill_job-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 198</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">kill_job</span>(<span class="ruby-identifier">sig</span>, <span class="ruby-identifier">command</span>)
+  <span class="ruby-ivar">@jobs_sync</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-value">:EX</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@waiting_jobs</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">command</span>
+      <span class="ruby-constant">ProcessController</span>.<span class="ruby-identifier">inactivate</span>(<span class="ruby-keyword">self</span>)
+      <span class="ruby-keyword">return</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@active_jobs</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">command</span>)
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">r</span> = <span class="ruby-identifier">command</span>.<span class="ruby-identifier">kill</span>(<span class="ruby-identifier">sig</span>)
+        <span class="ruby-constant">ProcessController</span>.<span class="ruby-identifier">inactivate</span>(<span class="ruby-keyword">self</span>)
+      <span class="ruby-keyword">rescue</span>
+        <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Shell: Warn: $!\n&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@shell</span>.<span class="ruby-identifier">verbose?</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@active_jobs</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">command</span>
+      <span class="ruby-identifier">r</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sfork" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sfork</span><span
+            class="method-args">(command) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>simple fork</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sfork-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sfork</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-identifier">pipe_me_in</span>, <span class="ruby-identifier">pipe_peer_out</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+  <span class="ruby-identifier">pipe_peer_in</span>, <span class="ruby-identifier">pipe_me_out</span> = <span class="ruby-constant">IO</span>.<span class="ruby-identifier">pipe</span>
+
+
+  <span class="ruby-identifier">pid</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">pid_mutex</span> = <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">pid_cv</span> = <span class="ruby-constant">Thread</span><span class="ruby-operator">::</span><span class="ruby-constant">ConditionVariable</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">start</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">ProcessController</span>.<span class="ruby-identifier">block_output_synchronize</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-constant">STDOUT</span>.<span class="ruby-identifier">flush</span>
+      <span class="ruby-constant">ProcessController</span>.<span class="ruby-identifier">each_active_object</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">pc</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">jobs</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">pc</span>.<span class="ruby-identifier">active_jobs</span>
+          <span class="ruby-identifier">jobs</span>.<span class="ruby-identifier">flush</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-identifier">pid</span> = <span class="ruby-identifier">fork</span> {
+        <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">th</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">th</span>.<span class="ruby-identifier">kill</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">th</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-constant">STDIN</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-identifier">pipe_peer_in</span>)
+        <span class="ruby-constant">STDOUT</span>.<span class="ruby-identifier">reopen</span>(<span class="ruby-identifier">pipe_peer_out</span>)
+
+        <span class="ruby-constant">ObjectSpace</span>.<span class="ruby-identifier">each_object</span>(<span class="ruby-constant">IO</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">io</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span>[<span class="ruby-constant">STDIN</span>, <span class="ruby-constant">STDOUT</span>, <span class="ruby-constant">STDERR</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">io</span>)
+            <span class="ruby-identifier">io</span>.<span class="ruby-identifier">close</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">yield</span>
+      }
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">pid_cv</span>.<span class="ruby-identifier">signal</span>
+
+    <span class="ruby-identifier">pipe_peer_in</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-identifier">pipe_peer_out</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-identifier">command</span>.<span class="ruby-identifier">notify</span> <span class="ruby-node">&quot;job(%name:##{pid}) start&quot;</span>, <span class="ruby-ivar">@shell</span>.<span class="ruby-identifier">debug?</span>
+
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">_pid</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-identifier">command</span>.<span class="ruby-identifier">notify</span>(<span class="ruby-string">&quot;job(%id) start to waiting finish.&quot;</span>, <span class="ruby-ivar">@shell</span>.<span class="ruby-identifier">debug?</span>)
+      <span class="ruby-identifier">_pid</span> = <span class="ruby-constant">Process</span>.<span class="ruby-identifier">waitpid</span>(<span class="ruby-identifier">pid</span>, <span class="ruby-keyword">nil</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECHILD</span>
+      <span class="ruby-identifier">command</span>.<span class="ruby-identifier">notify</span> <span class="ruby-string">&quot;warn: job(%id) was done already waitpid.&quot;</span>
+      <span class="ruby-identifier">_pid</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-identifier">command</span>.<span class="ruby-identifier">notify</span>(<span class="ruby-string">&quot;Job(%id): Wait to finish when Process finished.&quot;</span>, <span class="ruby-ivar">@shell</span>.<span class="ruby-identifier">debug?</span>)
+      <span class="ruby-comment"># when the process ends, wait until the command terminates</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">USING_AT_EXIT_WHEN_PROCESS_EXIT</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">_pid</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">command</span>.<span class="ruby-identifier">notify</span>(<span class="ruby-string">&quot;notice: Process finishing...&quot;</span>,
+                       <span class="ruby-string">&quot;wait for Job[%id] to finish.&quot;</span>,
+                       <span class="ruby-node">&quot;You can use Shell#transact or Shell#check_point for more safe execution.&quot;</span>)
+        <span class="ruby-keyword">redo</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-ivar">@job_monitor</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+        <span class="ruby-identifier">terminate_job</span>(<span class="ruby-identifier">command</span>)
+        <span class="ruby-ivar">@job_condition</span>.<span class="ruby-identifier">signal</span>
+        <span class="ruby-identifier">command</span>.<span class="ruby-identifier">notify</span> <span class="ruby-string">&quot;job(%id) finish.&quot;</span>, <span class="ruby-ivar">@shell</span>.<span class="ruby-identifier">debug?</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">pid_mutex</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">while</span> <span class="ruby-operator">!</span><span class="ruby-identifier">pid</span>
+      <span class="ruby-identifier">pid_cv</span>.<span class="ruby-identifier">wait</span>(<span class="ruby-identifier">pid_mutex</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">pid</span>, <span class="ruby-identifier">pipe_me_in</span>, <span class="ruby-identifier">pipe_me_out</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_job" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_job</span><span
+            class="method-args">(command = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>start a job</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_job-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start_job</span>(<span class="ruby-identifier">command</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@jobs_sync</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-value">:EX</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">command</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">command</span>.<span class="ruby-identifier">active?</span>
+      <span class="ruby-ivar">@waiting_jobs</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">command</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">command</span> = <span class="ruby-ivar">@waiting_jobs</span>.<span class="ruby-identifier">shift</span>
+
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">command</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@active_jobs</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">command</span>
+    <span class="ruby-identifier">command</span>.<span class="ruby-identifier">start</span>
+
+    <span class="ruby-comment"># start all jobs that input from the job</span>
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">job</span> <span class="ruby-keyword">in</span> <span class="ruby-ivar">@waiting_jobs</span>.<span class="ruby-identifier">dup</span>
+      <span class="ruby-identifier">start_job</span>(<span class="ruby-identifier">job</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">job</span>.<span class="ruby-identifier">input</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">command</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-terminate_job" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">terminate_job</span><span
+            class="method-args">(command)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>terminate a job</p>
+          
+          
+
+          
+          <div class="method-source-code" id="terminate_job-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">terminate_job</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-ivar">@jobs_sync</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-value">:EX</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@active_jobs</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">command</span>
+    <span class="ruby-constant">ProcessController</span>.<span class="ruby-identifier">inactivate</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@active_jobs</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-identifier">command</span>.<span class="ruby-identifier">notify</span>(<span class="ruby-string">&quot;start_job in terminate_job(%id)&quot;</span>, <span class="ruby-constant">Shell</span><span class="ruby-operator">::</span><span class="ruby-identifier">debug?</span>)
+      <span class="ruby-identifier">start_job</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-wait_all_jobs_execution" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wait_all_jobs_execution</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>wait for all jobs to terminate</p>
+          
+          
+
+          
+          <div class="method-source-code" id="wait_all_jobs_execution-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 218</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wait_all_jobs_execution</span>
+  <span class="ruby-ivar">@job_monitor</span>.<span class="ruby-identifier">synchronize</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">while</span> <span class="ruby-operator">!</span><span class="ruby-identifier">jobs</span>.<span class="ruby-identifier">empty?</span>
+        <span class="ruby-ivar">@job_condition</span>.<span class="ruby-identifier">wait</span>(<span class="ruby-ivar">@job_monitor</span>)
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">job</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">jobs</span>
+          <span class="ruby-identifier">job</span>.<span class="ruby-identifier">notify</span>(<span class="ruby-string">&quot;waiting job(%id)&quot;</span>, <span class="ruby-constant">Shell</span><span class="ruby-operator">::</span><span class="ruby-identifier">debug?</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">ensure</span>
+      <span class="ruby-keyword">redo</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">jobs</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-waiting_job-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">waiting_job?</span><span
+            class="method-args">(job)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="waiting_job-3F-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">waiting_job?</span>(<span class="ruby-identifier">job</span>)
+  <span class="ruby-ivar">@jobs_sync</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-value">:SH</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@waiting_jobs</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">job</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-waiting_jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">waiting_jobs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="waiting_jobs-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">waiting_jobs</span>
+  <span class="ruby-ivar">@waiting_jobs</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-waiting_jobs_exist-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">waiting_jobs_exist?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="waiting_jobs_exist-3F-source">
+            <pre><span class="ruby-comment"># File lib/shell/process-controller.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">waiting_jobs_exist?</span>
+  <span class="ruby-ivar">@jobs_sync</span>.<span class="ruby-identifier">synchronize</span>(<span class="ruby-value">:SH</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@waiting_jobs</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Scanf - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#module-Scanf-label-Description">Description</a>
+    <li><a href="#module-Scanf-label-Basic+usage">Basic usage</a>
+    <li><a href="#module-Scanf-label-Block+usage">Block usage</a>
+    <li><a href="#module-Scanf-label-Conversions">Conversions</a>
+    <li><a href="#module-Scanf-label-Assignment+suppression">Assignment suppression</a>
+    <li><a href="#module-Scanf-label-scanf+for+Ruby+compared+with+scanf+in+C">scanf for Ruby compared with scanf in C</a>
+    <li><a href="#module-Scanf-label-Unimplemented+flags+and+specifiers">Unimplemented flags and specifiers</a>
+    <li><a href="#module-Scanf-label-Altered+specifiers">Altered specifiers</a>
+    <li><a href="#module-Scanf-label-Return+values">Return values</a>
+    <li><a href="#module-Scanf-label-Return+values">Return values</a>
+    <li><a href="#module-Scanf-label-Current+limitations+and+bugs">Current limitations and bugs</a>
+    <li><a href="#module-Scanf-label-License+and+copyright">License and copyright</a>
+    <li><a href="#module-Scanf-label-Warranty+disclaimer">Warranty disclaimer</a>
+    <li><a href="#module-Scanf-label-Credits+and+acknowledgements">Credits and acknowledgements</a>
+    <li><a href="#module-Scanf-label-Bugs+and+bug+reports">Bugs and bug reports</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Scanf">
+  <h1 id="module-Scanf" class="module">
+    module Scanf
+  </h1>
+
+  <section class="description">
+    
+<p>scanf for Ruby</p>
+
+<h2 id="module-Scanf-label-Description">Description<span><a href="#module-Scanf-label-Description">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>scanf is an implementation of the C function scanf(3), modified as
+necessary for Ruby compatibility.</p>
+
+<p>the methods provided are <a
+href="String.html#method-i-scanf">String#scanf</a>, <a
+href="IO.html#method-i-scanf">IO#scanf</a>, and <a
+href="Kernel.html#method-i-scanf">Kernel#scanf</a>. <a
+href="Kernel.html#method-i-scanf">Kernel#scanf</a> is a wrapper around
+STDIN.scanf.  <a href="IO.html#method-i-scanf">IO#scanf</a> can be used on
+any <a href="IO.html">IO</a> stream, including file handles and sockets.
+scanf can be called either with or without a block.</p>
+
+<p><a href="Scanf.html">Scanf</a> scans an input string or stream according to
+a <strong>format</strong>, as described below in Conversions, and returns
+an array of matches between the format and the input.  The format is
+defined in a string, and is similar (though not identical) to the formats
+used in <a href="Kernel.html#method-i-printf">Kernel#printf</a> and <a
+href="Kernel.html#method-i-sprintf">Kernel#sprintf</a>.</p>
+
+<p>The format may contain <strong>conversion specifiers</strong>, which tell
+scanf what form (type) each particular matched substring should be
+converted to (e.g., decimal integer, floating point number, literal string,
+etc.)  The matches and conversions take place from left to right, and the
+conversions themselves are returned as an array.</p>
+
+<p>The format string may also contain characters other than those in the
+conversion specifiers.  White space (blanks, tabs, or newlines) in the
+format string matches any amount of white space, including none, in the
+input.  Everything else matches only itself.</p>
+
+<p>Scanning stops, and scanf returns, when any input character fails to match
+the specifications in the format string, or when input is exhausted, or
+when everything in the format string has been matched. All matches found up
+to the stopping point are returned in the return array (or yielded to the
+block, if a block was given).</p>
+
+<h2 id="module-Scanf-label-Basic+usage">Basic usage<span><a href="#module-Scanf-label-Basic+usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;scanf&#39;</span>
+
+<span class="ruby-comment"># String#scanf and IO#scanf take a single argument, the format string</span>
+<span class="ruby-identifier">array</span> = <span class="ruby-identifier">a_string</span>.<span class="ruby-identifier">scanf</span>(<span class="ruby-string">&quot;%d%s&quot;</span>)
+<span class="ruby-identifier">array</span> = <span class="ruby-identifier">an_io</span>.<span class="ruby-identifier">scanf</span>(<span class="ruby-string">&quot;%d%s&quot;</span>)
+
+<span class="ruby-comment"># Kernel#scanf reads from STDIN</span>
+<span class="ruby-identifier">array</span> = <span class="ruby-identifier">scanf</span>(<span class="ruby-string">&quot;%d%s&quot;</span>)
+</pre>
+
+<h2 id="module-Scanf-label-Block+usage">Block usage<span><a href="#module-Scanf-label-Block+usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>When called with a block, scanf keeps scanning the input, cycling back to
+the beginning of the format string, and yields a new array of conversions
+to the block every time the format string is matched (including partial
+matches, but not including complete failures).  The actual return value of
+scanf when called with a block is an array containing the results of all
+the executions of the block.</p>
+
+<pre class="ruby"><span class="ruby-identifier">str</span> = <span class="ruby-string">&quot;123 abc 456 def 789 ghi&quot;</span>
+<span class="ruby-identifier">str</span>.<span class="ruby-identifier">scanf</span>(<span class="ruby-string">&quot;%d%s&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">num</span>,<span class="ruby-identifier">str</span><span class="ruby-operator">|</span> [ <span class="ruby-identifier">num</span> <span class="ruby-operator">*</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">str</span>.<span class="ruby-identifier">upcase</span> ] }
+<span class="ruby-comment"># =&gt; [[246, &quot;ABC&quot;], [912, &quot;DEF&quot;], [1578, &quot;GHI&quot;]]</span>
+</pre>
+
+<h2 id="module-Scanf-label-Conversions">Conversions<span><a href="#module-Scanf-label-Conversions">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The single argument to scanf is a format string, which generally includes
+one or more conversion specifiers.  Conversion specifiers begin with the
+percent character (&#39;%&#39;) and include information about what scanf
+should next scan for (string, decimal number, single character, etc.).</p>
+
+<p>There may be an optional maximum field width, expressed as a decimal
+integer, between the % and the conversion.  If no width is given, a default
+of `infinity&#39; is used (with the exception of the %c specifier; see
+below).  Otherwise, given a field width of <em>n</em> for a given
+conversion, at most <em>n</em> characters are scanned in processing that
+conversion.  Before conversion begins, most conversions skip white space in
+the input string; this white space is not counted against the field width.</p>
+
+<p>The following conversions are available.</p>
+<dl class="rdoc-list label-list"><dt>%
+<dd>
+<p>Matches a literal `%&#39;. That is, `%%&#39; in the format string matches a
+single input `%&#39; character. No conversion is done, and the resulting
+&#39;%&#39; is not included in the return array.</p>
+</dd><dt>d
+<dd>
+<p>Matches an optionally signed decimal integer.</p>
+</dd><dt>u
+<dd>
+<p>Same as d.</p>
+</dd><dt>i
+<dd>
+<p>Matches an optionally signed integer. The integer is read in base 16 if it
+begins with `0x&#39; or `0X&#39;, in base 8 if it begins with `0&#39;, and
+in base 10 other- wise. Only characters that correspond to the base are
+recognized.</p>
+</dd><dt>o
+<dd>
+<p>Matches an optionally signed octal integer.</p>
+</dd><dt>x, X
+<dd>
+<p>Matches an optionally signed hexadecimal integer,</p>
+</dd><dt>a, e, f, g, A, E, F, G
+<dd>
+<p>Matches an optionally signed floating-point number.</p>
+</dd><dt>s
+<dd>
+<p>Matches a sequence of non-white-space character. The input string stops at
+white space or at the maximum field width, whichever occurs first.</p>
+</dd><dt>c
+<dd>
+<p>Matches a single character, or a sequence of <em>n</em> characters if a
+field width of <em>n</em> is specified. The usual skip of leading white
+space is suppressed. To skip white space first, use an explicit space in
+the format.</p>
+</dd><dt>[
+<dd>
+<p>Matches a nonempty sequence of characters from the specified set of
+accepted characters.  The usual skip of leading white space is suppressed. 
+This bracketed sub-expression is interpreted exactly like a character class
+in a Ruby regular expression.  (In fact, it is placed as-is in a regular
+expression.)  The matching against the input string ends with the
+appearance of a character not in (or, with a circumflex, in) the set, or
+when the field width runs out, whichever comes first.</p>
+</dd></dl>
+
+<h3 id="module-Scanf-label-Assignment+suppression">Assignment suppression<span><a href="#module-Scanf-label-Assignment+suppression">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>To require that a particular match occur, but without including the result
+in the return array, place the <strong>assignment suppression
+flag</strong>, which is the star character (&#39;*&#39;), immediately after
+the leading &#39;%&#39; of a format specifier (just before the field width,
+if any).</p>
+
+<h2 id="module-Scanf-label-scanf+for+Ruby+compared+with+scanf+in+C">scanf for Ruby compared with scanf in C<span><a href="#module-Scanf-label-scanf+for+Ruby+compared+with+scanf+in+C">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>scanf for Ruby is based on the C function scanf(3), but with modifications,
+dictated mainly by the underlying differences between the languages.</p>
+
+<h3 id="module-Scanf-label-Unimplemented+flags+and+specifiers">Unimplemented flags and specifiers<span><a href="#module-Scanf-label-Unimplemented+flags+and+specifiers">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>The only flag implemented in scanf for Ruby is &#39;<code>*</code>&#39;
+(ignore upcoming conversion).  Many of the flags available in C versions of
+scanf(3) have to do with the type of upcoming pointer arguments, and are
+meaningless in Ruby.</p>
+</li><li>
+<p>The <code>n</code> specifier (store number of characters consumed so far in
+next pointer) is not implemented.</p>
+</li><li>
+<p>The <code>p</code> specifier (match a pointer value) is not implemented.</p>
+</li></ul>
+
+<h3 id="module-Scanf-label-Altered+specifiers">Altered specifiers<span><a href="#module-Scanf-label-Altered+specifiers">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<dl class="rdoc-list label-list"><dt>o, u, x, X
+<dd>
+<p>In scanf for Ruby, all of these specifiers scan for an optionally signed
+integer, rather than for an unsigned integer like their C counterparts.</p>
+</dd></dl>
+
+<h3 id="module-Scanf-label-Return+values">Return values<span><a href="#module-Scanf-label-Return+values">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>scanf for Ruby returns an array of successful conversions, whereas scanf(3)
+returns the number of conversions successfully completed. (See below for
+more details on scanf for Ruby&#39;s return values.)</p>
+
+<h2 id="module-Scanf-label-Return+values">Return values<span><a href="#module-Scanf-label-Return+values">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Without a block, scanf returns an array containing all the conversions it
+has found.  If none are found, scanf will return an empty array. An
+unsuccessful match is never ignored, but rather always signals the end of
+the scanning operation.  If the first unsuccessful match takes place after
+one or more successful matches have already taken place, the returned array
+will contain the results of those successful matches.</p>
+
+<p>With a block scanf returns a &#39;map&#39;-like array of transformations
+from the block – that is, an array reflecting what the block did with each
+yielded result from the iterative scanf operation.  (See “Block usage”,
+above.)</p>
+
+<h2 id="module-Scanf-label-Current+limitations+and+bugs">Current limitations and bugs<span><a href="#module-Scanf-label-Current+limitations+and+bugs">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>When using <a href="IO.html#method-i-scanf">IO#scanf</a> under Windows,
+make sure you open your files in binary mode:</p>
+
+<pre class="ruby"><span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;filename&quot;</span>, <span class="ruby-string">&quot;rb&quot;</span>)
+</pre>
+
+<p>so that scanf can keep track of characters correctly.</p>
+
+<p>Support for character classes is reasonably complete (since it essentially
+piggy-backs on Ruby&#39;s regular expression handling of character
+classes), but users are advised that character class testing has not been
+exhaustive, and that they should exercise some caution in using any of the
+more complex and/or arcane character class idioms.</p>
+
+<h2 id="module-Scanf-label-License+and+copyright">License and copyright<span><a href="#module-Scanf-label-License+and+copyright">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<dl class="rdoc-list note-list"><dt>Copyright
+<dd>
+<p>© 2002-2003 David Alan Black</p>
+</dd><dt>License
+<dd>
+<p>Distributed on the same licensing terms as Ruby itself</p>
+</dd></dl>
+
+<h2 id="module-Scanf-label-Warranty+disclaimer">Warranty disclaimer<span><a href="#module-Scanf-label-Warranty+disclaimer">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>This software is provided “as is” and without any express or implied
+warranties, including, without limitation, the implied warranties of
+merchantability and fitness for a particular purpose.</p>
+
+<h2 id="module-Scanf-label-Credits+and+acknowledgements">Credits and acknowledgements<span><a href="#module-Scanf-label-Credits+and+acknowledgements">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>scanf was developed as the major activity of the Austin Ruby Codefest
+(Austin, Texas, August 2002).</p>
+<dl class="rdoc-list note-list"><dt>Principal author
+<dd>
+<p>David Alan Black (<a
+href="mailto:dblack@superlink.net">dblack@superlink.net</a>)</p>
+</dd><dt>Co-author
+<dd>
+<p>Hal Fulton (<a
+href="mailto:hal9000@hypermetrics.com">hal9000@hypermetrics.com</a>)</p>
+</dd><dt>Project contributors
+<dd>
+<p>Nolan Darilek, Jason Johnston</p>
+</dd></dl>
+
+<p>Thanks to Hal Fulton for hosting the Codefest.</p>
+
+<p>Thanks to Matz for suggestions about the class design.</p>
+
+<p>Thanks to Gavin Sinclair for some feedback on the documentation.</p>
+
+<p>The text for parts of this document, especially the Description and
+Conversions sections, above, were adapted from the Linux Programmer&#39;s
+Manual manpage for scanf(3), dated 1995-11-01.</p>
+
+<h2 id="module-Scanf-label-Bugs+and+bug+reports">Bugs and bug reports<span><a href="#module-Scanf-label-Bugs+and+bug+reports">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>scanf for Ruby is based on something of an amalgam of C scanf
+implementations and documentation, rather than on a single canonical
+description.  Suggestions for features and behaviors which appear in other
+scanfs, and would be meaningful in Ruby, are welcome, as are reports of
+suspicious behaviors and/or bugs.  (Please see “Credits and
+acknowledgements”, above, for email addresses.)</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

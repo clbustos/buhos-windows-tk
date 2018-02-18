@@ -6,4 +6,4 @@
 *.dll=binary
 *.png=binary
 *.jpg=binary
-
+*.ico=binary

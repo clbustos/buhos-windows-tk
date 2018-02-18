@@ -1,0 +1,9 @@
+* text=auto
+*.exe=binary
+*.pc=binary
+*.a=binary
+*.gem=binary
+*.dll=binary
+*.png=binary
+*.jpg=binary
+

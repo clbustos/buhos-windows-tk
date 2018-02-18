@@ -7,3 +7,5 @@
 *.png=binary
 *.jpg=binary
 *.ico=binary
+*.zip=binary
+*.rb=binary

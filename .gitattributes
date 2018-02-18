@@ -1,11 +1,10 @@
 * text=auto
-*.exe=binary
-*.pc=binary
-*.a=binary
-*.gem=binary
-*.dll=binary
-*.png=binary
-*.jpg=binary
-*.ico=binary
-*.zip=binary
-*.rb=binary
+*.exe binary
+*.pc binary
+*.a binary
+*.gem binary
+*.dll binary
+*.png binary
+*.jpg binary
+*.ico binary
+*.zip binary

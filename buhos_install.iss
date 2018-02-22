@@ -20,11 +20,11 @@ Name: "{app}\lib\buhos\usr"; Permissions: users-full
 [Files]
 Source: "owl.ico"; DestDir: "{app}"
 Source: "buhos.bat"; DestDir: "{app}"
-Source: "..\buhos\*"; DestDir: "{app}\lib\buhos"; Excludes: ".*,log,*.sqlite,installed, docker-compose.yml,Dockerfile"; Flags: recursesubdirs
+Source: "..\buhos\*"; DestDir: "{app}\lib\buhos"; Excludes: ".*,log,*.sqlite,installed, docker-compose.yml,Dockerfile, usr\*"; Flags: recursesubdirs
 Source: "lib\ruby-2.4.3-1-x86\*"; DestDir: "{app}\lib\ruby-2.4.3-1-x86"; Excludes: ".*,share\doc, *\ri\*, 2.4.0\cache, doc\bundler-1.16.1\*"; Flags: recursesubdirs
 
 [Icons]
 Name: "{group}\Buhos"; Filename: "{app}\buhos.bat" ; WorkingDir:"{app}\lib\buhos"; IconFilename: "{app}\owl.ico"
-
+Name: "{group}\Buhos\Guide Resources"; Filename: "{app}\lib\buhos\docs\guide_resources"; Comment: "Resources for completion of guide"
 [Run]
 Filename: "{app}\buhos.bat"; Description: "Launch application"; Flags: postinstall nowait skipifsilent unchecked

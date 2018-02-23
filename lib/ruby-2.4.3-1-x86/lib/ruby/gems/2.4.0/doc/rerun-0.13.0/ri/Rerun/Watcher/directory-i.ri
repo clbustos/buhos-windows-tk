@@ -1,0 +1,4 @@
+U:RDoc::Attr[iI"directory:ETI"Rerun::Watcher#directory;TI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"def self.default_ignore;To:RDoc::Markup::Verbatim;	[I"OListen::Silencer.new(Listen::Listener.new).send :_default_ignore_patterns
+;T:@format0o;
+;	[I"end;T:
+@fileI"lib/rerun/watcher.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Rerun::Watcher;TcRDoc::NormalClass0

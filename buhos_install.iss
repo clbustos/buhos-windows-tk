@@ -1,17 +1,18 @@
 ; -- Buhos Installer.iss --
+; Icon is temporary. Found on:   
 ; -- Icon: https://www.iconfinder.com/icons/416387/big_bird_eyes_night_owl_vision_wild_icon#size=24 ;
 [Setup]
 AppName=Buhos
-AppVersion=1.0.0v1
+AppVersion=1.0.0-beta1
 DefaultDirName={pf}\Buhos
 AppContact=Departamento de Psicologia, Universidad de Concepcion
-AppCopyright=Copyright (C) 2018 Claudio Bustos Navarrete
+AppCopyright=Copyright (C) 2016-2018 Claudio Bustos Navarrete
 DefaultGroupName=Buhos
 UninstallDisplayIcon={app}\owl.ico
 Compression=lzma2
 SolidCompression=yes
-OutputDir=output
-OutputBaseFilename=Buhos
+OutputDir=windows_installer
+OutputBaseFilename=Buhos-1.0.0-beta1
 [Dirs]
 Name: "{app}\lib\buhos\"; Permissions: users-full
 Name: "{app}\lib\buhos\log"; Permissions: users-full
@@ -26,5 +27,6 @@ Source: "lib\ruby-2.4.3-1-x86\*"; DestDir: "{app}\lib\ruby-2.4.3-1-x86"; Exclude
 [Icons]
 Name: "{group}\Buhos"; Filename: "{app}\buhos.bat" ; WorkingDir:"{app}\lib\buhos"; IconFilename: "{app}\owl.ico"
 Name: "{group}\Buhos\Guide Resources"; Filename: "{app}\lib\buhos\docs\guide_resources"; Comment: "Resources for completion of guide"
+Name: "{group}\Buhos\Manuals"; Filename: "{app}\lib\buhos\docs\manual"; Comment: "Manual for Buhos"
 [Run]
 Filename: "{app}\buhos.bat"; Description: "Launch application"; Flags: postinstall nowait skipifsilent unchecked

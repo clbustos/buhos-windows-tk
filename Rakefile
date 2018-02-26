@@ -24,6 +24,9 @@ file build_file => ["buhos_install.iss"] do
 	sh "\"#{inno_compiler}\" buhos_install.iss"
 end
 
-file "buhos_install.iss" => ["buhos_install.erb", "create_iss.rb"] do
+desc "Inno Setup installer"
+task :inno_setup => "buhos_install.iss"
+
+file "buhos_install.iss" => ["buhos_install.erb", "create_iss.rb","../buhos/version.rb"] do
 	sh "ruby.bat create_iss.rb"
 end

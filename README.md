@@ -1,7 +1,7 @@
 # buhos-windows-tk
-Windows toolkit to build Buhos installer
+Windows toolkit to build [Buhos](https://github.com/clbustos/buhos) installer
 
-Clone this repository, clone buhos (clbustos/buhos), install INNO Setup, using this dir structure
+Clone this repository, clone [Buhos source code](https://github.com/clbustos/buhos), install INNO Setup, using this dir structure
 
     /buhos
     /buhos-windows-tk

@@ -1,7 +1,7 @@
 ; -- Buhos Installer.iss --
 [Setup]
 AppName=Buhos
-AppVersion=1.0.0-beta6
+AppVersion=1.0.0-beta7
 DefaultDirName={pf}\Buhos
 AppContact=Departamento de Psicologia, Universidad de Concepcion
 AppCopyright=Copyright (C) 2016-2018 Claudio Bustos Navarrete
@@ -10,7 +10,7 @@ UninstallDisplayIcon={app}\buhos.ico
 Compression=lzma2
 SolidCompression=yes
 OutputDir=windows_installer
-OutputBaseFilename=Buhos-1.0.0-beta6
+OutputBaseFilename=Buhos-1.0.0-beta7
 [Dirs]
 Name: "{app}\lib\buhos\"; Permissions: users-full
 Name: "{app}\lib\buhos\log"; Permissions: users-full

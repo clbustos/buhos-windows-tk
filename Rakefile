@@ -20,7 +20,7 @@ task :fix_executables do
 end
 
 
-file build_file => ["buhos_install.iss"] do
+file build_file => [:inno_setup] do
 	sh "\"#{inno_compiler}\" buhos_install.iss"
 end
 

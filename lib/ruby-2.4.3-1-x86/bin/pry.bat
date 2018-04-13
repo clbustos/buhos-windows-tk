@@ -2,7 +2,15 @@
 
 
 
+
+
+
+
 IF NOT "%~f0" == "~f0" GOTO :WinNT
+
+
+
+
 
 
 
@@ -10,11 +18,23 @@ IF NOT "%~f0" == "~f0" GOTO :WinNT
 
 
 
+
+
+
+
 GOTO :EOF
 
 
 
+
+
+
+
 :WinNT
+
+
+
+
 
 
 

@@ -1,0 +1,18 @@
+default:
+  - curl
+  - gcc
+  - gcc-c++
+  - libopenssl-devel
+  - readline-devel
+  - libxml2-devel
+  - libxslt-devel
+  - libevent-devel
+  - libmysqlclient-devel
+  - sqlite3-devel
+  - timezone
+sles-11:
+  - kernel-default-devel
+  - postgresql94-devel
+sles-12:
+  - kernel-devel
+  - postgresql-devel

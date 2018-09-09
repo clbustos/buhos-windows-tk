@@ -1,0 +1,115 @@
+have_header: checking for stdint.h... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return 0;
+8: }
+/* end */
+
+"i686-w64-mingw32-gcc -E -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <stdint.h>
+/* end */
+
+--------------------
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:8:13: error: unknown type name 'u_int8_t'; did you mean 'uint8_t'?
+   int t() { u_int8_t a; return 0; }
+             ^~~~~~~~
+             uint8_t
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <ruby.h>
+6: #include <stdint.h>
+7:   int main() { return 0; }
+8:   int t() { u_int8_t a; return 0; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <ruby.h>
+6: #include <stdint.h>
+7:   int main() { return 0; }
+8:   int t() { uint8_t a; return 0; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <ruby.h>
+6: #include <stdint.h>
+7:   int main() { return 0; }
+8:   int t() { int16_t a; return 0; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <ruby.h>
+6: #include <stdint.h>
+7:   int main() { return 0; }
+8:   int t() { int32_t a; return 0; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:8:13: error: unknown type name 'u_int32_t'; did you mean 'uint32_t'?
+   int t() { u_int32_t a; return 0; }
+             ^~~~~~~~~
+             uint32_t
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <ruby.h>
+6: #include <stdint.h>
+7:   int main() { return 0; }
+8:   int t() { u_int32_t a; return 0; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <ruby.h>
+6: #include <stdint.h>
+7:   int main() { return 0; }
+8:   int t() { uint32_t a; return 0; }
+/* end */
+

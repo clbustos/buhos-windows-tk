@@ -1,0 +1,34 @@
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/narray-0.6.1.2/src
+E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20180909-9512-l5l1kc.rb extconf.rb
+checking for stdint.h... yes
+checking for u_int8_t... no
+checking for uint8_t... yes
+checking for int16_t... yes
+checking for int32_t... yes
+checking for u_int32_t... no
+checking for uint32_t... yes
+creating narray_config.h
+creating Makefile
+
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/narray-0.6.1.2/src
+make "DESTDIR=" clean
+
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/narray-0.6.1.2/src
+make "DESTDIR="
+compiling narray.c
+compiling na_array.c
+compiling na_func.c
+compiling na_index.c
+compiling na_random.c
+/E/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby -I. ./mkop.rb
+compiling na_op.c
+/E/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby -I. ./mkmath.rb
+compiling na_math.c
+compiling na_linalg.c
+linking shared-object narray.so
+
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/narray-0.6.1.2/src
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 narray.so ./.gem.20180909-9512-qsoedn
+installing narray libraries
+installing default narray libraries

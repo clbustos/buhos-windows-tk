@@ -1,4 +1,6 @@
 ; -- Buhos Installer.iss --
+#define MyAppName "Buhos"
+#define MyAppExeName "buhos.bat"
 [Setup]
 AppName=Buhos
 AppVersion=<%= buhos_version %>
@@ -19,13 +21,19 @@ Name: "{app}\lib\buhos\usr"; Permissions: users-full
 
 [Files]
 Source: "buhos.ico"; DestDir: "{app}"
-Source: "buhos.bat"; DestDir: "{app}"
+Source: "{#MyAppExeName}"; DestDir: "{app}"
 Source: "..\buhos\*"; DestDir: "{app}\lib\buhos"; Excludes: ".*,log,db.sqlite,installed, docker-compose.yml,Dockerfile, usr\*"; Flags: recursesubdirs
 Source: "lib\ruby-2.4.3-1-x86\*"; DestDir: "{app}\lib\ruby-2.4.3-1-x86"; Excludes: ".*,share\doc, *\ri\*, 2.4.0\cache, doc\bundler-1.16.1\*, *.html"; Flags: recursesubdirs
 
+[Tasks]
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; \
+    GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+
 [Icons]
-Name: "{group}\Buhos"; Filename: "{app}\buhos.bat" ; WorkingDir:"{app}\lib\buhos"; IconFilename: "{app}\buhos.ico"
-Name: "{group}\Buhos\Guide Resources"; Filename: "{app}\lib\buhos\docs\guide_resources"; Comment: "Resources for completion of guide"
-Name: "{group}\Buhos\Manuals"; Filename: "{app}\lib\buhos\docs\manual"; Comment: "Manual for Buhos"
+Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}" ; WorkingDir:"{app}\lib\buhos"; IconFilename: "{app}\buhos.ico"
+Name: "{group}\{#MyAppName}\Guide Resources"; Filename: "{app}\lib\buhos\docs\guide_resources"; Comment: "Resources for completion of guide"
+Name: "{group}\{#MyAppName}\Manuals"; Filename: "{app}\lib\buhos\docs\manual"; Comment: "Manual for Buhos"
+Name: "{userdesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; \
+    IconFilename: "{app}\buhos.ico"; Tasks: desktopicon
 [Run]
-Filename: "{app}\buhos.bat"; Description: "Launch application"; Flags: postinstall nowait skipifsilent unchecked
+Filename: "{app}\{#MyAppExeName}"; Description: "Launch application"; Flags: postinstall nowait skipifsilent unchecked

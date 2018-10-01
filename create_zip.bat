@@ -14,3 +14,5 @@ del ..\buhos_zip\*.sh
 del ..\buhos_zip\*.erb
 del ..\buhos_zip\.gitattributes
 del ..\buhos_zip\.gitignore
+del ..\buhos_zip\Rakefile
+

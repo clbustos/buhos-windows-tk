@@ -1,5 +1,5 @@
 current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/levenshtein-ffi-1.1.0/ext/levenshtein
-E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20180302-9616-rt954t.rb extconf.rb
+E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20180911-6676-z5j3b0.rb extconf.rb
 creating Makefile
 
 current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/levenshtein-ffi-1.1.0/ext/levenshtein
@@ -10,7 +10,7 @@ make "DESTDIR="
 generating levenshtein-i386-mingw32.def
 compiling levenshtein.c
 linking shared-object levenshtein.so
-E:/msys2_32/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: Cannot export Init_levenshtein: symbol not defined
+E:/msys2_64/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot export Init_levenshtein: symbol not defined
 collect2.exe: error: ld returned 1 exit status
 make: *** [Makefile:259: levenshtein.so] Error 1
 

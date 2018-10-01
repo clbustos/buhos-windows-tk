@@ -1,0 +1,129 @@
+= Ruby-Stemmer
+
+Ruby-Stemmer exposes SnowBall API to Ruby.
+
+{Travis CI Status}[https://api.travis-ci.org/aurelian/ruby-stemmer.png]
+
+This package includes libstemmer_c library released under BSD licence 
+and available for free {here}[https://snowballstem.org/download.html].
+
+Support for latin language is also included and it has been generated with the snowball compiler using 
+{schinke contribution}[https://snowballstem.org/otherapps/schinke/].
+
+For more details about libstemmer_c please visit the {SnowBall website}[https://snowballstem.org/].
+
+== Usage
+
+  require 'rubygems'
+  require 'lingua/stemmer'
+
+  stemmer= Lingua::Stemmer.new(:language => "ro")
+  stemmer.stem("netăgăduit") #=> netăgădu
+
+=== Alternative
+
+  require 'rubygems'
+  require 'lingua/stemmer'
+
+  Lingua.stemmer( %w(incontestabil neîndoielnic), :language => "ro" ) #=> ["incontest", "neîndoieln"]
+  Lingua.stemmer("installation") #=> "instal"
+  Lingua.stemmer("installation", :language => "fr", :encoding => "ISO_8859_1") do | word |
+    puts "~> #{word}" #=> "instal"
+  end # => #<Lingua::Stemmer:0x102501e48>
+
+=== Rails
+  
+  # Rails2: -- config/environment.rb:
+  config.gem 'ruby-stemmer', :version => '>=0.6.2', :lib => 'lingua/stemmer'
+  
+  # Rails3: -- Gemfile
+  gem 'ruby-stemmer', '>=0.8.3', :require => 'lingua/stemmer'
+
+=== More details 
+
+* Complete API in {RDoc format}[http://rdoc.info/github/aurelian/ruby-stemmer/master/frames]
+* More usage on the {test file}[https://github.com/aurelian/ruby-stemmer/blob/master/test/lingua/test_stemmer.rb]
+
+== Install
+
+=== Standard install with:
+
+ gem install ruby-stemmer
+
+==== Windows
+
+There's also a Windows (Fat bin) compiled against ruby versions: 1.8.7, 1.9.3, 2.1.5, 2.2.0
+
+ gem install ruby-stemmer --platform=x86-mingw32
+
+As far as I know the above should work with {rubyinstaller}[http://rubyinstaller.org/]. If if fails, you could try with:
+
+ gem install ruby-stemmer --platform=x86-mswin32
+
+{It's known}[https://cl.ly/BX9o] to work under Windows XP.
+
+=== Development version
+
+  $ git clone git://github.com/aurelian/ruby-stemmer.git
+  $ cd ruby-stemmer
+  $ rake -T #<== see what we've got
+  $ rake compile #<== builds the extension do'h
+  $ rake test
+
+==== Cross Compiling
+
+Install {rake-compiler-dev-box}[https://github.com/tjschuck/rake-compiler-dev-box] and follow the setup.
+Inside vagrant box run:
+
+  $ cd /vagrant
+  $ RUBY_CC_VERSION=1.8.7:1.9.3:2.1.5:2.2.0 package_win32_fat_binary ruby-stemmer
+
+Idea is to have same builds as in travis.yml.
+
+== NOT A BUG
+
+The stemming process is an algorithm to allow one to find the stem of an word (not the root of it).
+For further reference on stem vs. root, please check wikipedia articles on the topic:
+
+* https://en.wikipedia.org/wiki/Word_stem
+* https://en.wikipedia.org/wiki/Root_(linguistics)
+
+== TODO
+
+* {Open issues}[https://github.com/aurelian/ruby-stemmer/issues]
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project from {github}[https://github.com/aurelian/ruby-stemmer]
+* Make your feature addition or {bug fix}[https://github.com/aurelian/ruby-stemmer/issues]
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+
+  if you want to have your own version, that is fine but
+  bump version in a commit by itself I can ignore when I pull
+* Send me a pull request. Bonus points for topic branches.
+
+== Alternative Stemmers for Ruby
+
+* {stemmer4r}[https://rubygems.org/gems/stemmer4r] (ext)
+* {fast-stemmer}[https://rubygems.org/gems/fast-stemmer] (ext)
+* {uea-stemmer}[https://rubygems.org/gems/uea-stemmer] (ext)
+* {stemmer}[https://rubygems.org/gems/stemmer] (pure ruby)
+* add yours
+
+== Copyright
+
+Copyright (c) 2008-2015 {Aurelian Oancea}[http://locknet.ro]. See MIT-LICENSE for details.
+
+== Contributors
+
+* {Aurelian Oancea}[https://github.com/aurelian]
+* {Yury Korolev}[https://github.com/yury] - various bug fixes
+* {Aaron Patterson}[https://github.com/tenderlove] - rake compiler (windows support), code cleanup
+* {Damián Silvani}[https://github.com/munshkr] - Ruby 1.9 encoding
+
+== Real life usage
+* http://planet33.ru is using Ruby-Stemmer together with {Classifier}[https://github.com/yury/classifier] to automatically rate places based on users comments.
+
+# encoding: utf-8

@@ -1,0 +1,27 @@
+have_header: checking for libstemmer.h... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/bundler/gems/ruby-stemmer-d0c07374e334/libstemmer_c/include  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/bundler/gems/ruby-stemmer-d0c07374e334/libstemmer_c E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/bundler/gems/ruby-stemmer-d0c07374e334/libstemmer_c/libstemmer.o  -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return 0;
+8: }
+/* end */
+
+"i686-w64-mingw32-gcc -E -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/bundler/gems/ruby-stemmer-d0c07374e334/libstemmer_c/include   conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <libstemmer.h>
+/* end */
+
+--------------------
+

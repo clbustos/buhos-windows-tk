@@ -1,0 +1,313 @@
+have_func: checking for labs() in stdlib.h... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return 0;
+8: }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <stdlib.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))labs; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for llabs() in stdlib.h... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <stdlib.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))llabs; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for finite() in math.h... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <math.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))finite; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for isfinite() in math.h... -------------------- no
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:17:57: error: 'isfinite' undeclared (first use in this function); did you mean 'finite'?
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))isfinite; return !p; }
+                                                         ^~~~~~~~
+                                                         finite
+conftest.c:17:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <math.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))isfinite; return !p; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+In file included from E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/missing.h:23:0,
+                 from E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/defines.h:143,
+                 from E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/ruby.h:36,
+                 from E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby.h:33,
+                 from conftest.c:1:
+conftest.c:17:13: error: expected identifier or '(' before '__builtin_choose_expr'
+ extern void isfinite();
+             ^
+conftest.c:17:13: error: expected ')' before '==' token
+ extern void isfinite();
+             ^
+conftest.c: In function 't':
+conftest.c:18:15: error: expected expression before ')' token
+ int t(void) { isfinite(); return 0; }
+               ^
+conftest.c:18:15: error: too few arguments to function '__fpclassify'
+ int t(void) { isfinite(); return 0; }
+               ^
+E:/msys32/mingw32/i686-w64-mingw32/include/math.h:438:28: note: declared here
+   __CRT_INLINE int __cdecl __fpclassify (double x) {
+                            ^~~~~~~~~~~~
+conftest.c:18:15: error: too few arguments to function '__fpclassifyf'
+ int t(void) { isfinite(); return 0; }
+               ^
+E:/msys32/mingw32/i686-w64-mingw32/include/math.h:460:28: note: declared here
+   __CRT_INLINE int __cdecl __fpclassifyf (float x) {
+                            ^~~~~~~~~~~~~
+conftest.c:18:15: error: too few arguments to function '__fpclassifyl'
+ int t(void) { isfinite(); return 0; }
+               ^
+E:/msys32/mingw32/i686-w64-mingw32/include/math.h:412:28: note: declared here
+   __CRT_INLINE int __cdecl __fpclassifyl (long double x) {
+                            ^~~~~~~~~~~~~
+conftest.c:18:15: error: first argument to '__builtin_choose_expr' not a constant
+ int t(void) { isfinite(); return 0; }
+               ^
+conftest.c:18:15: error: first argument to '__builtin_choose_expr' not a constant
+ int t(void) { isfinite(); return 0; }
+               ^
+conftest.c:18:15: error: first argument to '__builtin_choose_expr' not a constant
+ int t(void) { isfinite(); return 0; }
+               ^
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <math.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: extern void isfinite();
+18: int t(void) { isfinite(); return 0; }
+/* end */
+
+--------------------
+
+have_type: checking for struct RRational in ruby.h... -------------------- no
+
+"i686-w64-mingw32-gcc -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe   -c conftest.c"
+conftest.c:9:24: error: invalid application of 'sizeof' to incomplete type 'conftest_type {aka struct RRational}'
+ int conftestval[sizeof(conftest_type)?1:-1];
+                        ^~~~~~~~~~~~~
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <ruby.h>
+6: 
+7: /*top*/
+8: typedef struct RRational conftest_type;
+9: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+have_func: checking for rb_rational_num() in ruby.h... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_rational_num; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_rational_den() in ruby.h... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_rational_den; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_array_const_ptr() in ruby.h... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_array_const_ptr; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_sym2str() in ruby.h... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     printf("%p", &t);
+13:   }
+14: 
+15:   return 0;
+16: }
+17: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_sym2str; return !p; }
+/* end */
+
+--------------------
+

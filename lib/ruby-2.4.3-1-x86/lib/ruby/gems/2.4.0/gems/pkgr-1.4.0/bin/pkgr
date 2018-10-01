@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require "pkgr/cli"
+
+STDERR.sync = true
+STDOUT.sync = true
+
+Pkgr::CLI.start

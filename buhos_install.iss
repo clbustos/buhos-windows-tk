@@ -23,7 +23,7 @@ Name: "{app}\lib\buhos\usr"; Permissions: users-full
 Source: "buhos.ico"; DestDir: "{app}"
 Source: "{#MyAppExeName}"; DestDir: "{app}"
 Source: "..\buhos\*"; DestDir: "{app}\lib\buhos"; Excludes: ".*,log,db.sqlite,installed, docker-compose.yml,Dockerfile, usr\*, *.log"; Flags: recursesubdirs
-Source: "lib\ruby-2.4.3-1-x86\*"; DestDir: "{app}\lib\ruby-2.4.3-1-x86"; Excludes: ".*,share\doc, *\ri\*, 2.4.0\cache, doc\bundler-1.16.1\*, *.html"; Flags: recursesubdirs
+Source: "lib\ruby-2.4.3-1-x86\*"; DestDir: "{app}\lib\ruby-2.4.3-1-x86"; Excludes: ".*,share\doc, *\ri\*, 2.4.0\cache, doc\bundler-1.16.1\*, *.html, *.bak"; Flags: recursesubdirs
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; \

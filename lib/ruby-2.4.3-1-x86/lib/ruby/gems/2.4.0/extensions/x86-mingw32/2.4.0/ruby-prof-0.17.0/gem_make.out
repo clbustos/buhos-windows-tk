@@ -1,5 +1,5 @@
 current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/ruby-prof-0.17.0/ext/ruby_prof
-E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20181001-3168-g2cfif.rb extconf.rb
+E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20181002-9464-17iawf2.rb extconf.rb
 checking for rb_gc_stat()... yes
 checking for rb_gc_count()... yes
 checking for rb_remove_event_hook_with_data()... yes
@@ -37,4 +37,4 @@ linking shared-object ruby_prof.so
 
 current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/ruby-prof-0.17.0/ext/ruby_prof
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 ruby_prof.so ./.gem.20181001-3168-1t2d754
+/usr/bin/install -c -m 0755 ruby_prof.so ./.gem.20181002-9464-10yrq4b

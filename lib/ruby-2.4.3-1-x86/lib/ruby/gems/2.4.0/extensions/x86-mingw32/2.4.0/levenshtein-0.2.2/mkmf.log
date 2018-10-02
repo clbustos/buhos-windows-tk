@@ -14,7 +14,7 @@ checked program was:
 /* end */
 
 "i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240 -llevenshtein_array  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
-E:/msys2_32/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot find -llevenshtein_array
+E:/msys32/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot find -llevenshtein_array
 collect2.exe: error: ld returned 1 exit status
 checked program was:
 /* begin */
@@ -42,7 +42,7 @@ checked program was:
 have_library: checking for -llevenshtein_array_of_strings... -------------------- no
 
 "i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240 -llevenshtein_array_of_strings  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
-E:/msys2_32/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot find -llevenshtein_array_of_strings
+E:/msys32/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot find -llevenshtein_array_of_strings
 collect2.exe: error: ld returned 1 exit status
 checked program was:
 /* begin */
@@ -70,7 +70,7 @@ checked program was:
 have_library: checking for -llevenshtein_generic... -------------------- no
 
 "i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240 -llevenshtein_generic  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
-E:/msys2_32/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot find -llevenshtein_generic
+E:/msys32/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot find -llevenshtein_generic
 collect2.exe: error: ld returned 1 exit status
 checked program was:
 /* begin */
@@ -98,7 +98,7 @@ checked program was:
 have_library: checking for -llevenshtein_string... -------------------- no
 
 "i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240 -llevenshtein_string  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
-E:/msys2_32/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot find -llevenshtein_string
+E:/msys32/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot find -llevenshtein_string
 collect2.exe: error: ld returned 1 exit status
 checked program was:
 /* begin */

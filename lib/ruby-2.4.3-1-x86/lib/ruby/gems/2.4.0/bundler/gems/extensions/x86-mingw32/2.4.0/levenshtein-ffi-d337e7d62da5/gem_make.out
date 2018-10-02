@@ -1,0 +1,16 @@
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/bundler/gems/levenshtein-ffi-d337e7d62da5/ext/levenshtein
+E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20181001-10936-1bzu5ek.rb extconf.rb
+creating Makefile
+
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/bundler/gems/levenshtein-ffi-d337e7d62da5/ext/levenshtein
+make "DESTDIR=" clean
+
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/bundler/gems/levenshtein-ffi-d337e7d62da5/ext/levenshtein
+make "DESTDIR="
+generating levenshtein-i386-mingw32.def
+compiling levenshtein.c
+linking shared-object levenshtein.so
+
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/bundler/gems/levenshtein-ffi-d337e7d62da5/ext/levenshtein
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 levenshtein.so ./.gem.20181001-10936-1w1xwo5

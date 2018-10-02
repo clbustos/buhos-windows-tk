@@ -1,5 +1,5 @@
 current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/puma-3.12.0/ext/puma_http11
-E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20180725-4456-1dmm9i8.rb extconf.rb
+E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20181002-5528-10a89go.rb extconf.rb
 checking for BIO_read() in -lcrypto... no
 checking for BIO_read() in -llibeay32... no
 creating Makefile
@@ -18,4 +18,4 @@ linking shared-object puma/puma_http11.so
 
 current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/puma-3.12.0/ext/puma_http11
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20180725-4456-1tivfnv/puma
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20181002-5528-naw40h/puma

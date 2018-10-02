@@ -1,5 +1,5 @@
 current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/narray-0.6.1.2/src
-E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20180909-9512-l5l1kc.rb extconf.rb
+E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20181002-5528-m8fu9z.rb extconf.rb
 checking for stdint.h... yes
 checking for u_int8_t... no
 checking for uint8_t... yes
@@ -29,6 +29,6 @@ linking shared-object narray.so
 
 current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/narray-0.6.1.2/src
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 narray.so ./.gem.20180909-9512-qsoedn
+/usr/bin/install -c -m 0755 narray.so ./.gem.20181002-5528-i42mmd
 installing narray libraries
 installing default narray libraries

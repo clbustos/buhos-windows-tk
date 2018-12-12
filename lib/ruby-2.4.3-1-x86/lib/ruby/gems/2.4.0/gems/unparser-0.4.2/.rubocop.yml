@@ -1,0 +1,9 @@
+AllCops:
+  Include:
+    - 'Gemfile'
+  Exclude:
+    - 'Gemfile.devtools'
+    - 'vendor/**/*'
+    - 'benchmarks/**/*'
+    - 'tmp/**/*'
+  TargetRubyVersion: 2.5

@@ -1,9 +1,5 @@
 current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/levenshtein-0.2.2/ext/levenshtein
-<<<<<<< HEAD
-E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20180911-1572-bh2sa.rb extconf.rb
-=======
-E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20181002-5528-1ruzwol.rb extconf.rb
->>>>>>> last_good
+E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20190508-1884-1aqdtwy.rb extconf.rb
 checking for -llevenshtein_array... no
 checking for -llevenshtein_array_of_strings... no
 checking for -llevenshtein_generic... no
@@ -21,8 +17,4 @@ linking shared-object levenshtein/levenshtein_fast.so
 
 current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/levenshtein-0.2.2/ext/levenshtein
 make "DESTDIR=" install
-<<<<<<< HEAD
-/usr/bin/install -c -m 0755 levenshtein_fast.so ./.gem.20180911-1572-1psio6b/levenshtein
-=======
-/usr/bin/install -c -m 0755 levenshtein_fast.so ./.gem.20181002-5528-1e3e5o9/levenshtein
->>>>>>> last_good
+/usr/bin/install -c -m 0755 levenshtein_fast.so ./.gem.20190508-1884-e8n9zf/levenshtein

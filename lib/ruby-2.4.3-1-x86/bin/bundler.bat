@@ -8,6 +8,4 @@ GOTO :EOF
 
 :WinNT
 
-
-
 @"%~dp0ruby.exe" "%~dpn0" %*

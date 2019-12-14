@@ -3,16 +3,16 @@
 #define MyAppExeName "buhos.bat"
 [Setup]
 AppName=Buhos
-AppVersion=1.0.0-RC1
+AppVersion=1.0.2
 DefaultDirName={pf}\Buhos
 AppContact=Psyquiatry and Mental Health Department, Universidad de Concepcion
-AppCopyright=Copyright (C) 2016-2018 Claudio Bustos Navarrete
+AppCopyright=Copyright (C) 2016-2019 Claudio Bustos Navarrete
 DefaultGroupName=Buhos
 UninstallDisplayIcon={app}\buhos.ico
 Compression=lzma2
 SolidCompression=yes
 OutputDir=windows_installer
-OutputBaseFilename=Buhos-1.0.0-RC1
+OutputBaseFilename=Buhos-1.0.2
 LicenseFile=LICENSE.txt
 [Dirs]
 Name: "{app}\lib\buhos\"; Permissions: users-full

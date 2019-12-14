@@ -1,0 +1,638 @@
+"pkg-config --exists sqlite3"
+| pkg-config --libs sqlite3
+=> "-LE:/msys32/mingw32/lib -lsqlite3\n"
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240  -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return 0;
+8: }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe     -lmsvcrt-ruby240 -LE:/msys32/mingw32/lib -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return 0;
+8: }
+/* end */
+
+| pkg-config --cflags-only-I sqlite3
+=> "-IE:/msys32/mingw32/include\n"
+| pkg-config --cflags-only-other sqlite3
+=> "\n"
+| pkg-config --libs-only-l sqlite3
+=> "-lsqlite3\n"
+package configuration for sqlite3
+cflags: 
+ldflags: -LE:/msys32/mingw32/lib
+libs: -lsqlite3
+
+find_header: checking for sqlite3.h... -------------------- yes
+
+"i686-w64-mingw32-gcc -E -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe   conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <sqlite3.h>
+/* end */
+
+--------------------
+
+find_library: checking for pthread_create() in -lpthread... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib     -lsqlite3 -lmsvcrt-ruby240 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:16:57: error: 'pthread_create' undeclared (first use in this function); did you mean 'rb_thread_create'?
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))pthread_create; return !p; }
+                                                         ^~~~~~~~~~~~~~
+                                                         rb_thread_create
+conftest.c:16:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))pthread_create; return !p; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib     -lsqlite3 -lmsvcrt-ruby240 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: extern void pthread_create();
+17: int t(void) { pthread_create(); return 0; }
+/* end */
+
+--------------------
+
+have_library: checking for -ldl... -------------------- no
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lpthread  -lsqlite3 -lmsvcrt-ruby240 -ldl -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+E:/msys32/mingw32/bin/../lib/gcc/i686-w64-mingw32/7.3.0/../../../../i686-w64-mingw32/bin/ld.exe: cannot find -ldl
+collect2.exe: error: ld returned 1 exit status
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: 
+17: int t(void) { ; return 0; }
+/* end */
+
+--------------------
+
+find_library: checking for sqlite3_libversion_number() in -lsqlite3... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:16:57: error: 'sqlite3_libversion_number' undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_libversion_number; return !p; }
+                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~
+conftest.c:16:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_libversion_number; return !p; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: extern void sqlite3_libversion_number();
+17: int t(void) { sqlite3_libversion_number(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_proc_arity()... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_proc_arity; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_integer_pack()... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_integer_pack; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_initialize()... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:16:57: error: 'sqlite3_initialize' undeclared (first use in this function); did you mean 'OleUninitialize'?
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_initialize; return !p; }
+                                                         ^~~~~~~~~~~~~~~~~~
+                                                         OleUninitialize
+conftest.c:16:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_initialize; return !p; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: extern void sqlite3_initialize();
+17: int t(void) { sqlite3_initialize(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_backup_init()... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:16:57: error: 'sqlite3_backup_init' undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_backup_init; return !p; }
+                                                         ^~~~~~~~~~~~~~~~~~~
+conftest.c:16:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_backup_init; return !p; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: extern void sqlite3_backup_init();
+17: int t(void) { sqlite3_backup_init(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_column_database_name()... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:16:57: error: 'sqlite3_column_database_name' undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_column_database_name; return !p; }
+                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+conftest.c:16:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_column_database_name; return !p; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: extern void sqlite3_column_database_name();
+17: int t(void) { sqlite3_column_database_name(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_enable_load_extension()... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:16:57: error: 'sqlite3_enable_load_extension' undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_enable_load_extension; return !p; }
+                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+conftest.c:16:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_enable_load_extension; return !p; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: extern void sqlite3_enable_load_extension();
+17: int t(void) { sqlite3_enable_load_extension(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_load_extension()... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:16:57: error: 'sqlite3_load_extension' undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_load_extension; return !p; }
+                                                         ^~~~~~~~~~~~~~~~~~~~~~
+conftest.c:16:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_load_extension; return !p; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: extern void sqlite3_load_extension();
+17: int t(void) { sqlite3_load_extension(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_open_v2()... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:16:57: error: 'sqlite3_open_v2' undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_open_v2; return !p; }
+                                                         ^~~~~~~~~~~~~~~
+conftest.c:16:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_open_v2; return !p; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: extern void sqlite3_open_v2();
+17: int t(void) { sqlite3_open_v2(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_prepare_v2()... -------------------- yes
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+conftest.c: In function 't':
+conftest.c:16:57: error: 'sqlite3_prepare_v2' undeclared (first use in this function)
+ int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_prepare_v2; return !p; }
+                                                         ^~~~~~~~~~~~~~~~~~
+conftest.c:16:57: note: each undeclared identifier is reported only once for each function it appears in
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_prepare_v2; return !p; }
+/* end */
+
+"i686-w64-mingw32-gcc -o conftest.exe -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe  conftest.c  -L. -LE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib -L. -pipe -LE:/msys32/mingw32/lib    -lsqlite3 -lpthread  -lsqlite3 -lmsvcrt-ruby240 -lsqlite3 -lpthread  -lsqlite3 -lgmp -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: 
+ 6: /*top*/
+ 7: extern int t(void);
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+16: extern void sqlite3_prepare_v2();
+17: int t(void) { sqlite3_prepare_v2(); return 0; }
+/* end */
+
+--------------------
+
+have_type: checking for sqlite3_int64 in sqlite3.h... -------------------- yes
+
+"i686-w64-mingw32-gcc -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe    -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <sqlite3.h>
+6: 
+7: /*top*/
+8: typedef sqlite3_int64 conftest_type;
+9: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+have_type: checking for sqlite3_uint64 in sqlite3.h... -------------------- yes
+
+"i686-w64-mingw32-gcc -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/i386-mingw32 -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0/ruby/backward -IE:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/include/ruby-2.4.0 -I. -IE:/msys32/mingw32/include -D_FORTIFY_SOURCE=2 -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0501 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -march=i686 -mtune=generic -O2 -pipe    -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <sqlite3.h>
+6: 
+7: /*top*/
+8: typedef sqlite3_uint64 conftest_type;
+9: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+

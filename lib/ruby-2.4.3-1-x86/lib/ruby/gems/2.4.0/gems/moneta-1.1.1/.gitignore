@@ -1,0 +1,13 @@
+.yardoc
+doc
+attic
+spec/tmp
+*~
+*.swp
+*.rdb
+.#*
+script/benchmarks.tmp
+Gemfile.lock
+logs
+secure
+.bundle

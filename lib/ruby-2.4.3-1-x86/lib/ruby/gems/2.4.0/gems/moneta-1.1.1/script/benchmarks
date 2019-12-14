@@ -1,0 +1,578 @@
+#!/usr/bin/env ruby
+
+$: << File.join(File.dirname(__FILE__), '..', 'lib')
+require 'benchmark'
+require 'moneta'
+require 'fileutils'
+require 'active_support'
+require 'active_support/cache/moneta_store'
+
+class String
+  def random(n)
+    (1..n).map { self[rand(size),1] }.join
+  end
+end
+
+def mean arr
+  arr.sum / arr.length
+end
+
+def stddev arr
+  m = mean(arr)
+  Math.sqrt(mean(arr.map {|s| (s - m) ** 2 }))
+end
+
+class MonetaBenchmarks
+  DIR = __FILE__ + '.tmp'
+
+  mysql_username = ENV['MONETA_MYSQL_USERNAME'] || 'root'
+  mysql_password = ENV['MONETA_MYSQL_PASSWORD']
+  mysql_database1 = ENV['MONETA_MYSQL_DATABSASE1'] || 'moneta'
+  mysql_database2 = ENV['MONETA_MYSQL_DATABSASE2'] || 'moneta2'
+
+  postgres_username = ENV['MONETA_POSTGRES_USERNAME'] || 'postgres'
+  postgres_database1 = ENV['MONETA_POSTGRES_DATABSASE1'] || 'moneta1'
+  postgres_database2 = ENV['MONETA_POSTGRES_DATABSASE1'] || 'moneta2'
+
+  STORES = [
+    # SDBM accepts only very short key/value pairs (1k for both)
+    {name: "SDBM", sizes: [:small], options: {file: "#{DIR}/sdbm"}},
+    # YAML is too slow
+    #{name: "YAML", options: {file: "#{DIR}/yaml"}},
+    {
+      name: "ActiveRecord (MySQL)",
+      adapter: :ActiveRecord,
+      options: {
+        table: 'activerecord',
+        connection: {
+          adapter: (defined?(JRUBY_VERSION) ? 'jdbcmysql' : 'mysql2'),
+          username: mysql_username,
+          database: mysql_database1
+        }
+      }
+    },
+    {
+      name: "ActiveRecord (Postgres)",
+      adapter: :ActiveRecord,
+      options: {
+        table: 'activerecord',
+        connection: {
+          adapter: (defined?(JRUBY_VERSION) ? 'jdbcpostgresql' : 'postgresql'),
+          database: postgres_database1,
+          username: postgres_username
+        }
+      }
+    },
+    {
+      name: "ActiveRecord (Sqlite)",
+      adapter: :ActiveRecord,
+      options: {
+        table: 'activerecord',
+        connection: {
+          adapter: (defined?(JRUBY_VERSION) ? 'jdbcsqlite3' : 'sqlite3'),
+          database: "#{DIR}/activerecord_sqlite.db"
+        }
+      }
+    },
+    {
+      name: "ActiveSupportCache (Memory)",
+      adapter: :ActiveSupportCache,
+      options: {
+        backend: ::ActiveSupport::Cache::MemoryStore.new
+      }
+    },
+    {
+      name: "ActiveSupportCache (Redis)",
+      adapter: :ActiveSupportCache,
+      options: {
+        backend: ::ActiveSupport::Cache::RedisCacheStore.new
+      }
+    },
+    {
+      name: "ActiveSupportCache (Moneta Memory)",
+      adapter: :ActiveSupportCache,
+      options: {
+        backend: ::ActiveSupport::Cache::MonetaStore.new(store: Moneta.new(:Memory))
+      }
+    },
+    {
+      name: "ActiveSupportCache (Moneta Redis)",
+      adapter: :ActiveSupportCache,
+      options: {
+        backend: ::ActiveSupport::Cache::MonetaStore.new(store: Moneta.new(:Redis))
+      }
+    },
+    {name: "Cassandra"},
+    {name: "Client (Memory)", adapter: :Client},
+    {name: "Couch"},
+    {
+      name: "DBM",
+      options: {file: "#{DIR}/dbm"}
+    },
+    {
+      name: "DataMapper",
+      options: {
+        setup: "mysql://#{mysql_username}:@localhost/#{mysql_database1}",
+        table: 'datamapper'
+      }
+    },
+    {
+      name: "Daybreak",
+      options: { file: "#{DIR}/daybreak" },
+    },
+    {
+      name: "File",
+      options: {
+        dir: "#{DIR}/file"
+      }
+    },
+    {name: "GDBM", options: {file: "#{DIR}/gdbm"}},
+    {name: "HBase"},
+    {name: "HashFile", options: { dir: "#{DIR}/hashfile" }},
+    {name: "KyotoCabinet", options: { file: "#{DIR}/kyotocabinet.kch" }},
+    {name: "LRUHash"},
+    {name: "LevelDB", options: { dir: "#{DIR}/leveldb" }},
+    {name: "LocalMemCache", options: { file: "#{DIR}/lmc" }},
+    {
+      name: "LMDB",
+      options: {
+        dir: "#{DIR}/lmdb",
+        writemap: true,
+        mapasync: true,
+        nometasync: true,
+        mapsize: 4096 * 3e2
+      }
+    },
+    {name: "MemcachedDalli"},
+    unless defined?(JRUBY_VERSION)
+      {name: "MemcachedNative"}
+    end,
+    {name: "Memory"},
+    {name: "MongoMoped"},
+    {name: "MongoOfficial"},
+    {name: "PStore", options: { file: "#{DIR}/pstore" }},
+    {name: "Redis"},
+    {name: "RestClient", options: { url: 'http://localhost:8808/' }},
+    {name: "Riak"},
+    {
+      name: "Sequel (MySQL)",
+      adapter: :Sequel,
+      options: {
+        table: 'sequel',
+        db: (defined?(JRUBY_VERSION) ?
+          "jdbc:mysql://localhost/#{mysql_database1}?user=#{mysql_username}" :
+          "mysql2://#{mysql_username}:@localhost/#{mysql_database1}")
+      }
+    },
+    {
+      name: "Sequel (Postgres)",
+      adapter: :Sequel,
+      options:
+        if defined?(JRUBY_VERSION)
+          {db: "jdbc:postgresql://localhost/#{postgres_database1}?user=#{postgres_username}"}
+        else
+          {
+            db: "postgres://localhost/#{postgres_database1}",
+            user: postgres_username
+          }
+        end.merge(table: 'sequel')
+    },
+    {
+      name: "Sequel (HStore)",
+      adapter: :Sequel,
+      options:
+        if defined?(JRUBY_VERSION)
+          {db: "jdbc:postgresql://localhost/#{postgres_database1}?user=#{postgres_username}"}
+        else
+          {
+            db: "postgres://localhost/#{postgres_database1}",
+            user: postgres_username
+          }
+        end.merge(table: 'sequel_hstore', hstore: 'row')
+    },
+    {
+      name: "Sequel (Sqlite)",
+      adapter: :Sequel,
+      options: {
+        table: 'sequel',
+        db: "#{defined?(JRUBY_VERSION) && 'jdbc:'}sqlite://#{DIR}/sequel"
+      }
+    },
+    {
+      name: "Sqlite (Memory)",
+      adapter: :Sqlite,
+      options: {
+        file: ':memory:'
+      }
+    },
+    {
+      name: "Sqlite (File)",
+      adapter: :Sqlite,
+      options: {
+        file: "#{DIR}/sqlite"
+      }
+    },
+    {name: "TDB", options: { file: "#{DIR}/tdb" }},
+    {name: "TokyoCabinet", options: { file: "#{DIR}/tokyocabinet" }},
+    {name: "TokyoTyrant"},
+  ].compact
+
+  CONFIGS = {
+    test: {
+      runs: 2,
+      keys: 10,
+      min_key_len: 1,
+      max_key_len: 32,
+      key_dist: :uniform,
+      min_val_len: 0,
+      max_val_len: 256,
+      val_dist: :uniform
+    },
+    uniform_small: {
+      runs: 3,
+      keys: 1000,
+      min_key_len: 1,
+      max_key_len: 32,
+      key_dist: :uniform,
+      min_val_len: 0,
+      max_val_len: 256,
+      val_dist: :uniform
+    },
+    uniform_medium: {
+      runs: 3,
+      keys: 1000,
+      min_key_len: 3,
+      max_key_len: 128,
+      key_dist: :uniform,
+      min_val_len: 0,
+      max_val_len: 1024,
+      val_dist: :uniform
+    },
+    uniform_large: {
+      runs: 3,
+      keys: 100,
+      min_key_len: 3,
+      max_key_len: 128,
+      key_dist: :uniform,
+      min_val_len: 0,
+      max_val_len: 10240,
+      val_dist: :uniform
+    },
+    normal_small: {
+      runs: 3,
+      keys: 1000,
+      min_key_len: 1,
+      max_key_len: 32,
+      key_dist: :normal,
+      min_val_len: 0,
+      max_val_len: 256,
+      val_dist: :normal
+    },
+    normal_medium: {
+      runs: 3,
+      keys: 1000,
+      min_key_len: 3,
+      max_key_len: 128,
+      key_dist: :normal,
+      min_val_len: 0,
+      max_val_len: 1024,
+      val_dist: :normal
+    },
+    normal_large: {
+      runs: 3,
+      keys: 100,
+      min_key_len: 3,
+      max_key_len: 128,
+      key_dist: :normal,
+      min_val_len: 0,
+      max_val_len: 10240,
+      val_dist: :normal
+    },
+  }
+
+  DICT = 'ABCDEFGHIJKLNOPQRSTUVWXYZabcdefghijklnopqrstuvwxyz123456789'.freeze
+
+  module Rand
+    extend self
+
+    def normal_rand(mean, stddev)
+      # Box-Muller transform
+      theta = 2 * Math::PI * (rand(1e10) / 1e10)
+      scale = stddev * Math.sqrt(-2 * Math.log(1 - (rand(1e10) / 1e10)))
+      [mean + scale * Math.cos(theta),
+       mean + scale * Math.sin(theta)]
+    end
+
+    def uniform(min, max)
+      rand(max - min) + min
+    end
+
+    def normal(min, max)
+      mean = (min + max) / 2
+      stddev = (max - min) / 4
+      loop do
+        val = normal_rand(mean, stddev)
+        return val.first if val.first >= min && val.first <= max
+        return val.last if val.last >= min && val.last <= max
+      end
+    end
+  end
+
+  def header
+    (" " * @name_len) + "       Minimum  Maximum    Total     Mean   Stddev    Ops/s"
+  end
+
+  def separator
+    "=" * header.length
+  end
+
+  def parallel(&block)
+    if defined?(JRUBY_VERSION)
+      Thread.new(&block)
+    else
+      Process.fork(&block)
+    end
+  end
+
+  def write_histogram(file, sizes)
+    min = sizes.min
+    delta = sizes.max - min
+    histogram = []
+    sizes.each do |s|
+      s = 10 * (s - min) / delta
+      histogram[s] ||= 0
+      histogram[s] += 1
+    end
+    File.open(file, 'w') do |f|
+      histogram.each_with_index { |n,i| f.puts "#{i*delta/10+min} #{n}" }
+    end
+  end
+
+  def start_servers
+    parallel do
+      begin
+        Moneta::Server.new(Moneta.new(:Memory)).run
+      rescue Exception => ex
+        puts "\e[31mFailed to start Moneta server - #{ex.message}\e[0m"
+      end
+    end
+
+    parallel do
+      begin
+        require 'rack'
+        require 'webrick'
+        require 'rack/moneta_rest'
+
+        # Keep webrick quiet
+        ::WEBrick::HTTPServer.class_eval do
+          def access_log(config, req, res); end
+        end
+        ::WEBrick::BasicLog.class_eval do
+          def log(level, data); end
+        end
+
+        Rack::Server.start(app: Rack::Builder.app do
+                             use Rack::Lint
+                             run Rack::MonetaRest.new(store: :Memory)
+                           end,
+                           environment: :none,
+                           server: :webrick,
+                           Port: 8808)
+      rescue Exception => ex
+        puts "\e[31mFailed to start Rack server - #{ex.message}\e[0m"
+      end
+    end
+
+    sleep 1 # Wait for servers
+  end
+
+  def test_stores
+    @stores.select! do |spec|
+      adapter = spec[:adapter] || spec[:name].to_sym
+      options = spec[:options] || {}
+      begin
+        if adapter == :DataMapper
+          begin
+            require 'dm-core'
+            DataMapper.setup(:default, adapter: :in_memory)
+          rescue LoadError => ex
+            puts "\e[31mFailed to load DataMapper - #{ex.message}\e[0m"
+          end
+        elsif adapter == :Riak
+          require 'riak'
+          Riak.disable_list_keys_warnings = true
+        end
+
+        cache = Moneta.new(adapter, options.dup)
+        cache['test'] = 'test'
+        true
+      rescue Exception => ex
+        puts "\e[31m#{spec[:name]} not benchmarked - #{ex.message}\e[0m"
+        false
+      ensure
+        (cache.close rescue nil) if cache
+      end
+    end
+  end
+
+  def generate_data
+    until @data.size == @config[:keys]
+      key = DICT.random(Rand.send(@config[:key_dist], @config[:min_key_len], @config[:max_key_len]))
+      @data[key] = DICT.random(Rand.send(@config[:val_dist], @config[:min_val_len], @config[:max_val_len]))
+    end
+
+    key_lens, val_lens = @data.keys.map(&:size), @data.values.map(&:size)
+    @data = @data.to_a
+
+    write_histogram("#{DIR}/key.histogram", key_lens)
+    write_histogram("#{DIR}/value.histogram", val_lens)
+
+    puts "\n\e[1m\e[34m#{separator}\n\e[34mComputing keys and values...\n\e[34m#{separator}\e[0m"
+    puts " " * @name_len + %{                Minimum  Maximum    Total     Mean   Stddev}
+    puts 'Key Length'.ljust(@name_len) + '               % 8d % 8d % 8d % 8d % 8d' % [key_lens.min, key_lens.max, key_lens.sum, mean(key_lens), stddev(key_lens)]
+    puts 'Value Length'.ljust(@name_len) + '               % 8d % 8d % 8d % 8d % 8d' % [val_lens.min, val_lens.max, val_lens.sum, mean(val_lens), stddev(val_lens)]
+  end
+
+  def print_config
+    puts "\e[1m\e[36m#{separator}\n\e[36mConfig #{@config_name}\n\e[36m#{separator}\e[0m"
+    @config.each do |k,v|
+      puts '%-16s = %-10s' % [k,v]
+    end
+  end
+
+  def print_store_stats(name)
+    puts "\n" + header
+    [:write, :read, :sum].each do |i|
+      ops = (1000 * @config[:runs] * @data.size) / @stats[name][i].sum
+      line = "%-#{@name_len-1}.#{@name_len-1}s %-5s % 8d % 8d % 8d % 8d % 8d % 8d" %
+        [name, i, @stats[name][i].min, @stats[name][i].max, @stats[name][i].sum,
+         mean(@stats[name][i]), stddev(@stats[name][i]), ops]
+      @summary << [-ops, line << "\n"] if i == :sum
+      puts line
+    end
+
+    errors = @stats[name][:error].sum
+    if errors > 0
+      puts "\e[31m%-23.23s % 8d % 8d % 8d % 8d\e[0m" %
+        ['Read errors', @stats[name][:error].min, @stats[name][:error].max, errors, errors / @config[:runs]]
+    else
+      puts "\e[32mNo read errors"
+    end
+  end
+
+  def benchmark_store(spec)
+    name = spec[:name]
+    adapter = spec[:adapter] || spec[:name].to_sym
+    options = spec[:options] || {}
+    puts "\n\e[1m\e[34m#{separator}\n\e[34m#{name}\n\e[34m#{separator}\e[0m"
+
+    store = Moneta.new(adapter, options.dup)
+
+    @stats[name] = {
+      write: [],
+      read: [],
+      sum: [],
+      error: []
+    }
+
+    %w(Rehearse Measure).each do |type|
+      state = ''
+      print "%s [%#{2 * @config[:runs]}s] " % [type, state]
+
+      @config[:runs].times do |run|
+        store.clear
+
+        @data.shuffle!
+        m1 = Benchmark.measure do
+          @data.each {|k,v| store[k] = v }
+        end
+
+        print "%s[%-#{2 * @config[:runs]}s] " % ["\b" * (2 * @config[:runs] + 3), state << 'W']
+
+        @data.shuffle!
+        error = 0
+        m2 = Benchmark.measure do
+          @data.each do |k, v|
+            error += 1 if v != store[k]
+          end
+        end
+
+        print "%s[%-#{2 * @config[:runs]}s] " % ["\b" * (2 * @config[:runs] + 3), state << 'R']
+
+        if type == 'Measure'
+          @stats[name][:write] << m1.real * 1000
+          @stats[name][:error] << error
+          @stats[name][:read] << m2.real * 1000
+          @stats[name][:sum] << (m1.real + m2.real) * 1000
+        end
+      end
+    end
+
+    print_store_stats(name)
+  rescue StandardError => ex
+    puts "\n\e[31mFailed to benchmark #{name} - #{ex.message}\e[0m\n"
+  ensure
+    store.close if store
+  end
+
+  def run_benchmarks
+    @stores.each do |spec|
+      benchmark_store(spec)
+      sleep 1
+    end
+  end
+
+  def print_summary
+    puts "\n\e[1m\e[36m#{separator}\n\e[36mSummary #{@config_name}: #{@config[:runs]} runs, #{@data.size} keys\n\e[36m#{separator}\e[0m\n#{header}\n"
+    @summary.sort_by(&:first).each do |entry|
+      puts entry.last
+    end
+  end
+
+  def initialize(args)
+    @config_name = args.size == 1 ? args.first.to_sym : :uniform_medium
+    unless @config = CONFIGS[@config_name]
+      puts "Configuration #{@config_name} not found"
+      exit
+    end
+
+    @size = @config_name.to_s.split('_').last.to_sym
+    @stores =
+      if ENV['MONETA_STORES']
+        store_names = ENV['MONETA_STORES'].split(/,\s*/)
+        STORES.select { |spec| store_names.any? { |name| name == spec[:name] } }
+      elsif ENV['MONETA_STORES_MATCHING']
+        r = Regexp.new(ENV['MONETA_STORES_MATCHING'])
+        STORES.select { |spec| spec[:name].match(r) }
+      else
+        STORES
+      end.select { |spec| !spec.key?(:sizes) || spec[:sizes].include?(@size) }
+
+    @name_len = (@stores.map { |spec| spec[:name] }.map(&:length) + ["Value Length".length]).max + 2
+
+    # Disable jruby stdout pollution by memcached
+    if defined?(JRUBY_VERSION)
+      require 'java'
+      properties = java.lang.System.getProperties();
+      properties.put('net.spy.log.LoggerImpl', 'net.spy.memcached.compat.log.SunLogger');
+      java.lang.System.setProperties(properties);
+      java.util.logging.Logger.getLogger('').setLevel(java.util.logging.Level::OFF)
+    end
+
+    @stats, @data, @summary = {}, {}, []
+  end
+
+  def run
+    FileUtils.rm_rf(DIR)
+    FileUtils.mkpath(DIR)
+    start_servers
+    test_stores
+    print_config
+    generate_data
+    run_benchmarks
+    print_summary
+    FileUtils.rm_rf(DIR)
+  end
+end
+
+MonetaBenchmarks.new(ARGV).run

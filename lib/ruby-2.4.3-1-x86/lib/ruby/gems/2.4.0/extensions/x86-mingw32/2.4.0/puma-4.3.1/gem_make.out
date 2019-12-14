@@ -1,0 +1,24 @@
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/puma-4.3.1/ext/puma_http11
+E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20191214-15292-1rsxkjn.rb extconf.rb
+checking for whether -D_FORTIFY_SOURCE=2 is accepted as CFLAGS... yes
+checking for whether -fstack-protector is accepted as LDFLAGS... yes
+checking for -lssp... yes
+checking for BIO_read() in -lcrypto... no
+checking for BIO_read() in -llibeay32... no
+creating Makefile
+
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/puma-4.3.1/ext/puma_http11
+make "DESTDIR=" clean
+
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/puma-4.3.1/ext/puma_http11
+make "DESTDIR="
+generating puma_http11-i386-mingw32.def
+compiling http11_parser.c
+compiling io_buffer.c
+compiling mini_ssl.c
+compiling puma_http11.c
+linking shared-object puma/puma_http11.so
+
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/puma-4.3.1/ext/puma_http11
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 puma_http11.so ./.gem.20191214-15292-smauhv/puma

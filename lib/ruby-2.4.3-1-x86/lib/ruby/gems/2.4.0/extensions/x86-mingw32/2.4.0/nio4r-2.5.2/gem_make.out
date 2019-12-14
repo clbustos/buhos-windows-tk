@@ -1,0 +1,14 @@
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/nio4r-2.5.2/ext/nio4r
+E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/bin/ruby.exe -r ./siteconf20191214-15292-19fe1my.rb extconf.rb
+
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/nio4r-2.5.2/ext/nio4r
+make "DESTDIR=" clean
+make: *** No hay ninguna regla para construir el objetivo 'clean'.  Alto.
+
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/nio4r-2.5.2/ext/nio4r
+make "DESTDIR="
+make: No se hace nada para 'all'.
+
+current directory: E:/buhos-windows-tk/lib/ruby-2.4.3-1-x86/lib/ruby/gems/2.4.0/gems/nio4r-2.5.2/ext/nio4r
+make "DESTDIR=" install
+make: No se hace nada para 'install'.

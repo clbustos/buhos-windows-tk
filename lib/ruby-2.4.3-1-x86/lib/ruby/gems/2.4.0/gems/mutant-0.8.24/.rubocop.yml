@@ -1,0 +1,7 @@
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - 'test_app/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+  TargetRubyVersion: 2.5
